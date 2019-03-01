@@ -9,14 +9,14 @@ Epicodus Final Capstone Project
 ```
 Provide an interactive game based off of Cards Against Humanity
 ```
- 
+
 ### List the absolute minimum features the project requires to meet this purpose or goal:
 
 ```
-Ability to load card database, ability to have two players, ability to draw more “cards” after 
-play (total 10 cards in a hand), ability to vote on favorite card in play and keep score of 
-total “points”, ability to play “black” cards and “white” cards, ability to limit final score 
-to determine game size, ability to connect two separate computers to play, and finally be able 
+Ability to load card database, ability to have two players, ability to draw more “cards” after
+play (total 10 cards in a hand), ability to vote on favorite card in play and keep score of
+total “points”, ability to play “black” cards and “white” cards, ability to limit final score
+to determine game size, ability to connect two separate computers to play, and finally be able
 to “throw in the towel” as a player to end the game or say you give up.
 ```
 
@@ -24,15 +24,15 @@ to “throw in the towel” as a player to end the game or say you give up.
 ```
 React (and possibly Redux as well) framework. Including babel, lint, and webpack.
 
-CSS, Materialize, Material UI (possibly for interface purposes, but only after everything 
+CSS, Materialize, Material UI (possibly for interface purposes, but only after everything
 displays and works rudimentally)
 
 Firebase for database storage of players’ information IF cannot figure out local storage
 
-Use JSON Against Humanity for card listing (if not this, I may have to resort to an API call 
+Use JSON Against Humanity for card listing (if not this, I may have to resort to an API call
 from an otherwise unknown source)
 
-I’m still researching the connectivity to multiple computers to play since I am new to it, 
+I’m still researching the connectivity to multiple computers to play since I am new to it,
 but that will need to be ironed out before capstone week.
 ```
 
@@ -46,8 +46,8 @@ Selectable number of players 2-6 players
 
 Have the ability to log in and record your win and losses
 
-For much further down the line, have the ability to locate local players via GPS or Bluetooth to be 
-able to play with strangers in local areas (Currently I have no knowledge of truly how this could be 
+For much further down the line, have the ability to locate local players via GPS or Bluetooth to be
+able to play with strangers in local areas (Currently I have no knowledge of truly how this could be
 done, but it would be amazing and provide an ability for anyone to play even “solo”)
  ```
 
