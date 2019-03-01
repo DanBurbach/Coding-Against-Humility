@@ -1,5 +1,8 @@
-{"blackCards":
-  [{"text":"Why can't I sleep at night?","pick":1},
+/* Test json file has not been modified from source other than de-grouping into seperate lines */
+
+{ "blackCards":
+  [
+    {"text":"Why can't I sleep at night?","pick":1},
     {"text":"I got 99 problems but _ ain't one.","pick":1},
     {"text":"What's a girl's best friend?","pick":1},
     {"text":"What's that smell?","pick":1},
