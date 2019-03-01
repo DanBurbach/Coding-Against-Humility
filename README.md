@@ -70,6 +70,8 @@ Knowledge of cellphone GPS and Bluetooth login and local device routing/connecti
 
   Using [Draw.io](https://www.draw.io/), I created a tree component chart to detail the layout of the routing and connectivity:
 
+  ![Gameplay Tree](https://github.com/DanBurbach/Coding-Against-Humility/blob/master/src/assets/images/CodingAgainstHumilityGamePlay.jpg?raw=true)
+
   ![Component Tree]()
 
 ## __Future Development__
