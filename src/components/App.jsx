@@ -3,7 +3,6 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 // core navigation and return information
-import Navigation from './Navigation';
 import Error404 from './Error404';
 
 
@@ -17,7 +16,7 @@ function App () {
   return (
     <div>
       <Switch>
-        <Route exact path="/" component={MainSplash} />
+        <Route exact path="/" component={Main} />
       </Switch>
     </div>
   );
