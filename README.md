@@ -72,7 +72,7 @@ Knowledge of cellphone GPS and Bluetooth login and local device routing/connecti
 
   ![Gameplay Tree](https://github.com/DanBurbach/Coding-Against-Humility/blob/master/src/assets/images/CodingAgainstHumilityGamePlay.jpg?raw=true)
 
-  ![Component Tree]()
+  ![Component Tree](https://github.com/DanBurbach/Coding-Against-Humility/blob/master/src/assets/images/CodingAgainstHumilityComponents.jpg?raw=true
 
 ## __Future Development__
 
