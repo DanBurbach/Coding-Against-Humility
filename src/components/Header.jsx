@@ -7,9 +7,16 @@ function Header(){
     textDecoration: 'none'
   };
 
+  const yourscore = {
+    color: 'white',
+    textDecoration: 'none',
+    textAlign: 'right'
+  };
+
   return (
     <div>
       <button><Link to='/' style={menubutton}>Menu</Link></button>
+      <p style={yourscore}>Your score: '0'</p>
     </div>
   );
 }
