@@ -1,12 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import '../assets/styles/Error404.css';
 
-function Error404(props) {
+function Error404() {
   return (
     <div>
-      <h2>The page {props.location.pathname} does not exist!</h2>
-      <h3>Would you like to return <Link to="/">home</Link> instead?</h3>
+      <div id="notfound">
+        <div class="notfound">
+          <div class="notfound-404">
+            <h1>404</h1>
+            <h2>Page not found</h2>
+          </div>
+          <Link to="/">Main Menu</Link>
+        </div>
+      </div>
     </div>
   );
 }
