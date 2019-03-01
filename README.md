@@ -78,6 +78,12 @@ Knowledge of cellphone GPS and Bluetooth login and local device routing/connecti
 
   * Notes here will be for the following working day/period.
 
+  * Side-flip: https://3dtransforms.desandro.com/card-flip
+
+  * Parallax Card: https://codepen.io/Moslim/pen/zdPrVp
+
+  * Stackoverflow Q about loading json data from local file into react JS: https://stackoverflow.com/questions/31758081/loading-json-data-from-local-file-into-react-js
+
 ## __Setup/Installation Requirements__
 
   * Clone repository
