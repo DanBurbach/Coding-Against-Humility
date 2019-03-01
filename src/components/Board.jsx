@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Board(){
-return ()
+  return ()
 }
 
 export default Board;

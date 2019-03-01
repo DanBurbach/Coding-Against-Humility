@@ -1,7 +1,7 @@
 import React from 'react';
 
 function PlayersInfo(){
-return ()
+  return ()
 }
 
 export default PlayersInfo;

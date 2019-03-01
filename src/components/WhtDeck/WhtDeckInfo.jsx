@@ -1,7 +1,7 @@
 import React from 'react';
 
 function WhtDeckInfo(){
-return ()
+  return ()
 }
 
 export default WhtDeckInfo;

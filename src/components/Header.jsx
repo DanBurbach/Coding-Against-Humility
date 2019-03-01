@@ -17,6 +17,7 @@ function Header(){
     <div>
       <button><Link to='/' style={menubutton}>Menu</Link></button>
       <p style={yourscore}>Your score: '0'</p>
+      <p>Your Name:</p>
     </div>
   );
 }
