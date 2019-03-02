@@ -8,24 +8,25 @@ import Error404 from './Error404';
 // loading screen
 import LoadingScreen from '../components/LoadingScreen/Loading';
 
-// main splash page aka Home
+// main page
 import Main from './Main';
 import NewGame from './Menu/NewGame';
 import Info from './Menu/Info';
 import Fineprint from './Menu/Fineprint';
 
 // outlying component pages
+import Board from './Board';
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-  onShowLoading() {
-    loaderStatus.next(true);
-    setTimeout(() => {
-      loaderStatus.next(false);
-    }, 3000);
-  }
+  // constructor(props) {
+  //   super(props);
+  // }
+  // onShowLoading() {
+  //   loaderStatus.next(true);
+  //   setTimeout(() => {
+  //     loaderStatus.next(false);
+  //   }, 3000);
+  // }
 
 
   render() {
@@ -37,6 +38,7 @@ class App extends React.Component {
           <Route to path="/newgame" component={NewGame} />
           <Route to path="/info" component={Info} />
           <Route to path="/fineprint" component={Fineprint} />
+          <Route to path="/board" component={Board} />
           <Route to component={Error404} />
         </Switch>
       </div>
