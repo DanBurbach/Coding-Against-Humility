@@ -1,4 +1,5 @@
 import React from 'react';
+import NewGame from './Menu/NewGame';
 
 class Game extends React.Component {
 
@@ -6,7 +7,7 @@ class Game extends React.Component {
     super(props);
     this.state = {
       masterGameList: []
-    }
+    };
     this.handleAddingNewPlayerToGame =
     this.handleAddingNewPlayerToGame.bind(this);
   }
@@ -22,7 +23,7 @@ class Game extends React.Component {
   }
 
   handleLengthOfGame(){
-    
+
   }
 
   render() {
@@ -30,8 +31,8 @@ class Game extends React.Component {
       <div>
         <NewGame onNewGame={this.handleAddingNewPlayerToGame} />
       </div>
-      ;
-    )
+    );
   }
 }
+
 export default Game;

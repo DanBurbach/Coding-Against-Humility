@@ -1,7 +1,10 @@
 import React from 'react';
 
 function Hand(){
-  return ()
+  return (
+    <div>
+    </div>
+  )
 }
 
 export default Hand;
