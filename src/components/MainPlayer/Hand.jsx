@@ -4,7 +4,7 @@ function Hand(){
   return (
     <div>
     </div>
-  )
+  );
 }
 
 export default Hand;

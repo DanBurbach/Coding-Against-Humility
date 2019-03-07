@@ -7,6 +7,7 @@ import Error404 from './Error404';
 
 // loading screen
 import LoadingScreen from '../components/LoadingScreen/Loading';
+import Login from './Login';
 
 // main page
 import Main from './Main';
@@ -32,9 +33,9 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <LoadingScreen />
         <Switch>
           <Route exact path="/" component={Main} />
+          <Route to path="/login" component={Login} />
           <Route to path="/newgame" component={NewGame} />
           <Route to path="/info" component={Info} />
           <Route to path="/fineprint" component={Fineprint} />

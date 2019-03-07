@@ -2,7 +2,7 @@ import React from 'react';
 import './Loader.css';
 import { loaderStatus } from './../../Utils/utilities';
 
-const LoadingContainer = props => {
+const LoadingContainer = (props) => {
   return (
     <div className='loader-container'>
       <div className='loader'>
