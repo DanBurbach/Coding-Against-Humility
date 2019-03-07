@@ -23,7 +23,8 @@ class Game extends React.Component {
   }
 
   handleLengthOfGame(){
-
+    let lenghtofGame = this.state.masterGameLength();
+    
   }
 
 
