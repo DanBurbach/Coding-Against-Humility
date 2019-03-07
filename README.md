@@ -108,11 +108,11 @@ Knowledge of cellphone GPS and Bluetooth login and local device routing/connecti
   [JSON Formatter & Validator](https://jsonformatter.curiousconcept.com/)
   JSON Prettify Site
 
-  [Material-UI](https://material-ui.com/)
-  UI effects
+  [Codepen](https://codepen.io/)
+  UI and CSS ideas
 
-  [react-materialize](https://react-materialize.github.io/#/)
-  UI effects
+  [Hearthstone Style Card Hover](https://codepen.io/jackrugile/pen/WZGeGM)
+  UI card hand effect (transformed over to HTML and CSS from Haml and SCSS)
 
   [react-scroll-parallax](https://www.npmjs.com/package/react-scroll-parallax)
   UI effects
