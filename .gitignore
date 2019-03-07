@@ -1,3 +1,5 @@
 .DS_STORE
 node_modules
 build
+src/constants/firebaseConfig.js
+.env
