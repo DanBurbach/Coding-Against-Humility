@@ -26,6 +26,8 @@
     });
     return this;
   };
-})(jQuery, window, document);
+})
+
+(jQuery, window, document);
 
 $('#nav li:has(ul)').doubleTapToGo();

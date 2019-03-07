@@ -1,0 +1,3 @@
+export const CHANGE_BLACK_CARD = 'CHANGE_BLACK_CARD';
+export const DEAL_WHITE_CARD = 'DEAL_WHITE_CARD';
+export const CHANGE_SONG = 'CHANGE_SONG';

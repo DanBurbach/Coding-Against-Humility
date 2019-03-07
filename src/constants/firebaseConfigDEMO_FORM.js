@@ -1,12 +1,13 @@
-// All below information needs to be updated to use firebase.
+// All below information needs to be updated to use firebase
+import firebase from 'firebase';
 
-const firebaseConfig = {
-    apiKey: 'YOUR-UNIQUE-CREDENTIALS',
-    authDomain: 'YOUR-PROJECT-NAME.firebaseapp.com',
-    databaseURL: 'https://YOUR-PROJECT-NAME.firebaseio.com',
-    projectId: 'YOUR-UNIQUE-PROJECT-NAME',
-    storageBucket: 'YOUR-UNIQUE-URL',
-    messagingSenderId: 'YOUR-UNIQUE-CREDENTIALS'
+const config = {
+  apiKey: 'xxxxxx',
+  authDomain: 'xxxxxx.firebaseapp.com',
+  databaseURL: 'https://xxxxxx.firebaseio.com',
+  projectId: 'xxxxxx',
+  storageBucket: '',
+  messagingSenderId: 'xxxxxx',
 };
 
-export default firebaseConfig;
+export default firebase;
