@@ -19,15 +19,15 @@ import Fineprint from './Menu/Fineprint';
 import Board from './Board';
 
 class App extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  // }
-  // onShowLoading() {
-  //   loaderStatus.next(true);
-  //   setTimeout(() => {
-  //     loaderStatus.next(false);
-  //   }, 3000);
-  // }
+  constructor(props) {
+    super(props);
+  }
+  onShowLoading() {
+    loaderStatus.next(true);
+    setTimeout(() => {
+      loaderStatus.next(false);
+    }, 3000);
+  }
 
 
   render() {
