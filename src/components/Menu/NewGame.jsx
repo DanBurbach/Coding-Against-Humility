@@ -10,7 +10,7 @@ function NewGame(){
         <p>Number of players (between 2 and 5):</p>
         <input type="number" name="quantity" min="2" max="5" />
 
-        <p>Number of players:</p>
+        <p>Game length:</p>
         <input type="radio" name="gamelength" value="short" checked> Short </input><br />
         <input type="radio" name="gamelength" value="medium"> Medium </input><br />
         <input type="radio" name="gamelength" value="long"> Long </input><br />
