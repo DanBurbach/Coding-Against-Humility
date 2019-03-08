@@ -29,8 +29,8 @@ export function drawNewBlackCard(blackcards) {
       response => response.json(),
       error => console.log('An error did occur when pulling a black card', error)
     ).then(function(json) {
-      dispatch(addBlackCard)
-    })
+      dispatch(addBlackCard);
+    });
   };
 }
 
@@ -42,7 +42,7 @@ export function drawNewWhiteCard(whitecards) {
       response => response.json(),
       error => console.log('An error did occur when pulling a white card', error)
     ).then(function(json) {
-      dispatch(addWhiteCard)
-    })
+      dispatch(addWhiteCard);
+    });
   };
 }
