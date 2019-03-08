@@ -7,68 +7,67 @@ class RadioGameLength extends React.Component {
     this.state = {
       selectedGameLength: '5'
     };
+    this.handleLengthChoice = this.handleLengthChoice.bind(this);
   }
 
-  handleLengthChoice = changeEvent => {
-    this.setState({
-      selectedGameLength: changeEvent.target.value
-    });
-  };
+  handleLengthChoice(changeEvent) {
+    this.setState({selectedGameLength: changeEvent.target.value});
+  }
 
-  handleGameLength = formSubmitEvent => {
-  formSubmitEvent.preventDefault();
-  console.log("You have submitted:", this.state.selectedGameLength);
-  };
+  handleGameLength(formSubmitEvent) {
+    formSubmitEvent.preventDefault();
+    console.log('Your game length is:', this.state.selectedGameLength);
+  }
 
   render () {
     return (
-      <div className="container">
-        <div className="row">
-            <form onSubmit={this.handleGameLength}>
+      <div className='container'>
+        <div className='row'>
+          <form onSubmit={this.handleGameLength}>
 
-              <div className="form-check">
-                <label>
-                  <input
-                    type="radio"
-                    name="_gamelength"
-                    value="5"
-                    checked={this.state.selectedGameLength === "5"}
-                    onChange={this.handleLengthChoice}
-                    className="form-check-input"
+            <div className='form-check'>
+              <label>
+                <input
+                  type='radio'
+                  name='_gamelength'
+                  value='5'
+                  checked={this.state.selectedGameLength === '5'}
+                  onChange={this.handleLengthChoice}
+                  className='form-check-input'
                   />
-                  Option 1
-                </label>
-              </div>
+                Short
+              </label>
+            </div>
 
-              <div className="form-check">
-                <label>
-                  <input
-                    type="radio"
-                    name="_gamelength"
-                    value="7"
-                    checked={this.state.selectedGameLength === "7"}
-                    onChange={this.handleLengthChoice}
-                    className="form-check-input"
+            <div className='form-check'>
+              <label>
+                <input
+                  type='radio'
+                  name='_gamelength'
+                  value='7'
+                  checked={this.state.selectedGameLength === '7'}
+                  onChange={this.handleLengthChoice}
+                  className='form-check-input'
                   />
-                  Option 2
-                </label>
-              </div>
+                Medium
+              </label>
+            </div>
 
-              <div className="form-check">
-                <label>
-                  <input
-                    type="radio"
-                    name="_gamelength"
-                    value="10"
-                    checked={this.state.selectedGameLength === "10"}
-                    onChange={this.handleLengthChoice}
-                    className="form-check-input"
+            <div className='form-check'>
+              <label>
+                <input
+                  type='radio'
+                  name='_gamelength'
+                  value='10'
+                  checked={this.state.selectedGameLength === '10'}
+                  onChange={this.handleLengthChoice}
+                  className='form-check-input'
                   />
-                  Option 3
-                </label>
-              </div>
-            </form>
-          </div>
+                Long
+              </label>
+            </div>
+          </form>
+        </div>
       </div>
     );
   }
