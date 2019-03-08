@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 function Info(){
   return (
     <div>
-      <div class="container">
+      <div className="container">
         <h2>Game Play Rules</h2>
         <p>To start the game, click on New Game</p>
 
