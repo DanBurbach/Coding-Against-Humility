@@ -84,6 +84,8 @@ Knowledge of cellphone GPS and Bluetooth login and local device routing/connecti
 
   * Stackoverflow Q about loading json data from local file into react JS: https://stackoverflow.com/questions/31758081/loading-json-data-from-local-file-into-react-js
 
+  * Using radio buttons in React: https://techblog.commercetools.com/seven-patterns-by-example-the-many-ways-to-type-radio-in-react-bfe14322bb6f
+
 ## __Setup/Installation Requirements__
 
   * Clone repository

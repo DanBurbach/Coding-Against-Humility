@@ -6,8 +6,6 @@ import { Switch, Route } from 'react-router-dom';
 import Error404 from './Error404';
 
 // loading screen
-import LoadingScreen from '../components/LoadingScreen/Loading';
-import Login from './Login';
 
 // main page
 import Main from './Main';
@@ -18,24 +16,14 @@ import Fineprint from './Menu/Fineprint';
 // outlying component pages
 import Board from './Board';
 
+import '../assets/styles/Header.css';
+
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-  onShowLoading() {
-    loaderStatus.next(true);
-    setTimeout(() => {
-      loaderStatus.next(false);
-    }, 3000);
-  }
-
-
   render() {
     return (
       <div>
         <Switch>
           <Route exact path="/" component={Main} />
-          <Route to path="/login" component={Login} />
           <Route to path="/newgame" component={NewGame} />
           <Route to path="/info" component={Info} />
           <Route to path="/fineprint" component={Fineprint} />

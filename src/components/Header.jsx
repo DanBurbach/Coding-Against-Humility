@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../assets/styles/Header.css';
-import '../assets/styles/Header.jsx';
 
 function Header(){
   return (
