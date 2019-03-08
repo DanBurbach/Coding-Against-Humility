@@ -5,8 +5,6 @@ import { Switch, Route } from 'react-router-dom';
 // core navigation and return information
 import Error404 from './Error404';
 
-// loading screen
-
 // main page
 import Main from './Main';
 import NewGame from './Menu/NewGame';

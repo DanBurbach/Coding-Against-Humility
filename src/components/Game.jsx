@@ -10,23 +10,23 @@ class Game extends React.Component {
     };
     this.handleAddingNewPlayerToGame =
     this.handleAddingNewPlayerToGame.bind(this);
-  };
+  }
 
   handleAddingNewPlayerToGame(newGame){
     let newGamePlayer = this.state.masterGameList.slice();
     newGamePlayer.push(newGame);
     this.setState({masterGameList: newGamePlayer});
-  };
+  }
 
   handleLengthOfGame(){
     let lenghtofGame = this.state.masterGameLength();
 
-  };
+  }
 
   handleYourNameEntry(){
     let HostName = this.state.masterNameEntry();
 
-  };
+  }
 
   render() {
     return (
