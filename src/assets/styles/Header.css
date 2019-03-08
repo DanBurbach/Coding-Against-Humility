@@ -18,6 +18,7 @@ a {
   left: 50%;
   margin-left: -30em; /* 30 480 */
   background-color: #666666;
+  font-family: 'Montserrat', sans-serif;
 }
 #nav > a {
   display: none;
@@ -28,6 +29,7 @@ a {
 #nav li a {
   color: #fff;
   display: block;
+  font-family: 'Montserrat', sans-serif;
 }
 #nav li a:active {
   background-color: #c00 !important;
