@@ -30,14 +30,14 @@ body {
   text-align: center;
 }
 
-.fineprint .fineprintprint {
+.fineprint .superfineprint {
   position: relative;
   height: 180px;
   margin-bottom: 20px;
   z-index: -1;
 }
 
-.fineprint .fineprintprint h1 {
+.fineprint .superfineprint h1 {
   font-family: 'Montserrat', sans-serif;
   position: absolute;
   left: 50%;
@@ -57,7 +57,7 @@ body {
 }
 
 
-.fineprint .fineprintprint h2 {
+.fineprint .superfineprint h2 {
   font-family: 'Montserrat', sans-serif;
   position: absolute;
   left: 0;
@@ -72,33 +72,34 @@ body {
   margin: 0;
 }
 
-.fineprint a {
+#fineprint #backbutton {
   font-family: 'Montserrat', sans-serif;
   display: inline-block;
   text-transform: uppercase;
   color: #ff005a;
   text-decoration: none;
   border: 2px solid;
-  background: transparent;
+  background: black;
   padding: 10px 40px;
   font-size: 14px;
   font-weight: 700;
   -webkit-transition: 0.2s all;
   transition: 0.2s all;
+  text-decoration: none;
 }
 
-.fineprint a:hover {
+#fineprint #backbutton:hover {
   color: #8400ff;
 }
 
 @media only screen and (max-width: 767px) {
-    .fineprint .fineprintprint h2 {
+    .fineprint .superfineprint h2 {
         font-size: 24px;
     }
 }
 
 @media only screen and (max-width: 480px) {
-  .fineprint .fineprintprint h1 {
+  .fineprint .superfineprint h1 {
       font-size: 182px;
   }
 }
