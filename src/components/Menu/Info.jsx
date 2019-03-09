@@ -36,6 +36,7 @@ function Info(){
             <h2>Disclaimer:</h2>
             <p>You will laugh or you will be insulted. Either way, it is a <strong>game</strong> and it will bring out the worst in you.</p>
             </div>
+            <br/>
             <Link to='/'>Back</Link>
           </div>
         </div>
