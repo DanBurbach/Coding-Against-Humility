@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { v4 } from 'uuid';
+import { Link } from 'react-router-dom';
 
 class NewGame extends React.Component {
   constructor(props) {
@@ -10,19 +11,16 @@ class NewGame extends React.Component {
       _players: null,
       _gamelength: null,
     };
-    this.handleNewGameSubmission = this.handleNewGameSubmission.bind(this);
-    this.handleNewPlayerName = this.handleNewPlayerName.bind(this);
-    this.handlePlayerNumbers = this.handlePlayerNumbers.bind(this);
-    this.handleLengthChoice = this.handleLengthChoice.bind(this);
+    // this.handleNewGameSubmission = this.handleNewGameSubmission.bind(this);
+    // this.handleNewPlayerName = this.handleNewPlayerName.bind(this);
+    // this.handlePlayerNumbers = this.handlePlayerNumbers.bind(this);
+    // this.handleLengthChoice = this.handleLengthChoice.bind(this);
   }
 
   handleNewGameSubmission(props) {
     event.preventDefault();
-    props.onNewGameSubmission({_name: _name.value, _players: _players.value, _gamelength: this.state.selectedGameLength, id: v4()
+    props.onNewGameSubmission({_name: this.state.nameValue, _players: this.state.playersValue, _gamelength: this.state.gameValue, id: v4()
     });
-    _name.value = '';
-    _players.value = '';
-    _gamelength.value = '';
   }
 
   handleNewPlayerName(event) {
@@ -30,15 +28,16 @@ class NewGame extends React.Component {
     console.log(event._name.value);
   }
 
-  handleLengthChoice(changeEvent) {
-    this.setState({selectedGameLength: changeEvent.target.value});
-    console.log('Your game length is:', this.state.selectedGameLength);
-  }
-
   handlePlayerNumbers(event) {
     this.setState({playersValue: event._players.value});
     console.log(event._players.value);
   }
+
+  handleLengthChoice(changeEvent) {
+    this.setState({gameValue: changeEvent.target.value});
+    console.log('Your game length is:', this.state.gameValue);
+  }
+
 
   render() {
     return (
@@ -69,10 +68,9 @@ class NewGame extends React.Component {
                     type='radio'
                     name='_gamelength'
                     defaultValue='5'
-                    checked={this.state.selectedGameLength === '5'}
+                    checked={this.state.gameValue === '5'}
                     onChange={this.handleLengthChoice}
-                    className='form-check-input'
-                  />
+                    className='form-check-input'/>
                   Short
                 </label>
               </div>
@@ -83,10 +81,9 @@ class NewGame extends React.Component {
                     type='radio'
                     name='_gamelength'
                     defaultValue='7'
-                    checked={this.state.selectedGameLength === '7'}
+                    checked={this.state.gameValue === '7'}
                     onChange={this.handleLengthChoice}
-                    className='form-check-input'
-                  />
+                    className='form-check-input'/>
                   Medium
                 </label>
               </div>
@@ -97,10 +94,9 @@ class NewGame extends React.Component {
                     type='radio'
                     name='_gamelength'
                     defaultValue='10'
-                    checked={this.state.selectedGameLength === '10'}
+                    checked={this.state.gameValue === '10'}
                     onChange={this.handleLengthChoice}
-                    className='form-check-input'
-                  />
+                    className='form-check-input'/>
                   Long
                 </label>
               </div>
@@ -110,6 +106,7 @@ class NewGame extends React.Component {
 
           <p><input type="submit" value="Submit"></input> | <input type="reset"></input></p>
         </form>
+        <button><Link to='/'>Back</Link></button>
       </div>
     );
   }
