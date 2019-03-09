@@ -106,7 +106,7 @@ class NewGame extends React.Component {
 
           <p><input type="submit" value="Submit"></input> | <input type="reset"></input></p>
         </form>
-        <button><Link to='/'>Back</Link></button>
+        <Link to='/' id='backbutton'>Back</Link>
       </div>
     );
   }

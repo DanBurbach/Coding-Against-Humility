@@ -12,9 +12,7 @@ function Fineprint(){
 
           <p>This bearing in mind, I would like to thank the people of Cards Against Humanity for being supportive in the creation of their game and allowing people such as myself to create games like this for free distrubution and in celebration of their creation. I would also like to thank <a href='https://crhallberg.com/cah/'>'JSON Against Humanity'</a> <a href='https://crhallberg.com/'>(Chris Hallberg)</a> for providing an Open Source JSON which is the library that this game is based off of.</p>
 
-          <p><a href='https://crhallberg.com/cah/'/></p>
-
-          <button><Link to='/'>Back</Link></button>
+          <Link to='/' id='backbutton'>Back</Link>
         </div>
       </div>
     </div>

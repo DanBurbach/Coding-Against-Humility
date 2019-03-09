@@ -3,11 +3,17 @@ import { Link } from 'react-router-dom';
 import '../../assets/styles/InfoCSS.css';
 
 function Info(){
+
+  const mainbody = {
+    textAlign: 'left'
+  }
+
   return (
     <div>
       <div id="info">
         <div class="info">
           <div class="infostyles">
+            <div style={mainbody}>
             <h2>Game Play Rules</h2>
             <p>To start the game, click on New Game</p>
             <p>Host will start the game as Judge. Starts by dealing the first Black Card</p>
@@ -29,7 +35,7 @@ function Info(){
 
             <h2>Disclaimer:</h2>
             <p>You will laugh or you will be insulted. Either way, it is a <strong>game</strong> and it will bring out the worst in you.</p>
-
+            </div>
             <Link to='/'>Back</Link>
           </div>
         </div>
