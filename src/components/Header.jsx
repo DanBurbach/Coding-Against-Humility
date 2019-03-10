@@ -2,7 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../assets/styles/Header.css';
 
-function Header(){
+
+function Header(props){
   return (
     <div>
       <nav id="nav" role="navigation">
@@ -11,8 +12,6 @@ function Header(){
         <ul>
           <li><Link to='/'>Menu</Link></li>
           <li><Link to='/Info'>Gameplay</Link></li>
-          <li>Your score: '0'</li>
-          <li>Your Name:''</li>
         </ul>
       </nav>
     </div>
