@@ -7,7 +7,7 @@ import Error404 from './Error404';
 
 // main page
 import Main from './Main';
-import NewGame from './Menu/NewGame';
+import NewGameForm from './Menu/NewGameForm';
 import Info from './Menu/Info';
 import Fineprint from './Menu/Fineprint';
 
@@ -22,7 +22,7 @@ class App extends React.Component {
       <div>
         <Switch>
           <Route exact path="/" component={Main} />
-          <Route to path="/newgame" component={NewGame} />
+          <Route to path="/newgameform" component={NewGameForm} />
           <Route to path="/info" component={Info} />
           <Route to path="/fineprint" component={Fineprint} />
           <Route to path="/board" component={Board} />
