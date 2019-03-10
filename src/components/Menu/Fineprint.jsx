@@ -5,8 +5,8 @@ import '../../assets/styles/Fineprint.css';
 function Fineprint(){
   return(
     <div id="fineprint">
-      <div class="fineprint">
-        <div class="superfineprint">
+      <div className="fineprint">
+        <div className="superfineprint">
           <h2>Fineprint</h2>
           <br/>
           <p>Cards Against Humanity is available under a <a href='https://creativecommons.org/licenses/by-nc-sa/2.0/'>BY-NC-SA 2.0 Creative Commons license</a>. That means you can use our content to make whatever, but you have to give us credit, you can’t profit from the use of our content (this means ad revenue is not allowed), and you have to share whatever you make in the same way we share it (this means you cant submit our content to any app store). We own the name Cards Against Humanity, so you have to call your crappy thing something else.</p>

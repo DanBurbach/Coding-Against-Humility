@@ -6,8 +6,8 @@ function Main() {
   return (
     <div>
       <div id="main">
-        <div class="main">
-          <div class="mainstyles">
+        <div className="main">
+          <div className="mainstyles">
             <h1>Coding Against Humility</h1>
             <h2>A game that makes you a bad person</h2>
           </div>

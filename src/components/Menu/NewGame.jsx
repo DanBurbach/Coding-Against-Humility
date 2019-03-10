@@ -3,39 +3,50 @@ import PropTypes from 'prop-types';
 import { v4 } from 'uuid';
 import { Link } from 'react-router-dom';
 
+let _name = null;
+let _gamelength = null;
+let _players = null;
+
 class NewGame extends React.Component {
+
   constructor(props) {
     super(props);
     this.state = {
-      _name: null,
-      _players: null,
-      _gamelength: null,
+      _gamelength:null
     };
-    // this.handleNewGameSubmission = this.handleNewGameSubmission.bind(this);
-    // this.handleNewPlayerName = this.handleNewPlayerName.bind(this);
-    // this.handlePlayerNumbers = this.handlePlayerNumbers.bind(this);
-    // this.handleLengthChoice = this.handleLengthChoice.bind(this);
+    
+    this.handleNewGameSubmission = this.handleNewGameSubmission.bind(this);
+    this.handleNewPlayerName = this.handleNewPlayerName.bind(this);
+    this.handlePlayerNumbers = this.handlePlayerNumbers.bind(this);
+    this.handleLengthChoice = this.handleLengthChoice.bind(this);
   }
 
-  handleNewGameSubmission(props) {
+  handleNewGameSubmission(event) {
     event.preventDefault();
-    props.onNewGameSubmission({_name: this.state.nameValue, _players: this.state.playersValue, _gamelength: this.state.gameValue, id: v4()
-    });
+    console.log(_name.value);
+    console.log(_gamelength.value);
+    console.log(_players.value);
+    _name.value = '';
+    _gamelength.value = '';
+    _players.value = '';
+    // this.props.onNewGameSubmission(
+    //   {_name: this.state.nameValue,
+    //     _players: this.state.playersValue,
+    //     _gamelength: this.state.gameValue, 
+    //     id: v4()
+    //   });
   }
 
   handleNewPlayerName(event) {
     this.setState({nameValue: event._name.value});
-    console.log(event._name.value);
   }
 
   handlePlayerNumbers(event) {
     this.setState({playersValue: event._players.value});
-    console.log(event._players.value);
   }
 
-  handleLengthChoice(changeEvent) {
-    this.setState({gameValue: changeEvent.target.value});
-    console.log('Your game length is:', this.state.gameValue);
+  handleLengthChoice(event) {
+    this.setState({gameValue: event.target.value});
   }
 
 
@@ -43,63 +54,35 @@ class NewGame extends React.Component {
     return (
       <div>
         <form onSubmit={this.handleNewGameSubmission}>
-          <p>Your Name:</p>
+          <label htmlFor='nameValue'>Your Name:</label>
           <div>
-            <input type="text" value={this.state._name} onChange={this.handleNewPlayerName} />
+            <input type='text' 
+            ref={(input)=>{_name=input;}} />
           </div>
           <br/>
 
-          <p>Number of players (between 3 and 8):</p>
+          <label htmlFor='playersValue'>Number of players (between 3 and 8):</label>
           <input
             type='range'
             name='_players'
             min='3'
             max='8'
-            value={this.state._players}
-            onChange={this.handlePlayerNumbers}/>
+            step='1'
+            value={this.state.value}
+            ref={(input)=>{_players=input;}}/>
           <br/>
 
-          <p>Game length:</p>
+          <label htmlFor='gameValue'>Game length:</label>
           <div className='container'>
             <div className='row'>
-              <div className='form-check'>
-                <label>
-                  <input
-                    type='radio'
-                    name='_gamelength'
-                    defaultValue='5'
-                    checked={this.state.gameValue === '5'}
-                    onChange={this.handleLengthChoice}
-                    className='form-check-input'/>
-                  Short
-                </label>
-              </div>
-              <br/>
-              <div className='form-check'>
-                <label>
-                  <input
-                    type='radio'
-                    name='_gamelength'
-                    defaultValue='7'
-                    checked={this.state.gameValue === '7'}
-                    onChange={this.handleLengthChoice}
-                    className='form-check-input'/>
-                  Medium
-                </label>
-              </div>
-              <br/>
-              <div className='form-check'>
-                <label>
-                  <input
-                    type='radio'
-                    name='_gamelength'
-                    defaultValue='10'
-                    checked={this.state.gameValue === '10'}
-                    onChange={this.handleLengthChoice}
-                    className='form-check-input'/>
-                  Long
-                </label>
-              </div>
+              <input
+                type='range'
+                name='_gamelength'
+                min='6'
+                max='10'
+                step='2'
+                value={this.state.value}
+                ref={(input) => { _gamelength = input; }} />
             </div>
           </div>
           <br/>

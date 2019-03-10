@@ -11,8 +11,8 @@ function Info(){
   return (
     <div>
       <div id="info">
-        <div class="info">
-          <div class="infostyles">
+        <div className="info">
+          <div className="infostyles">
             <div style={mainbody}>
             <h2>Game Play Rules</h2>
             <p>To start the game, click on New Game</p>

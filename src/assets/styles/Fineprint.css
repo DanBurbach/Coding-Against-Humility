@@ -17,7 +17,7 @@ body {
 #fineprint .fineprint {
   position: absolute;
   left: 50%;
-  top: 30%;
+  top: 10%;
   -webkit-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
@@ -33,38 +33,19 @@ body {
 
 .fineprint p {
   text-align: left;
+  font-size: 14px;
 }
 
 .fineprint .superfineprint {
   position: relative;
-  height: 180px;
-  margin-bottom: 20px;
+  margin-top: 400px;
   z-index: -1;
-}
-
-.fineprint .superfineprint h1 {
-  font-family: 'Montserrat', sans-serif;
-  position: absolute;
-  left: 50%;
-  top: 15%;
-  -webkit-transform: translate(-50% , -50%);
-      -ms-transform: translate(-50% , -50%);
-          transform: translate(-50% , -50%);
-  font-size: 224px;
-  font-weight: 900;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  margin-left: -12px;
-  color: #030005;
-  text-transform: uppercase;
-  text-shadow: -1px -1px 0px green, 1px 1px 0px purple;
-  letter-spacing: -20px;
 }
 
 
 .fineprint .superfineprint h2 {
   font-family: 'Montserrat', sans-serif;
-  position: absolute;
+  position: relative;
   left: 0;
   right: 0;
   top: 20%;

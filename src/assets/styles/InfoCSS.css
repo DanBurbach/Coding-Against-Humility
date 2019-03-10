@@ -32,12 +32,13 @@ body {
 
 .info p {
   text-align: left;
+  font-size: 14px;
 }
 
 .info .infostyles {
   position: relative;
   height: 30px;
-  margin-bottom: -20px;
+  margin-top: 20px;
   z-index: -1;
   color: grey;
 }
@@ -47,7 +48,7 @@ body {
   position: relative;
   left: 0;
   right: 0;
-  font-size: 42px;
+  font-size: 35px;
   font-weight: 700;
   color: #fff;
   text-transform: uppercase;
