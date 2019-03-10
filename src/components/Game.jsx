@@ -1,40 +1,30 @@
 import React from 'react';
-import NewGame from './Menu/NewGame';
+import PropTypes from 'prop-types';
 
 class Game extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      masterGameList: []
+      formVisibleOnPage: false
     };
     this.handleAddingNewPlayerToGame =
     this.handleAddingNewPlayerToGame.bind(this);
   }
 
-  handleAddingNewPlayerToGame(newGame){
-    let newGamePlayer = this.state.masterGameList.slice();
-    newGamePlayer.push(newGame);
-    this.setState({masterGameList: newGamePlayer});
-  }
-
-  handleLengthOfGame(){
-    let lenghtofGame = this.state.masterGameLength();
-
-  }
-
-  handleYourNameEntry(){
-    let HostName = this.state.masterNameEntry();
-
-  }
+  
 
   render() {
     return (
       <div>
-        <NewGame onNewGame={this.handleAddingNewPlayerToGame} />
+        {currentlyVisibleNewGame}
       </div>
     );
   }
+}
+
+Game.propTypes = {
+  handleNewGameSubmission: PropTypes.func
 }
 
 export default Game;
