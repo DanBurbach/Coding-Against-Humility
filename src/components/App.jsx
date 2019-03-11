@@ -12,6 +12,7 @@ import Info from './Menu/Info';
 import Fineprint from './Menu/Fineprint';
 
 // outlying component pages
+import Header from './Header';
 import Game from './Game';
 import Board from './Board';
 
@@ -22,10 +23,11 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      _name: ''
     };
 
   }
-  
+
   render() {
     return (
       <div>
@@ -36,6 +38,7 @@ class App extends React.Component {
           <Route path='/fineprint' component={Fineprint} />
           <Route path='/board' component={Board} />
           <Route path='/game' component={Game} />
+          <Route path='/header' component={Header} />
           <Route component={Error404} />
         </Switch>
       </div>
