@@ -1,6 +1,7 @@
 // core imports
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
+// import { connect } from 'react-redux';
 
 // core navigation and return information
 import Error404 from './Error404';

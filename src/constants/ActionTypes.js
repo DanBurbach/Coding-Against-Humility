@@ -4,4 +4,5 @@ export const ADD_WHITE_CARD = 'ADD_WHITE_CARD';
 export const REMOVE_WHITE_CARD = 'REMOVE_WHITE_CARD';
 export const POINT_GIVEN = 'POINT_GIVEN';
 export const JUDGE_TURN = 'JUDGE_TURN';
-
+export const ADD_NEWGAME = 'ADD_NEWGAME';
+export const RESTART_GAME = 'RESTART_GAME';
