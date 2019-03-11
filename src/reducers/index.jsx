@@ -1,4 +1,4 @@
-import codingAgainstHumilityReducer from './coding-against-humility-reducer';
+import startNewGameReducer from './startNewGameReducer';
 
 import { combineReducers } from 'redux';
 
