@@ -1,10 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import '../assets/styles/Header.css';
 
 
-function Header(props){
+function Header(){
   return (
     <div>
       <nav id="nav" role="navigation">
@@ -19,7 +20,13 @@ function Header(props){
 }
 
 Header.propTypes = {
-  name: PropTypes.string
+  NewGameForm: PropTypes.string
 };
 
-export default Header;
+const mapStateToProps = state => {
+  return {
+    NewGameForm: state
+  };
+};
+
+export default withRouter(connect(mapStateToProps)(Header));

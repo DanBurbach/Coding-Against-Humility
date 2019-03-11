@@ -4,7 +4,6 @@ import GameInfo from './GameInfo';
 import BlackDeckDisplay from './BlackDeckDisplay';
 import MainPlayer from './MainPlayer/MainPlayer';
 import JudgePlayer from './JudgePlayer';
-import NewGameControl from './Menu/NewGameControl';
 
 function Board(){
   return (
@@ -16,7 +15,6 @@ function Board(){
       <br/>
       <MainPlayer />
       <JudgePlayer />
-      <NewGameControl />
     </div>
   );
 }

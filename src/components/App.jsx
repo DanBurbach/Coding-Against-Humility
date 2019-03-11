@@ -1,7 +1,7 @@
 // core imports
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 
 // core navigation and return information
 import Error404 from './Error404';
@@ -24,7 +24,6 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      _name: ''
     };
 
   }
@@ -47,4 +46,6 @@ class App extends React.Component {
   }
 }
 
-export default App;
+
+
+export default connect()(App);

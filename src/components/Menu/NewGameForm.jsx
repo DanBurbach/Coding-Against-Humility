@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { v4 } from 'uuid';
@@ -75,8 +74,5 @@ class NewGameForm extends React.Component {
   }
 }
 
-NewGameForm.propTypes = {
-  handleNewGameSubmission: PropTypes.func,
-};
 
 export default connect()(NewGameForm);
