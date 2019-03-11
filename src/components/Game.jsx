@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import NewGameForm from './Menu/NewGameForm';
 
 class Game extends React.Component {
 
@@ -12,7 +13,9 @@ class Game extends React.Component {
     this.handleAddingNewPlayerToGame.bind(this);
   }
 
-  
+  handleAddingNewPlayerToGame(){
+    this.setState({formVisibleOnPage: true});
+  }
 
   render() {
     return (
@@ -24,7 +27,7 @@ class Game extends React.Component {
 }
 
 Game.propTypes = {
-  handleNewGameSubmission: PropTypes.func
-}
+  onNewGameCreation: PropTypes.func
+};
 
 export default Game;
