@@ -116,8 +116,8 @@ Knowledge of cellphone GPS and Bluetooth login and local device routing/connecti
   [Hearthstone Style Card Hover](https://codepen.io/jackrugile/pen/WZGeGM)
   UI card hand effect (transformed over to HTML and CSS from Haml and SCSS)
 
-  [react-scroll-parallax](https://www.npmjs.com/package/react-scroll-parallax)
-  UI effects
+  [React-Flippy]https://reactjsexample.com/flipping-cards-for-your-react-projects/
+  UI effects and ease of flipping card
 
   [react-pure-grid](https://www.npmjs.com/package/react-pure-grid)
   UI layout
