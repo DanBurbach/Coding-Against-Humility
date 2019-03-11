@@ -1,0 +1,79 @@
+/* body {
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-perspective: 1000px;
+  perspective: 2000px;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  position: relative;
+  /* background-color: #111; */
+  /* font-family: "Montserrat";
+} */
+
+.blackcard-container {
+  min-width: 350px;
+	min-height: 500px;
+	border-radius: 20px;
+	position: relative;
+	-webkit-transition: 1.5s ease-in-out;
+	transition: 1.5s ease-in-out;
+	transform-style: preserve-3d;
+}
+
+.blackcard-side {
+  position: absolute;
+	text-align: center;
+	width: 40%;
+	height: 100%;
+	padding: 20px 50px;
+	color: #fff;
+	transform-style: preserve-3d;
+	backface-visibility: hidden;
+	border-radius: 20px;
+}
+.blackcard-content {
+  transform: translatez(70px) scale(0.8);
+  line-height: 1.5em;
+}
+.blackcard-content h1 {
+  position: relative;
+  padding: 10px
+}
+.blackcard-content p {
+  margin-top: 50px;
+  line-height: 2em;
+}
+.blackcard-content h1:before {
+  content: "";
+  position: absolute;
+  bottom: -80px;
+  height: 3px;
+  background-color: #3e3;
+  width: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.blackcard-front {
+  z-index: 2;
+  background-size: 100vh;
+  background-size: cover;
+  background-image: url(https://livewallpaperhd.com/wp-content/uploads/2017/07/Dark-Elegant-Wallpaper.jpg);
+}
+.blackcard-back {
+  background-color: #333;
+  transform: rotateY(180deg);
+  z-index: 0;
+  padding-top: 10px;
+  background-image: url(https://userscontent2.emaze.com/images/f9538183-0ff9-478f-b964-c8ab90421e3b/3d28e192fda5c17250f96a2779c84475.jpg);
+}
+.blackcard-container:hover {
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
