@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import NewGameForm from './Menu/NewGameForm';
+// import NewGameForm from './Menu/NewGameForm';
 
 class Game extends React.Component {
 
@@ -20,7 +20,6 @@ class Game extends React.Component {
   render() {
     return (
       <div>
-        {currentlyVisibleNewGame}
       </div>
     );
   }

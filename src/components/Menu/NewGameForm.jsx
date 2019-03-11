@@ -25,9 +25,6 @@ class NewGame extends React.Component {
     console.log(_players.value);
   }
 
-  handleGameInformation(props) {
-    props.onNewGameCreation({name: _name.value, gamelength: _gamelength.value, players: _players.value});
-  }
 
   render() {
     return (
@@ -62,7 +59,7 @@ class NewGame extends React.Component {
               ref={(input) => { _gamelength = input; }} />
             <br/>
 
-            <p><Link to='/board'><input type='submit' value='Submit'></input></Link> | <input type='reset'></input></p>
+            <p><input type='submit' value='Submit'></input> | <input type='reset'></input></p>
           </form>
           <Link to='/' id='backbutton'>Back</Link>
         </div>
