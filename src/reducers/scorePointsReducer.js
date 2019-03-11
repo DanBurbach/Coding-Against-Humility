@@ -1,23 +1,21 @@
 import constants from './../constants';
 const { types } = contants;
 
-export default (state = {}, action) => {
+const scorePointsReducer = (state = {}, action) => {
+
   switch (action.type) {
-  case 'ADD_NEWGAME':
-    const { name, gamelength, players, id } = action;
-    let newState = Object.assign({}, state, {
-      [id]: {
-        name: name,
-        gamelength: gamelength,
-        players: players,
-        id: id
-      }
-    });
+
+  case 'POINT_GIVEN':
+    const { point } = action;
+    let newPointScoreValue = state.pointScoreValue + 1
+    newState = {
+      gameScoreValue: state.gameScoreValue
+    }
     return newState;
-    case 'RESTART_GAME':
-    newState = initialState;
-    return newState
+
   default:
     return state;
   }
 };
+
+export default scorePointsReducer;

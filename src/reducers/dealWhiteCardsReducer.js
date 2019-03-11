@@ -1,7 +1,7 @@
 import constants from './../constants';
 const { types } = contants;
 
-export default (state = {}, action) => {
+const dealWhiteCardsReducer = (state = {}, action) => {
 
   switch (action.type) {
 
@@ -21,3 +21,5 @@ export default (state = {}, action) => {
     return state;
   }
 };
+
+export default dealWhiteCardsReducer;

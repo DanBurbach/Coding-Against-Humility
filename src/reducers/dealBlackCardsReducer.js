@@ -1,8 +1,10 @@
 import constants from './../constants';
 const { types } = contants;
 
-export default (state = {}, action) => {
+const dealBlackCardsReducer = (state = {}, action) => {
+
   switch (action.type) {
+    
   case 'ADD_BLACK_CARD':
     const { blackcard, id } = action;
     let newState = Object.assign({}, state, {
@@ -19,3 +21,5 @@ export default (state = {}, action) => {
     return state;
   }
 };
+
+export default dealBlackCardsReducer;
