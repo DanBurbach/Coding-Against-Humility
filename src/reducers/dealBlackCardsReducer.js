@@ -1,20 +1,20 @@
 import constants from './../constants';
-const { types } = contants;
+const { types } = constants;
 
 const dealBlackCardsReducer = (state = {}, action) => {
 
   switch (action.type) {
-    
-  case 'ADD_BLACK_CARD':
+
+  case types.ADD_BLACK_CARD:
     const { blackcard, id } = action;
     let newState = Object.assign({}, state, {
       [id]: {
-        blackcard: blackcard
+        blackcard: blackcard,
         id: id
       }
     });
     return newState;
-    case 'REMOVE_BLACK_CARD':
+    case types.REMOVE_BLACK_CARD:
     newState = initialState;
     return newState
   default:

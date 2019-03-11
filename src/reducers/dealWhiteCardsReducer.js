@@ -1,11 +1,11 @@
 import constants from './../constants';
-const { types } = contants;
+const { types } = constants;
 
 const dealWhiteCardsReducer = (state = {}, action) => {
 
   switch (action.type) {
 
-  case 'ADD_WHITE_CARD':
+  case types.ADD_WHITE_CARD:
     const { whitecard, id } = action;
     let newState = Object.assign({}, state, {
       [id]: {
@@ -14,7 +14,7 @@ const dealWhiteCardsReducer = (state = {}, action) => {
       }
     });
     return newState;
-    case 'REMOVE_WHITE_CARD':
+    case types.REMOVE_WHITE_CARD:
     newState = initialState;
     return newState
   default:
