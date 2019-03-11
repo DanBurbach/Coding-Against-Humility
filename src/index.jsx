@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom';
 import App from './components/App';
 import { HashRouter } from 'react-router-dom';
 import { createStore } from 'redux';
-import codingAgainstHumilityReducer from './reducers/coding-against-humility-reducer';
+import startNewGameReducer from './reducers/startNewGameReducer';
 import { Provider } from 'react-redux';
 
-const store = createStore(codingAgainstHumilityReducer);
+const store = createStore(startNewGameReducer);
 
 const render = (Component) => {
   ReactDOM.render(
