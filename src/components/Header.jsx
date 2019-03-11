@@ -1,25 +1,25 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import NewGameForm from './Menu/NewGameForm';
-import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import '../assets/styles/Header.css';
 
 
-
-function Header(){
+function Header(props){
   return (
     <div>
       <nav id="nav" role="navigation">
         <ul>
           <li><Link to='/'>Menu</Link></li>
           <li><Link to='/Info'>Gameplay</Link></li>
-          <li>{this.state._name}</li>
-          <li></li>
+          <li>{this.props.name}</li>
         </ul>
       </nav>
     </div>
   );
 }
 
+Header.propTypes = {
+  name: PropTypes.string
+};
 
 export default Header;

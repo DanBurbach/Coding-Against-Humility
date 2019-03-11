@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { v4 } from 'uuid';
 
 let _name = null;
 let _gamelength = null;
@@ -14,11 +15,19 @@ class NewGameForm extends React.Component {
     this.state = {
     };
     this.handleNewGameSubmission = this.handleNewGameSubmission.bind(this);
-    console.log(props);
   }
 
   handleNewGameSubmission(event) {
+    const { dispatch } = this.props;
     event.preventDefault();
+    const action = {
+      type: 'ADD_NEWGAME',
+      id: v4(),
+      name: _name.value,
+      gamelength: _gamelength.value,
+      players: _players.value
+    };
+    dispatch(action);
     console.log(_name.value);
     console.log(_gamelength.value);
     console.log(_players.value);
@@ -57,7 +66,7 @@ class NewGameForm extends React.Component {
               ref={(input) => { _gamelength = input; }} />
             <br/>
 
-            <p><Link to='/board'><input type='submit' value='Submit'></input></Link> | <input type='reset'></input></p>
+            <p><input type='submit' value='Submit'></input> | <input type='reset'></input></p>
           </form>
           <Link to='/' id='backbutton'>Back</Link>
         </div>
@@ -69,6 +78,5 @@ class NewGameForm extends React.Component {
 NewGameForm.propTypes = {
   handleNewGameSubmission: PropTypes.func,
 };
-
 
 export default connect()(NewGameForm);
