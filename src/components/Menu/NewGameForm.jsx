@@ -16,7 +16,7 @@ class NewGame extends React.Component {
     this.handleNewGameSubmission = this.handleNewGameSubmission.bind(this);
   }
 
-  handleNewGameSubmission(event, props) {
+  handleNewGameSubmission(event) {
     event.preventDefault();
     console.log(_name.value);
     console.log(_gamelength.value);

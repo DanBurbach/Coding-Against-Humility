@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import '../assets/styles/Header.css';
 
 
-function Header(props){
+function Header(){
   return (
     <div>
       <nav id="nav" role="navigation">
