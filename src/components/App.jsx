@@ -39,7 +39,7 @@ class App extends React.Component {
           <Route path='/fineprint' render={()=><Fineprint />} />
           <Route path='/board' render={()=><Board />} />
           <Route path='/game' render={()=><Game />} />
-          <Route path='/header' render={()=><Header newGameForm={this.props.name}/>} />
+          <Route path='/header' render={()=><Header userName={this.props.name}/>} />
           <Route component={Error404} />
         </Switch>
       </div>
@@ -48,7 +48,7 @@ class App extends React.Component {
 }
 
 App.propTypes = {
-  name: PropTypes.object
+  userName: PropTypes.object
 };
 
 const mapStateToProps = state => {
