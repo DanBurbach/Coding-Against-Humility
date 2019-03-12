@@ -4,14 +4,14 @@ import PropTypes from 'prop-types';
 import '../assets/styles/Header.css';
 
 
-function Header(){
+function Header(props){
   return (
     <div>
       <nav id="nav" role="navigation">
         <ul>
           <li><Link to='/'>Menu</Link></li>
           <li><Link to='/Info'>Gameplay</Link></li>
-          <li>{this.props.name}</li>
+          <li>{props.name}</li>
         </ul>
       </nav>
     </div>

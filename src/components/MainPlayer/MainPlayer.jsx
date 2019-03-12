@@ -1,10 +1,10 @@
 import React from 'react';
-import Hand from './../Hand';
+import WhiteCardDisplay from './../WhiteCards/WhiteCardDisplay';
 
 function MainPlayer(){
   return (
     <div>
-      <Hand />
+      <WhiteCardDisplay />
     </div>
   );
 }
