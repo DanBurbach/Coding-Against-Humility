@@ -14,9 +14,9 @@ const dealBlackCardsReducer = (state = {}, action) => {
       }
     });
     return newState;
-    case types.REMOVE_BLACK_CARD:
+  case types.REMOVE_BLACK_CARD:
     newState = initialState;
-    return newState
+    return newState;
   default:
     return state;
   }

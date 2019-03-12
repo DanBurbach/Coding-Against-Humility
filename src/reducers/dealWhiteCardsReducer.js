@@ -14,9 +14,9 @@ const dealWhiteCardsReducer = (state = {}, action) => {
       }
     });
     return newState;
-    case types.REMOVE_WHITE_CARD:
+  case types.REMOVE_WHITE_CARD:
     newState = initialState;
-    return newState
+    return newState;
   default:
     return state;
   }

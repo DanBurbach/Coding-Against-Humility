@@ -7,10 +7,10 @@ const scorePointsReducer = (state = {}, action) => {
 
   case types.POINT_GIVEN:
     const { point } = action;
-    let newPointScoreValue = state.pointScoreValue + 1
+    let newPointScoreValue = state.pointScoreValue + 1;
     newState = {
       gameScoreValue: state.gameScoreValue
-    }
+    };
     return newState;
   default:
     return state;

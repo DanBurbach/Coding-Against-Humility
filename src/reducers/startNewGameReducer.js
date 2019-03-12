@@ -16,7 +16,7 @@ const startNewGameReducer = (state = {}, action) => {
       }
     });
     return newState;
-    case types.RESTART_GAME:
+  case types.RESTART_GAME:
     return newState;
   default:
     return state;
