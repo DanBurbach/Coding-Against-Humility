@@ -19,7 +19,7 @@ class NewGameForm extends React.Component {
   }
 
   handleNewGameSubmission(event) {
-    const { dispatch } = props;
+    const { dispatch } = this.props;
     event.preventDefault();
     const action = {
       type: 'ADD_NEWGAME',
@@ -37,7 +37,7 @@ class NewGameForm extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="wrapper fade-in">
         <div id="newgame">
           <div className="newgame">
             <div className="newgamestyles">

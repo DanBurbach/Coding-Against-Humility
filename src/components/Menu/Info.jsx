@@ -9,7 +9,7 @@ function Info(){
   };
 
   return (
-    <div>
+    <div className="wrapper fade-in">
       <div id="info">
         <div className="info">
           <div className="infostyles">

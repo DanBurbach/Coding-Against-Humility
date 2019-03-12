@@ -4,7 +4,7 @@ import '../assets/styles/MainStyles.css';
 
 function Main() {
   return (
-    <div>
+    <div className="wrapper fade-in">
       <div id="main">
         <div className="main">
           <div className="mainstyles">
