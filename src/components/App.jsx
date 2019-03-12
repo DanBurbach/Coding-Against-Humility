@@ -26,7 +26,6 @@ class App extends React.Component {
     super(props);
     this.state = {
     };
-
   }
 
   render() {
@@ -39,7 +38,7 @@ class App extends React.Component {
           <Route path='/fineprint' render={()=><Fineprint />} />
           <Route path='/board' render={()=><Board />} />
           <Route path='/game' render={()=><Game />} />
-          <Route path='/header' render={()=><Header userName={this.props.name}/>} />
+          <Route path='/header' render={()=><Header name={this.props}/>} />
           <Route component={Error404} />
         </Switch>
       </div>

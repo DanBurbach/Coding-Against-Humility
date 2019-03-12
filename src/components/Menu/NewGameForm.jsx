@@ -21,18 +21,18 @@ class NewGameForm extends React.Component {
   handleNewGameSubmission(event) {
     const { dispatch } = this.props;
     event.preventDefault();
-    const action = {
+    const newGame = {
       type: 'ADD_NEWGAME',
       id: v4(),
       name: _name.value,
       gamelength: _gamelength.value,
       players: _players.value
     };
-    dispatch(action);
-    console.log(action);
-    console.log(action.name);
-    console.log(action.gamelength);
-    console.log(action.players);
+    dispatch(newGame);
+    console.log(newGame);
+    console.log(newGame.name);
+    console.log(newGame.gamelength);
+    console.log(newGame.players);
   }
 
   render() {
@@ -86,10 +86,7 @@ class NewGameForm extends React.Component {
 }
 
 NewGameForm.propTypes = {
-  dispatch: PropTypes.func,
-  handleNewGameSubmission: PropTypes.func,
-
+  dispatch: PropTypes.func
 };
-
 
 export default connect()(NewGameForm);

@@ -2,11 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App';
 import { HashRouter } from 'react-router-dom';
-import { createStore } from 'redux';
-import startNewGameReducer from './reducers/startNewGameReducer';
+import { createStore, applyMiddleware } from 'redux';
+import rootReducer from './reducers';
 import { Provider } from 'react-redux';
+import middlewareLogger from './middleware/middleware-logger';
 
-const store = createStore(startNewGameReducer);
+import thunkMiddleware from 'redux-thunk';
+
+const store = createStore(rootReducer, applyMiddleware(middlewareLogger, thunkMiddleware));
 
 const render = (Component) => {
   ReactDOM.render(

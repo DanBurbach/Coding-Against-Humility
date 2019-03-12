@@ -1,26 +1,30 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { addNewGame } from '../actions';
 import '../assets/styles/Header.css';
 
 
-function Header(props){
+const Header = ({dispatch, currentPlayer}) => {
+  const { name, id } = currentPlayer;
   return (
     <div>
       <nav id="nav" role="navigation">
         <ul>
           <li><Link to='/'>Menu</Link></li>
           <li><Link to='/Info'>Gameplay</Link></li>
-          <li>{props.userName}</li>
+          <li>{name}</li>
         </ul>
       </nav>
     </div>
   );
-}
-
-Header.propTypes = {
-  userName: PropTypes.string,
-  handleNewGameSubmission: PropTypes.func
 };
 
-export default Header;
+Header.propTypes = {
+  name: PropTypes.string,
+  id: PropTypes.number,
+  dispatch: PropTypes.func
+};
+
+export default connect()(Header);
