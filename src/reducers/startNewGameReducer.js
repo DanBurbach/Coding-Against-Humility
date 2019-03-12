@@ -9,10 +9,10 @@ function startNewGameReducer (state = {}, action) {
     const { name, gamelength, players, id } = action;
     let newState = Object.assign({}, state, {
       [id]: {
-        name: name,
-        gamelength: gamelength,
-        players: players,
-        id: id
+        name: action.name,
+        gamelength: action.gamelength,
+        players: action.players,
+        id: action.id
       }
     });
     return newState;

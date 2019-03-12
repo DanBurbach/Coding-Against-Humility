@@ -15,6 +15,6 @@ function scorePointsReducer (state = {}, action) {
   default:
     return state;
   }
-};
+}
 
 export default scorePointsReducer;

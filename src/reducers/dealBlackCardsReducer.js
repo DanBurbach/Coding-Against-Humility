@@ -20,6 +20,6 @@ function dealBlackCardsReducer (state = {}, action) {
   default:
     return state;
   }
-};
+}
 
 export default dealBlackCardsReducer;
