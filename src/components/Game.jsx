@@ -1,21 +1,26 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-// import { connect } from 'react-redux';
 
 class Game extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      formVisibleOnPage: false
     };
-    this.handleAddingNewPlayerToGame =
-    this.handleAddingNewPlayerToGame.bind(this);
   }
 
-  handleAddingNewPlayerToGame(){
-    this.setState({formVisibleOnPage: true});
-  }
+  // handleAddPointToPlayer(){
+  //   let playersScore = this.state.masterPlayerList.slice();
+  //   playersScore.forEach(function(players){
+  //     if(id === players.id) {
+  //       players.score += 1
+  //       if(players.score === gamelength) {
+  //         alert(players.id)
+  //       }
+  //     }
+  //
+  //   })
+  // }
+
 
   render() {
     return (
@@ -25,8 +30,5 @@ class Game extends React.Component {
   }
 }
 
-Game.propTypes = {
-  onNewGameCreation: PropTypes.func
-};
 
 export default Game;

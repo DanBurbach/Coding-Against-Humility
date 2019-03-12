@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { v4 } from 'uuid';
@@ -18,7 +19,7 @@ class NewGameForm extends React.Component {
   }
 
   handleNewGameSubmission(event) {
-    const { dispatch } = this.props;
+    const { dispatch } = props;
     event.preventDefault();
     const action = {
       type: 'ADD_NEWGAME',
@@ -28,9 +29,10 @@ class NewGameForm extends React.Component {
       players: _players.value
     };
     dispatch(action);
-    console.log(_name.value);
-    console.log(_gamelength.value);
-    console.log(_players.value);
+    console.log(action);
+    console.log(action.name);
+    console.log(action.gamelength);
+    console.log(action.players);
   }
 
   render() {
@@ -48,28 +50,31 @@ class NewGameForm extends React.Component {
                   <br/>
 
                   <h2><label htmlFor='playersValue'>Number of players (between 3 and 8):</label></h2>
-                  <p><input
-                    type='range'
-                    name='_players'
-                    min='3'
-                    max='8'
-                    step='1'
-                    value={this.state.value}
-                    ref={(input)=>{_players=input;}}/>
+                  <p>
+                    <input
+                      type='range'
+                      name='_players'
+                      min='3'
+                      max='8'
+                      step='1'
+                      value={this.state.value}
+                      ref={(input)=>{_players=input;}}/>
                   </p>
 
                   <h2><label htmlFor='gameValue'>Game length:</label></h2>
-                  <p><input
-                    type='range'
-                    name='_gamelength'
-                    min='6'
-                    max='10'
-                    step='2'
-                    value={this.state.value}
-                    ref={(input) => { _gamelength = input; }} />
+                  <p>
+                    <input
+                      type='range'
+                      name='_gamelength'
+                      min='6'
+                      max='10'
+                      step='2'
+                      value={this.state.value}
+                      ref={(input) => { _gamelength = input; }} />
                   </p>
-
-                  <p><Link to='/board'><input type='submit' value='Submit'></input></Link> | <input type='reset'></input></p>
+                  <p>
+                    <input type='submit' value='Submit'></input> | <input type='reset'></input>
+                  </p>
                 </form>
                 <Link to='/' id='backbutton'>Back</Link>
               </div>
@@ -80,6 +85,10 @@ class NewGameForm extends React.Component {
     );
   }
 }
+
+NewGameForm.propTypes = {
+  dispatch: PropTypes.func
+};
 
 
 export default connect()(NewGameForm);

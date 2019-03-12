@@ -11,7 +11,7 @@ function Header(props){
         <ul>
           <li><Link to='/'>Menu</Link></li>
           <li><Link to='/Info'>Gameplay</Link></li>
-          <li>{props.name}</li>
+
         </ul>
       </nav>
     </div>
@@ -19,7 +19,8 @@ function Header(props){
 }
 
 Header.propTypes = {
-  NewGameForm: PropTypes.string
+  name: PropTypes.string.isRequired,
+  handleNewGameSubmission: PropTypes.func
 };
 
 export default Header;
