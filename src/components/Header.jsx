@@ -6,15 +6,14 @@ import { addNewGame } from '../actions';
 import '../assets/styles/Header.css';
 
 
-const Header = ({dispatch, currentPlayer}) => {
-  const { name, id } = currentPlayer;
+const Header = ({dispatch, name}) => {
   return (
     <div>
       <nav id="nav" role="navigation">
         <ul>
           <li><Link to='/'>Menu</Link></li>
           <li><Link to='/Info'>Gameplay</Link></li>
-          <li>{name}</li>
+          <li>{ name }</li>
         </ul>
       </nav>
     </div>

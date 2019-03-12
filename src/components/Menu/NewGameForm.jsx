@@ -72,7 +72,7 @@ class NewGameForm extends React.Component {
                       value={this.state.value}
                       ref={(input) => { _gamelength = input; }} />
                   </p>
-                  <p><button type='submit'><Link to='/board' id='newgamebutton'>Submit</Link></button> | <button type='reset' id='newgamebutton' styles='transparent'>Reset</button> | <button><Link to='/' id='newgamebutton'>Back</Link></button>
+                  <p><button type='submit'><Link to={{ pathname: `/board`, state: name }} id='newgamebutton'>Submit</Link></button> | <button type='reset' id='newgamebutton' styles='transparent'>Reset</button> | <button><Link to='/' id='newgamebutton'>Back</Link></button>
 
                   </p>
                 </form>

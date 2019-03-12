@@ -7,7 +7,7 @@ function startNewGameReducer (state = {}, action) {
 
   case types.ADD_NEWGAME:
     const { name, gamelength, players, id } = action;
-    let newState = Object.assign({}, state, {
+    let newPlayer = Object.assign({}, state, {
       [id]: {
         name: action.name,
         gamelength: action.gamelength,
@@ -15,10 +15,10 @@ function startNewGameReducer (state = {}, action) {
         id: action.id
       }
     });
-    return newState;
+    return newPlayer;
 
   case types.RESTART_GAME:
-    return newState;
+    return newPlayer;
 
   default:
     return state;
