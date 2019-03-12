@@ -5,7 +5,7 @@ import '../assets/styles/Error404.css';
 
 function Error404() {
   return (
-    <div>
+    <div className="wrapper fade-in">
       <div id="notfound">
         <div className="notfound">
           <div className="notfound-404">
