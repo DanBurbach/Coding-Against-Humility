@@ -82,6 +82,7 @@ Knowledge of cellphone GPS and Bluetooth login and local device routing/connecti
 
   * Stackoverflow Q about loading json data from local file into react JS: https://stackoverflow.com/questions/31758081/loading-json-data-from-local-file-into-react-js
 
+https://stackoverflow.com/questions/51727508/pass-form-input-values-to-another-component-react
 
 ## __Setup/Installation Requirements__
 
