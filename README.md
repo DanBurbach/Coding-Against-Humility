@@ -61,8 +61,6 @@ A database system enabled to record:
 
 Name
 
-Nickname
-
 Login password
 
 Knowledge of cellphone GPS and Bluetooth login and local device routing/connectivity
@@ -116,7 +114,7 @@ Knowledge of cellphone GPS and Bluetooth login and local device routing/connecti
   [Hearthstone Style Card Hover](https://codepen.io/jackrugile/pen/WZGeGM)
   UI card hand effect (transformed over to HTML and CSS from Haml and SCSS)
 
-  [React-Flippy]https://reactjsexample.com/flipping-cards-for-your-react-projects/
+  [React-Flippy](https://reactjsexample.com/flipping-cards-for-your-react-projects/)
   UI effects and ease of flipping card
 
   [react-pure-grid](https://www.npmjs.com/package/react-pure-grid)
@@ -125,8 +123,6 @@ Knowledge of cellphone GPS and Bluetooth login and local device routing/connecti
   [formspree.io](https://formspree.io/)
   email contact form
 
-  [particles.js](https://vincentgarreau.com/particles.js/)
-  background UI effects
 
 ### __Version__
 
