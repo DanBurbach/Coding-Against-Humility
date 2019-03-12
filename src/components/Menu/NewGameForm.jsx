@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { v4 } from 'uuid';
+import '../../assets/styles/NewGameForm.css';
 
 let _name = null;
 let _gamelength = null;
@@ -35,39 +36,45 @@ class NewGameForm extends React.Component {
   render() {
     return (
       <div>
-        <div className = 'container'>
-          <form onSubmit={this.handleNewGameSubmission}>
-            <label htmlFor='nameValue'>Your Name:</label>
-            <div>
-              <input type='text' ref={(input)=>{_name=input;}} />
+        <div id="newgame">
+          <div className="newgame">
+            <div className="newgamestyles">
+              <div className = 'container'>
+                <form onSubmit={this.handleNewGameSubmission}>
+                  <h2><label htmlFor='nameValue'>Your Name:</label></h2>
+                  <div>
+                    <p><input type='text' ref={(input)=>{_name=input;}} /></p>
+                  </div>
+                  <br/>
+
+                  <h2><label htmlFor='playersValue'>Number of players (between 3 and 8):</label></h2>
+                  <p><input
+                    type='range'
+                    name='_players'
+                    min='3'
+                    max='8'
+                    step='1'
+                    value={this.state.value}
+                    ref={(input)=>{_players=input;}}/>
+                  </p>
+
+                  <h2><label htmlFor='gameValue'>Game length:</label></h2>
+                  <p><input
+                    type='range'
+                    name='_gamelength'
+                    min='6'
+                    max='10'
+                    step='2'
+                    value={this.state.value}
+                    ref={(input) => { _gamelength = input; }} />
+                  </p>
+
+                  <p><Link to='/board'><input type='submit' value='Submit'></input></Link> | <input type='reset'></input></p>
+                </form>
+                <Link to='/' id='backbutton'>Back</Link>
+              </div>
             </div>
-            <br/>
-
-            <p><label htmlFor='playersValue'>Number of players (between 3 and 8):</label></p>
-            <input
-              type='range'
-              name='_players'
-              min='3'
-              max='8'
-              step='1'
-              value={this.state.value}
-              ref={(input)=>{_players=input;}}/>
-            <br/>
-
-            <p><label htmlFor='gameValue'>Game length:</label></p>
-            <input
-              type='range'
-              name='_gamelength'
-              min='6'
-              max='10'
-              step='2'
-              value={this.state.value}
-              ref={(input) => { _gamelength = input; }} />
-            <br/>
-
-            <p><input type='submit' value='Submit'></input> | <input type='reset'></input></p>
-          </form>
-          <Link to='/' id='backbutton'>Back</Link>
+          </div>
         </div>
       </div>
     );
