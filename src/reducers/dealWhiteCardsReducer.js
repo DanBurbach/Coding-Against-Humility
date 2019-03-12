@@ -1,7 +1,7 @@
 import constants from './../constants';
 const { types } = constants;
 
-const dealWhiteCardsReducer = (state = {}, action) => {
+function dealWhiteCardsReducer (state = {}, action) {
 
   switch (action.type) {
 

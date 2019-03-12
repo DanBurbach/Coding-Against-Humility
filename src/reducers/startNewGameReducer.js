@@ -1,7 +1,7 @@
 import constants from './../constants';
 const { types } = constants;
 
-const startNewGameReducer = (state = {}, action) => {
+function startNewGameReducer (state = {}, action) {
 
   switch (action.type) {
 
@@ -16,11 +16,13 @@ const startNewGameReducer = (state = {}, action) => {
       }
     });
     return newState;
+
   case types.RESTART_GAME:
     return newState;
+
   default:
     return state;
   }
-};
+}
 
 export default startNewGameReducer;
