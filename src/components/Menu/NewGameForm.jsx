@@ -72,11 +72,10 @@ class NewGameForm extends React.Component {
                       value={this.state.value}
                       ref={(input) => { _gamelength = input; }} />
                   </p>
-                  <p>
-                    <input type='submit' value='Submit'></input> | <input type='reset'></input>
+                  <p><button type='submit'><Link to='/board' id='newgamebutton'>Submit</Link></button> | <button type='reset' id='newgamebutton' styles='transparent'>Reset</button> | <button><Link to='/' id='newgamebutton'>Back</Link></button>
+
                   </p>
                 </form>
-                <Link to='/' id='backbutton'>Back</Link>
               </div>
             </div>
           </div>
@@ -87,7 +86,9 @@ class NewGameForm extends React.Component {
 }
 
 NewGameForm.propTypes = {
-  dispatch: PropTypes.func
+  dispatch: PropTypes.func,
+  handleNewGameSubmission: PropTypes.func,
+
 };
 
 
