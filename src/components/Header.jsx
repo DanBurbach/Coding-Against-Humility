@@ -1,7 +1,6 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import '../assets/styles/Header.css';
 
 
@@ -23,10 +22,4 @@ Header.propTypes = {
   NewGameForm: PropTypes.string
 };
 
-const mapStateToProps = state => {
-  return {
-    NewGameForm: state
-  };
-};
-
-export default withRouter(connect(mapStateToProps)(Header));
+export default Header;

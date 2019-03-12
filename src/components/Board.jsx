@@ -4,6 +4,7 @@ import GameInfo from './GameInfo';
 import BlackDeckDisplay from './BlackDeckDisplay';
 import MainPlayer from './MainPlayer/MainPlayer';
 import JudgePlayer from './JudgePlayer';
+import { connect } from 'react-redux';
 
 function Board(){
   return (
@@ -19,4 +20,4 @@ function Board(){
   );
 }
 
-export default Board;
+export default connect()(Board);
