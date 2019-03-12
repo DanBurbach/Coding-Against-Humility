@@ -11,7 +11,7 @@ body {
 #fineprint {
   position: relative;
   height: 100vh;
-  background: #030005;
+  background: radial-gradient(#333, #111);
 }
 
 #fineprint .fineprint {
@@ -65,13 +65,13 @@ body {
   color: #ff005a;
   text-decoration: none;
   border: 2px solid;
-  background: black;
   padding: 10px 40px;
   font-size: 14px;
   font-weight: 700;
   -webkit-transition: 0.2s all;
   transition: 0.2s all;
   text-decoration: none;
+  background: radial-gradient(#333, #111);
 }
 
 #fineprint #backbutton:hover {

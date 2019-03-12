@@ -12,6 +12,7 @@ body {
   position: relative;
   height: 100vh;
   background: #030005;
+  background: radial-gradient(#333, #111);
 }
 
 #info .info {
