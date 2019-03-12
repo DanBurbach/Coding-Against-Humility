@@ -1,7 +1,8 @@
 // core imports
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 // core navigation and return information
 import Error404 from './Error404';
@@ -32,13 +33,13 @@ class App extends React.Component {
     return (
       <div>
         <Switch>
-          <Route exact path='/' component={Main} />
-          <Route path='/newgameform' component={NewGameForm} />
-          <Route path='/info' component={Info} />
-          <Route path='/fineprint' component={Fineprint} />
-          <Route path='/board' component={Board} />
-          <Route path='/game' component={Game} />
-          <Route path='/header' component={Header} />
+          <Route exact path='/' render={()=><Main />} />
+          <Route path='/newgameform' render={()=><NewGameForm />} />
+          <Route path='/info' render={()=><Info />} />
+          <Route path='/fineprint' render={()=><Fineprint />} />
+          <Route path='/board' render={()=><Board />} />
+          <Route path='/game' render={()=><Game />} />
+          <Route path='/header' render={()=><Header newGameForm={this.props.name}/>} />
           <Route component={Error404} />
         </Switch>
       </div>
@@ -46,6 +47,14 @@ class App extends React.Component {
   }
 }
 
+App.propTypes = {
+  name: PropTypes.object
+};
 
+const mapStateToProps = state => {
+  return {
+    name: state
+  };
+};
 
-export default connect()(App);
+export default withRouter(connect(mapStateToProps)(App));
