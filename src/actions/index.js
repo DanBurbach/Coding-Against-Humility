@@ -1,12 +1,13 @@
 import constants from './../constants';
 // import v4 from 'uuid/v4';
 const { firebaseConfig } = constants;
-import * as firebase from 'firebase';
+import Firebase from 'firebase';
 
 firebase.initializeApp(firebaseConfig);
 const gameInfo = firebase.database().ref('gameInfo');
 
 export function newGame(_name, _gamelength, _players) {
+  console.log('reach');
   return () => gameInfo.push({
     name: _name,
     gamelength: _gamelength,
@@ -15,44 +16,46 @@ export function newGame(_name, _gamelength, _players) {
 }
 
 export const addNewGame = (name, gamelength, players ) => ({
-  type: types.ADD_NEWGAME,
+  type: c.ADD_NEWGAME,
   name,
   gamelength,
   players
 });
 
 export const userName = (name) => ({
-  type: types.USER_NAME,
+  type: c.USER_NAME,
   name
 });
 
 export const gameLength = (gamelength) => ({
-  type: types.GAME_LENGTH,
+  type: c.GAME_LENGTH,
   gamelength
 });
 
 export const numberOfPlayers = (players) => ({
-  type: types.NUMBER_PLAYERS,
+  type: c.NUMBER_PLAYERS,
   players
 });
 
+
+
 export const addWhiteCard = (newWhiteCard) => ({
-  type: types.ADD_WHITE_CARD,
+  type: c.ADD_WHITE_CARD,
   newWhiteCard
 });
 
 export const removeWhiteCard = (currentWhiteCardID) => ({
-  type: types.REMOVE_WHITE_CARD,
+  type: c.REMOVE_WHITE_CARD,
   currentWhiteCardID
 });
 
 export const addBlackCard = (newBlackCard) => ({
-  type: types.ADD_BLACK_CARD,
+  type: c.ADD_BLACK_CARD,
   newBlackCard
 });
 
 export const removeBlackCard = (currentBlackCardID) => ({
-  type: types.REMOVE_BLACK_CARD,
+  type: c.REMOVE_BLACK_CARD,
   currentBlackCardID
 });
 
