@@ -1,11 +1,11 @@
 import constants from './../constants';
-const { types } = constants;
+const { c } = constants;
 
-const userNameReducer = (state = {}, action) => {
+export default (state = {}, action) => {
 
   switch (action.type) {
 
-  case types.USER_NAME:
+  case c.USER_NAME:
     const { name, id } = action;
     let userName = Object.assign({}, state, {
       [id]: {
@@ -14,10 +14,7 @@ const userNameReducer = (state = {}, action) => {
       }
     });
     return userName;
-
   default:
     return state;
   }
 };
-
-export default userNameReducer;

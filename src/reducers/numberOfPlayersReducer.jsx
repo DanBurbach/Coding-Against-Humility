@@ -1,11 +1,11 @@
 import constants from './../constants';
-const { types } = constants;
+const { c } = constants;
 
-const numberOfPlayersReducer = (state = {}, action) => {
+export default (state = {}, action) => {
 
   switch (action.type) {
 
-  case types.NUMBER_PLAYERS:
+  case c.NUMBER_PLAYERS:
     const { players } = action;
     let numberPlayers = Object.assign({}, state, {
       [id]: {
@@ -14,10 +14,7 @@ const numberOfPlayersReducer = (state = {}, action) => {
       }
     });
     return numberPlayers;
-
   default:
     return state;
   }
 };
-
-export default numberOfPlayersReducer;
