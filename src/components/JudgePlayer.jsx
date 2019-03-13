@@ -1,9 +1,13 @@
 import React from 'react';
 
-function JudgePlayer() {
+function JudgePlayer({ dispatch }) {
   return (
     <div>
-    Judge View = Here resides the choice for adding a point, flipping a black card.
+      <form onSubmit={e => {
+          event.preventDefault();
+          dispatch()
+        }}></form>
+      <button>Deal</button>
     </div>
   );
 }

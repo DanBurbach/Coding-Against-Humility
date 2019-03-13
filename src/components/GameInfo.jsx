@@ -4,9 +4,11 @@ import React from 'react';
 function GameInfo() {
   return (
     <div>
-        Who's turn it is.
-        Your score.
-        Number of players.
+      <ul>
+        <li>Who's turn it is.</li>
+        <li>Your score.</li>
+        <li>Number of players.</li>
+      </ul>
     </div>
   );
 }
