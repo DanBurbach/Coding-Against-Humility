@@ -11,6 +11,7 @@ import constants from './constants';
 const { c } = constants;
 
 const store = createStore(rootReducer, applyMiddleware(middlewareLogger, thunkMiddleware));
+export { store };
 
 const render = (Component) => {
   ReactDOM.render(
