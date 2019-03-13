@@ -30,7 +30,7 @@ class NewGameForm extends React.Component {
       gamelength: _gamelength.value,
       players: _players.value
     };
-    dispatch(newGame(_name.value, _gamelength.value, _players.value));
+    dispatch(newGame);
   }
 
 
@@ -87,7 +87,7 @@ class NewGameForm extends React.Component {
                   </p>
 
                   <p>
-                    <button type="submit"><Link to="/Game">Submit</Link></button>  |  <button type="reset" id="newgamebutton" styles="transparent">Reset</button>  |  <button><Link to="/" id="newgamebutton">Back</Link></button>
+                    <button type="submit"><Link to="/game">Submit</Link></button>  |  <button type="reset" id="newgamebutton" styles="transparent">Reset</button>  |  <button><Link to="/" id="newgamebutton">Back</Link></button>
                   </p>
                 </form>
               </div>
