@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import NameValue from './Menu/NameValue';
 import '../assets/styles/Header.css';
-
+import constants from './../constants';
+const { c } = constants;
 
 const Header = () => {
   return (

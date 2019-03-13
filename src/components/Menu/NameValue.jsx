@@ -1,14 +1,14 @@
 import React from 'react';
 import NewGameForm from './NewGameForm';
-import constants from '../../constants/ActionTypes';
-const { types } = constants;
+import constants from '../../constants';
+const { c } = constants;
 
 
 function NameValue(store, nameValue){
   const Name = ({name}) => {name};
   return (
     <div>
-      {name}
+      your name here
     </div>
   );
 }

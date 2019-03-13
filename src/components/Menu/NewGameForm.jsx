@@ -4,9 +4,8 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { v4 } from 'uuid';
 import '../../assets/styles/NewGameForm.css';
-import * as addNewGame from "../../actions/index";
-import constants from '../../constants/ActionTypes';
-const { types } = constants;
+import constants from '../../constants';
+const { c } = constants;
 
 let _name = null;
 let _gamelength = null;

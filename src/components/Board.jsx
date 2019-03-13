@@ -5,6 +5,8 @@ import BlackDeckDisplay from './BlackCards/BlackDeckDisplay';
 import MainPlayer from './MainPlayer/MainPlayer';
 import JudgePlayer from './JudgePlayer';
 import { connect } from 'react-redux';
+import constants from './../constants';
+const { c } = constants;
 
 function Board(){
   return (
