@@ -6,3 +6,6 @@ export const POINT_GIVEN = 'POINT_GIVEN';
 export const JUDGE_TURN = 'JUDGE_TURN';
 export const ADD_NEWGAME = 'ADD_NEWGAME';
 export const RESTART_GAME = 'RESTART_GAME';
+export const USER_NAME = 'USER_NAME';
+export const NUMBER_PLAYERS = 'NUMBER_PLAYERS';
+export const GAME_LENGTH = 'GAME_LENGTH';

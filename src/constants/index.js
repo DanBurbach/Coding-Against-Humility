@@ -1,10 +1,7 @@
 import * as types from './ActionTypes';
-// import firebaseConfig from './firebaseConfig';
-import { blackCards, whiteCards } from '../../MainCAH.json';
+import firebaseConfig from './firebaseConfig';
 
 export default {
-  // firebaseConfig: firebaseConfig,
-  blackCards: blackCards,
-  whiteCards: whiteCards,
+  firebaseConfig: firebaseConfig,
   types: types
 };
