@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { v4 } from 'uuid';
 import '../../assets/styles/NewGameForm.css';
+import { bindActionCreators } from 'redux';
+import * as TodoActionCreators from "../../actions/index";
 
 let _name = null;
 let _gamelength = null;
@@ -29,7 +31,8 @@ class NewGameForm extends React.Component {
       players: _players.value
     };
     dispatch(newGame);
-    console.log(newGame);
+    this.boundActionCreators = bindActionCreators(TodoActionCreators, dispatch);
+    console.log(this.boundActionCreators);
     console.log(newGame.name);
     console.log(newGame.gamelength);
     console.log(newGame.players);
@@ -41,39 +44,78 @@ class NewGameForm extends React.Component {
         <div id="newgame">
           <div className="newgame">
             <div className="newgamestyles">
-              <div className = 'container'>
+              <div className="container">
                 <form onSubmit={this.handleNewGameSubmission}>
-                  <h2><label htmlFor='nameValue'>Your Name:</label></h2>
+                  <h2>
+                    <label htmlFor="nameValue">Your Name:</label>
+                  </h2>
                   <div>
-                    <p><input type='text' ref={(input)=>{_name=input;}} /></p>
+                    <p>
+                      <input
+                        type="text"
+                        ref={input => {
+                          _name = input;
+                        }}
+                      />
+                    </p>
                   </div>
-                  <br/>
+                  <br />
 
-                  <h2><label htmlFor='playersValue'>Number of players (between 3 and 8):</label></h2>
+                  <h2>
+                    <label htmlFor="playersValue">
+                      Number of players (between 3 and 8):
+                    </label>
+                  </h2>
                   <p>
                     <input
-                      type='range'
-                      name='_players'
-                      min='3'
-                      max='8'
-                      step='1'
+                      type="range"
+                      name="_players"
+                      min="3"
+                      max="8"
+                      step="1"
                       value={this.state.value}
-                      ref={(input)=>{_players=input;}}/>
+                      ref={input => {
+                        _players = input;
+                      }}
+                    />
                   </p>
 
-                  <h2><label htmlFor='gameValue'>Game length:</label></h2>
+                  <h2>
+                    <label htmlFor="gameValue">Game length:</label>
+                  </h2>
                   <p>
                     <input
-                      type='range'
-                      name='_gamelength'
-                      min='6'
-                      max='10'
-                      step='2'
+                      type="range"
+                      name="_gamelength"
+                      min="6"
+                      max="10"
+                      step="2"
                       value={this.state.value}
-                      ref={(input) => { _gamelength = input; }} />
+                      ref={input => {
+                        _gamelength = input;
+                      }}
+                    />
                   </p>
-                  <p><button type='submit'><Link to={{ pathname: `/board`, state: name }} id='newgamebutton'>Submit</Link></button> | <button type='reset' id='newgamebutton' styles='transparent'>Reset</button> | <button><Link to='/' id='newgamebutton'>Back</Link></button>
-
+                  <p>
+                    <button type="submit">
+                      
+                        Submit
+                      
+                    </button>{" "}
+                    |{" "}
+                    <button
+                      type="reset"
+                      id="newgamebutton"
+                      styles="transparent"
+                    >
+                      Reset
+                    </button>{" "}
+                    |{" "}
+                    <button>
+                      <Link to="/" id="newgamebutton">
+                        Back
+                      </Link>
+                    </button>
                   </p>
                 </form>
               </div>
