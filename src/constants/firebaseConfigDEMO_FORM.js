@@ -1,7 +1,5 @@
 // All below information needs to be updated to use firebase
-import firebase from 'firebase';
-
-const config = {
+const firebaseConfig = {
   apiKey: 'xxxxxx',
   authDomain: 'xxxxxx.firebaseapp.com',
   databaseURL: 'https://xxxxxx.firebaseio.com',
@@ -10,4 +8,4 @@ const config = {
   messagingSenderId: 'xxxxxx',
 };
 
-export default firebase;
+export default firebaseConfig;
