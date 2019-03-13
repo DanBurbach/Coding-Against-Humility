@@ -4,8 +4,9 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { v4 } from 'uuid';
 import '../../assets/styles/NewGameForm.css';
-import { bindActionCreators } from 'redux';
-import * as TodoActionCreators from "../../actions/index";
+import * as addNewGame from "../../actions/index";
+import constants from '../../constants/ActionTypes';
+const { types } = constants;
 
 let _name = null;
 let _gamelength = null;
@@ -30,13 +31,9 @@ class NewGameForm extends React.Component {
       gamelength: _gamelength.value,
       players: _players.value
     };
-    dispatch(newGame);
-    this.boundActionCreators = bindActionCreators(TodoActionCreators, dispatch);
-    console.log(this.boundActionCreators);
-    console.log(newGame.name);
-    console.log(newGame.gamelength);
-    console.log(newGame.players);
+    dispatch(newGame(_name.value, _gamelength.value, _players.value));
   }
+
 
   render() {
     return (
@@ -51,12 +48,7 @@ class NewGameForm extends React.Component {
                   </h2>
                   <div>
                     <p>
-                      <input
-                        type="text"
-                        ref={input => {
-                          _name = input;
-                        }}
-                      />
+                      <input type="text" ref={input => {_name = input;}}/>
                     </p>
                   </div>
                   <br />
@@ -76,8 +68,7 @@ class NewGameForm extends React.Component {
                       value={this.state.value}
                       ref={input => {
                         _players = input;
-                      }}
-                    />
+                      }}/>
                   </p>
 
                   <h2>
@@ -93,29 +84,11 @@ class NewGameForm extends React.Component {
                       value={this.state.value}
                       ref={input => {
                         _gamelength = input;
-                      }}
-                    />
+                      }}/>
                   </p>
+
                   <p>
-                    <button type="submit">
-                      
-                        Submit
-                      
-                    </button>{" "}
-                    |{" "}
-                    <button
-                      type="reset"
-                      id="newgamebutton"
-                      styles="transparent"
-                    >
-                      Reset
-                    </button>{" "}
-                    |{" "}
-                    <button>
-                      <Link to="/" id="newgamebutton">
-                        Back
-                      </Link>
-                    </button>
+                    <button type="submit"><Link to="/Game">Submit</Link></button>  |  <button type="reset" id="newgamebutton" styles="transparent">Reset</button>  |  <button><Link to="/" id="newgamebutton">Back</Link></button>
                   </p>
                 </form>
               </div>
