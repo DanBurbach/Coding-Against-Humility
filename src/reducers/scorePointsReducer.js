@@ -1,7 +1,7 @@
 import constants from './../constants';
 const { types } = constants;
 
-function scorePointsReducer (state = {}, action) {
+const scorePointsReducer = (state = {}, action) => {
 
   switch (action.type) {
 
@@ -9,12 +9,12 @@ function scorePointsReducer (state = {}, action) {
     const { point } = action;
     let newPointScoreValue = state.pointScoreValue + 1;
     newState = {
-      gameScoreValue: state.gameScoreValue
+      point: state.gameScoreValue
     };
     return newState;
   default:
     return state;
   }
-}
+};
 
 export default scorePointsReducer;

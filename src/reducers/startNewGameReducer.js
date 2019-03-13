@@ -1,13 +1,13 @@
 import constants from './../constants';
 const { types } = constants;
 
-function startNewGameReducer (state = {}, action) {
+const startNewGameReducer = (state = {}, action) => {
 
   switch (action.type) {
 
   case types.ADD_NEWGAME:
     const { name, gamelength, players, id } = action;
-    let newPlayer = Object.assign({}, state, {
+    let newGame = Object.assign({}, state, {
       [id]: {
         name: name,
         gamelength: gamelength,
@@ -15,14 +15,14 @@ function startNewGameReducer (state = {}, action) {
         id: id
       }
     });
-    return newPlayer;
+    return newGame;
 
   case types.RESTART_GAME:
-    return newPlayer;
+    return newGame;
 
   default:
     return state;
   }
-}
+};
 
 export default startNewGameReducer;
