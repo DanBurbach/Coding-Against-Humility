@@ -1,61 +1,66 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import '../../assets/styles/cardhand/cardhand.css';
 
-function WhiteCardDisplay(){
+function WhiteCardDisplay(props){
   return (
     <div className="cards">
       <div className="card">
         <div className="card-face">
-          <div className="card-label">1</div>
+          <div className="card-label">{props.textbyID}</div>
         </div>
       </div>
       <div className="card">
         <div className="card-face">
-          <div className="card-label">2</div>
+          <div className="card-label"></div>
         </div>
       </div>
       <div className="card">
         <div className="card-face">
-          <div className="card-label">3</div>
+          <div className="card-label"></div>
         </div>
       </div>
       <div className="card">
         <div className="card-face">
-          <div className="card-label">4</div>
+          <div className="card-label"></div>
         </div>
       </div>
       <div className="card">
         <div className="card-face">
-          <div className="card-label">5</div>
+          <div className="card-label"></div>
         </div>
       </div>
       <div className="card">
         <div className="card-face">
-          <div className="card-label">6</div>
+          <div className="card-label"></div>
         </div>
       </div>
       <div className="card">
         <div className="card-face">
-          <div className="card-label">7</div>
+          <div className="card-label"></div>
         </div>
       </div>
       <div className="card">
         <div className="card-face">
-          <div className="card-label">8</div>
+          <div className="card-label"></div>
         </div>
       </div>
       <div className="card">
         <div className="card-face">
-          <div className="card-label">9</div>
+          <div className="card-label"></div>
         </div>
       </div>
       <div className="card">
         <div className="card-face">
-          <div className="card-label">10</div>
+          <div className="card-label"></div>
         </div>
       </div>
     </div>
   );
 }
+
+WhiteCardDisplay.propTypes = {
+  text: PropTypes.string
+};
 
 export default WhiteCardDisplay;
