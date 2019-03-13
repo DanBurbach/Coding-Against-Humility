@@ -6,13 +6,8 @@ export default (state = {}, action) => {
   switch (action.type) {
 
   case c.USER_NAME:
-    const { name, id } = action;
-    let userName = Object.assign({}, state, {
-      [id]: {
-        name: name,
-        id: id
-      }
-    });
+    let userName = Object.assign({}, state);
+    userName[action.name.id] = action.name
     return userName;
   default:
     return state;
