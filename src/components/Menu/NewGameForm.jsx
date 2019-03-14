@@ -6,6 +6,7 @@ import { v4 } from 'uuid';
 import '../../assets/styles/NewGameForm.css';
 import constants from '../../constants';
 const { c } = constants;
+import { newGame } from '../../actions'
 
 let _name = null;
 let _gamelength = null;
@@ -23,14 +24,7 @@ class NewGameForm extends React.Component {
   handleNewGameSubmission(event) {
     const { dispatch } = this.props;
     event.preventDefault();
-    const newGame = {
-      type: 'ADD_NEWGAME',
-      id: v4(),
-      name: _name.value,
-      gamelength: _gamelength.value,
-      players: _players.value
-    };
-    dispatch(newGame);
+    dispatch(newGame(_name.value, _gamelength.value, _players.value));
   }
 
 
@@ -87,7 +81,7 @@ class NewGameForm extends React.Component {
                   </p>
 
                   <p>
-                    <button type="submit"><Link to="/game">Submit</Link></button>  |  <button type="reset" id="newgamebutton" styles="transparent">Reset</button>  |  <button><Link to="/" id="newgamebutton">Back</Link></button>
+                    <button type="submit">Submit</button>  |  <button type="reset" id="newgamebutton" styles="transparent">Reset</button>  |  <button><Link to="/" id="newgamebutton">Back</Link></button>
                   </p>
                 </form>
               </div>
