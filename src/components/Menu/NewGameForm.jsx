@@ -82,7 +82,7 @@ class NewGameForm extends React.Component {
                   </p>
 
                   <p>
-                    <div><button type="submit" id="newgamebutton" onClick={(e)=>{}}>Submit</button></div>  |  <button type="reset" id="newgamebutton" styles="transparent">Reset</button>  |  <button><Link to="/" id="newgamebutton">Back</Link></button>
+                    <button type="submit" id="newgamebutton" onClick={(e)=>{}}>Submit</button>  |  <button type="reset" id="newgamebutton" styles="transparent">Reset</button>  |  <button><Link to="/" id="newgamebutton">Back</Link></button>
                   </p>
                 </form>
               </div>
