@@ -6,10 +6,6 @@ export const addNewGame = (name, gamelength, players ) => ({
   players
 });
 
-export const userName = (name) => ({
-  type: c.USER_NAME,
-  name
-});
 
 export const gameLength = (gamelength) => ({
   type: c.GAME_LENGTH,

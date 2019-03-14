@@ -2,10 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { v4 } from 'uuid';
 import '../../assets/styles/NewGameForm.css';
-import constants from '../../constants';
-const { c } = constants;
 import { newGame } from '../../actions';
 import { Redirect } from 'react-router-dom';
 
