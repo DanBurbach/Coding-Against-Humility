@@ -6,7 +6,8 @@ import { v4 } from 'uuid';
 import '../../assets/styles/NewGameForm.css';
 import constants from '../../constants';
 const { c } = constants;
-import { newGame } from '../../actions'
+import { newGame } from '../../actions';
+import { Redirect } from 'react-router-dom';
 
 let _name = null;
 let _gamelength = null;
@@ -25,6 +26,9 @@ class NewGameForm extends React.Component {
     const { dispatch } = this.props;
     event.preventDefault();
     dispatch(newGame(_name.value, _gamelength.value, _players.value));
+    return(
+      <Redirect to='/game'/>
+    )
   }
 
 
@@ -81,7 +85,7 @@ class NewGameForm extends React.Component {
                   </p>
 
                   <p>
-                    <button type="submit">Submit</button>  |  <button type="reset" id="newgamebutton" styles="transparent">Reset</button>  |  <button><Link to="/" id="newgamebutton">Back</Link></button>
+                    <button type="submit" id="newgamebutton">Submit</button>  |  <button type="reset" id="newgamebutton" styles="transparent">Reset</button>  |  <button><Link to="/" id="newgamebutton">Back</Link></button>
                   </p>
                 </form>
               </div>
