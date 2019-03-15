@@ -4,6 +4,9 @@
 
 Epicodus Final Capstone Project
 
+## THIS IS STILL A WORK IN PROGRESS
+While not fully functional, this will be worked on until completed.
+
 ## __Description__
 
 ```
@@ -42,8 +45,6 @@ Scale down gameplay to be able to run on cell phones
 
 Have UI and UX styles to appear to show actual cards and not just grids with text….styling styling styling.
 
-Selectable number of players 2-6 players
-
 Have the ability to log in and record your win and losses
 
 For much further down the line, have the ability to locate local players via GPS or Bluetooth to be
@@ -71,18 +72,15 @@ Knowledge of cellphone GPS and Bluetooth login and local device routing/connecti
   ![Gameplay Tree](https://github.com/DanBurbach/Coding-Against-Humility/blob/master/src/assets/images/CodingAgainstHumilityGamePlay.jpg?raw=true)
 
   ![Component Tree](https://github.com/DanBurbach/Coding-Against-Humility/blob/master/src/assets/images/CodingAgainstHumilityComponents.jpg?raw=true)
+  *Currently work under progress. Changes will be made to above tree until final product is finished. Until then, this is the current build basic idea.
 
 ## __Future Development__
 
-  * Notes here will be for the following working day/period.
+  * Google Authentication via Firebase
+
+  * Game number given to allow others to join
 
   * Side-flip: https://3dtransforms.desandro.com/card-flip
-
-  * Parallax Card: https://codepen.io/Moslim/pen/zdPrVp
-
-  * Stackoverflow Q about loading json data from local file into react JS: https://stackoverflow.com/questions/31758081/loading-json-data-from-local-file-into-react-js
-
-https://stackoverflow.com/questions/51727508/pass-form-input-values-to-another-component-react
 
 ## __Setup/Installation Requirements__
 
@@ -92,6 +90,18 @@ https://stackoverflow.com/questions/51727508/pass-form-input-values-to-another-c
 
   * Run npm install
 
+  * To run this you must first create a Firebase account. Create a firebaseConfig.js file stored in in the root directory, and add your account credentials like this:
+  ```
+  const firebaseConfig = {
+      apiKey: 'xxxxxx',
+      authDomain: 'xxxxxx.firebaseapp.com',
+      databaseURL: 'https://xxxxxx.firebaseio.com',
+      projectId: 'xxxxxx',
+      storageBucket: '',
+      messagingSenderId: 'xxxxxx',
+    };
+  export default firebaseConfig;
+  ```
   * npm run start
 
   * Open a browser: http://localhost:8080/
@@ -111,20 +121,11 @@ https://stackoverflow.com/questions/51727508/pass-form-input-values-to-another-c
   [Codepen](https://codepen.io/)
   UI and CSS ideas
 
-  [Hearthstone Style Card Hover](https://codepen.io/jackrugile/pen/WZGeGM)
-  UI card hand effect (transformed over to HTML and CSS from Haml and SCSS)
-
   [React-Flippy](https://reactjsexample.com/flipping-cards-for-your-react-projects/)
   UI effects and ease of flipping card
 
   [npm history](https://www.npmjs.com/package/history)
   npm JS library for managing session history
-
-  [react-pure-grid](https://www.npmjs.com/package/react-pure-grid)
-  UI layout
-
-  [formspree.io](https://formspree.io/)
-  email contact form
 
 
 ### __Version__
