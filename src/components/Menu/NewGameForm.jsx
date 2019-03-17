@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import '../../assets/styles/NewGameForm.css';
 import { newGame } from '../../actions';
-import { Redirect } from 'react-router-dom';
 
 let _name = null;
 let _gamelength = null;
@@ -23,42 +22,40 @@ class NewGameForm extends React.Component {
     const { dispatch } = this.props;
     event.preventDefault();
     dispatch(newGame(_name.value, _gamelength.value, _players.value));
-    return(
-      <Redirect to='/game'/>
-    )
+    this.props.history.push('/game'); 
   }
 
 
   render() {
     return (
-      <div className="wrapper fade-in">
-        <div id="newgame">
-          <div className="newgame">
-            <div className="newgamestyles">
-              <div className="container">
+      <div className='wrapper fade-in'>
+        <div id='newgame'>
+          <div className='newgame'>
+            <div className='newgamestyles'>
+              <div className='container'>
                 <form onSubmit={this.handleNewGameSubmission}>
                   <h2>
-                    <label htmlFor="nameValue">Your Name:</label>
+                    <label htmlFor='nameValue'>Your Name:</label>
                   </h2>
                   <div>
                     <p>
-                      <input type="text" ref={input => {_name = input;}}/>
+                      <input type='text' ref={input => {_name = input;}}/>
                     </p>
                   </div>
                   <br />
 
                   <h2>
-                    <label htmlFor="playersValue">
+                    <label htmlFor='playersValue'>
                       Number of players (between 3 and 8):
                     </label>
                   </h2>
                   <p>
                     <input
-                      type="range"
-                      name="_players"
-                      min="3"
-                      max="8"
-                      step="1"
+                      type='range'
+                      name='_players'
+                      min='3'
+                      max='8'
+                      step='1'
                       value={this.state.value}
                       ref={input => {
                         _players = input;
@@ -66,15 +63,15 @@ class NewGameForm extends React.Component {
                   </p>
 
                   <h2>
-                    <label htmlFor="gameValue">Game length:</label>
+                    <label htmlFor='gameValue'>Game length:</label>
                   </h2>
                   <p>
                     <input
-                      type="range"
-                      name="_gamelength"
-                      min="6"
-                      max="10"
-                      step="2"
+                      type='range'
+                      name='_gamelength'
+                      min='6'
+                      max='10'
+                      step='2'
                       value={this.state.value}
                       ref={input => {
                         _gamelength = input;
@@ -82,7 +79,7 @@ class NewGameForm extends React.Component {
                   </p>
 
                   <p>
-                    <button type="submit" id="newgamebutton" onClick={(e)=>{}}>Submit</button>  |  <button type="reset" id="newgamebutton" styles="transparent">Reset</button>  |  <button><Link to="/" id="newgamebutton">Back</Link></button>
+                    <button type='submit' id='newgamebutton'>Submit</button>  |  <button type='reset' id='newgamebutton' styles='transparent'>Reset</button>  |  <button><Link to='/' id='newgamebutton'>Back</Link></button>
                   </p>
                 </form>
               </div>
@@ -98,4 +95,4 @@ NewGameForm.propTypes = {
   dispatch: PropTypes.func
 };
 
-export default connect()(NewGameForm);
+export default withRouter(connect()(NewGameForm));

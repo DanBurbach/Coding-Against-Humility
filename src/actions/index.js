@@ -1,5 +1,5 @@
 import constants from './../constants';
-import v4 from 'uuid/v4';
+// import v4 from 'uuid/v4';
 const { firebaseConfig } = constants;
 import Firebase from 'firebase';
 const { c } = constants;
