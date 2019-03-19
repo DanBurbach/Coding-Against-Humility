@@ -1,8 +1,7 @@
 import constants from './../constants';
 // import v4 from 'uuid/v4';
-const { firebaseConfig } = constants;
+const { firebaseConfig, c } = constants;
 import Firebase from 'firebase';
-const { c } = constants;
 
 firebase.initializeApp(firebaseConfig);
 const gameInfo = firebase.database().ref('gameInfo');
