@@ -4,30 +4,30 @@ const { c } = constants;
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-function NameValue (props) {
-
-  function userName(gameInfo) {
-    const { dispatch } = props;
-    const action = {
-      type: c.USER_NAME,
-      gameInfo: gameInfo
+class NameValue extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: true,
+      modules: null
     };
-    dispatch(action);
+    this.userNameInformation = this.userNameInformation.bind(this);
   }
 
-  const userNameInformation =
-  <div onLoad={() => {
-    userName(props.gameInfo);
-  }}>
-    {props.name}
-  </div>
 
-  return (
-    <div>
-      {userNameInformation}
-    </div>
-  )
-};
+  userNameInformation() {
+
+  };
+     
+  render () {
+    return (
+      <div>
+        {this.state.name && userNameInformation()}
+      </div>
+      )
+    };
+  
+}
 
 NameValue.propTypes = {
   name: PropTypes.string
