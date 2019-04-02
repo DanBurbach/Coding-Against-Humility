@@ -81,6 +81,9 @@ Knowledge of cellphone GPS and Bluetooth login and local device routing/connecti
   * Game number given to allow others to join
 
   * Side-flip: https://3dtransforms.desandro.com/card-flip
+  
+  * Click to flip: https://codepen.io/MrAndrewMcG/pen/dzmyeb
+  (to be used with the black cards, when the judge turn is loaded a new black card will be loaded)
 
 ## __Setup/Installation Requirements__
 
