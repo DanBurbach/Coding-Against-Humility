@@ -1,32 +1,42 @@
 import React from 'react';
+import { compose } from 'redux';
 import PropTypes from 'prop-types';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import '../../assets/styles/NewGameForm.css';
+import { firebaseConnect } from 'react-redux-firebase';
 import { newGame } from '../../actions';
-
-let _name = null;
-let _gamelength = null;
-let _players = null;
 
 class NewGameForm extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
+      userName:  '',
+      gameLength: '',
+      numberOfPlayers: '',
+      gameWins: ''
     };
     this.handleNewGameSubmission = this.handleNewGameSubmission.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   handleNewGameSubmission(event) {
-    const { dispatch } = this.props;
     event.preventDefault();
-    dispatch(newGame(_name.value, _gamelength.value, _players.value));
+    console.log(this.state);
+    this.props.dispatch(newGame(this.state));
     this.props.history.push('/game'); 
+  }
+
+  handleChange(event, target) {
+    console.log(this.state);
+    this.setState({ [target]: event });
+    console.log(this.state);
   }
 
 
   render() {
+    const { userName, gameLength, numberOfPlayers } = this.state
     return (
       <div className='wrapper fade-in'>
         <div id='newgame'>
@@ -39,7 +49,12 @@ class NewGameForm extends React.Component {
                   </h2>
                   <div>
                     <p>
-                      <input type='text' ref={input => {_name = input;}}/>
+                      <input type='text' 
+                      id='userName' 
+                      value={userName}
+                      onChange={event => {this.handleChange(event.target.value, event.target.id)
+                        }}
+                      />
                     </p>
                   </div>
                   <br />
@@ -52,14 +67,14 @@ class NewGameForm extends React.Component {
                   <p>
                     <input
                       type='range'
-                      name='_players'
+                      name='numberOfPlayers'
+                      id='numberOfPlayers'
                       min='3'
                       max='8'
                       step='1'
-                      value={this.state.value}
-                      ref={input => {
-                        _players = input;
-                      }}/>
+                      value={numberOfPlayers}
+                      onChange={event => {this.handleChange(event.target.value, event.target.id)}}
+                      />
                   </p>
 
                   <h2>
@@ -68,14 +83,15 @@ class NewGameForm extends React.Component {
                   <p>
                     <input
                       type='range'
-                      name='_gamelength'
+                      name='gameLength'
+                      id='gameLength'
                       min='6'
                       max='10'
                       step='2'
-                      value={this.state.value}
-                      ref={input => {
-                        _gamelength = input;
-                      }}/>
+                      value={gameLength}
+                      onChange={event => {this.handleChange(event.target.value, event.target.id)
+                      }}
+                      />
                   </p>
 
                   <p>
@@ -95,4 +111,7 @@ NewGameForm.propTypes = {
   dispatch: PropTypes.func
 };
 
-export default withRouter(connect()(NewGameForm));
+export default compose(
+  withRouter,
+  firebaseConnect(),
+  connect()(NewGameForm));

@@ -15,7 +15,7 @@ const Header = () => {
           <li><Link to='/headergameplay'>Gameplay</Link></li>
           <li><NameValue/></li>
           <li><GameInfo/></li>
-          <li></li>
+          <li>{this.props.name}</li>
         </ul>
       </nav>
     </div>
