@@ -1,20 +1,15 @@
-import constants from './../constants';
-// import v4 from 'uuid/v4';
-const { firebaseConfig, c } = constants;
-import Firebase from 'firebase';
+import * as ACTION_TYPES from "../constants/actionTypes";
 
-firebase.initializeApp(firebaseConfig);
-const gameInfo = firebase.database().ref('gameInfo');
-
-export function newGame(_name, _gamelength, _players) {
-  return () => gameInfo.push({
-    name: _name,
-    gamelength: _gamelength,
-    players: _players
+export const newGame = props => {
+  return (dispatch, getState, firebase) => firebase.database().ref('gameInfo').push({
+    userName: props.userName,
+    gameLength: props.gameLength,
+    numberOfPlayers: props.numberOfPlayers,
+    gameWins: props.gameWins
   });
 }
 
-export const userName = (name) => ({
-  type: c.USER_NAME,
-  name
+export const userName = (userName) => ({
+  type: ACTION_TYPES.USER_NAME,
+  userName
 });
