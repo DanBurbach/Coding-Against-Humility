@@ -7,8 +7,7 @@ import rootReducer from './reducers';
 import { Provider } from 'react-redux';
 import middlewareLogger from './middleware/middleware-logger';
 import thunkMiddleware from 'redux-thunk';
-import constants from './constants';
-const { c } = constants;
+
 
 const store = createStore(rootReducer, applyMiddleware(middlewareLogger, thunkMiddleware));
 export { store };
