@@ -1,26 +1,19 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { connect } from 'react-redux';
 
-class NameValue extends React.Component {
+class NameValue extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: ''
+      userName: this.props.userName
     };
   }
 
- currentUserName(){
-   firebase.database().ref('gameInfo/').once('value', function
-   (snapshot) {
-     console.log('looking for a username');
-   });
-  };
- 
-
   render() {
+    const {userName} = this.state
     return (
       <div>
-        {this.props.name}
+        {userName}
       </div>
     )
   };
