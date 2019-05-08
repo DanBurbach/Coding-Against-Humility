@@ -9,10 +9,10 @@ class NewGameForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      userName: "",
-      gameLength: "",
-      numberOfPlayers: "",
-      gameWins: ""
+      userName: '',
+      gameLength: '',
+      numberOfPlayers: '',
+      gameWins: ''
     };
     this.handleNewGameSubmission = this.handleNewGameSubmission.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -20,13 +20,11 @@ class NewGameForm extends React.Component {
 
   handleNewGameSubmission(event) {
     event.preventDefault();
-    console.log(this.state);
     this.props.dispatch(newGame(this.state));
     this.props.history.push("/game");
   }
 
   handleChange(event, target) {
-    console.log(this.state);
     this.setState({ [target]: event });
     console.log(this.state);
   }
@@ -132,8 +130,14 @@ NewGameForm.propTypes = {
   dispatch: PropTypes.func
 };
 
-const mapDispatchToProps = dispatch => ({
-  newGame: dispatch(newGame())
-});
+const mapStateToProps = (state) => ({
+      userName: state.userName,
+      gameLength: state.gameLength,
+      numberOfPlayers: state.numberOfPlayers,
+      gameWins: state.gameWins
+})
 
-export default withRouter(connect(mapDispatchToProps)(NewGameForm));
+
+export default withRouter(
+  connect(mapStateToProps)(NewGameForm)
+);
