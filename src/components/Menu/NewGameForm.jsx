@@ -5,81 +5,117 @@ import { connect } from 'react-redux';
 import '../../assets/styles/NewGameForm.css';
 import { newGame } from '../../actions';
 
-let _name = null;
-let _gamelength = null;
-let _players = null;
-
 class NewGameForm extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
+      userName: "",
+      gameLength: "",
+      numberOfPlayers: "",
+      gameWins: ""
     };
     this.handleNewGameSubmission = this.handleNewGameSubmission.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   handleNewGameSubmission(event) {
-    const { dispatch } = this.props;
     event.preventDefault();
-    dispatch(newGame(_name.value, _gamelength.value, _players.value));
-    this.props.history.push('/game'); 
+    console.log(this.state);
+    this.props.dispatch(newGame(this.state));
+    this.props.history.push("/game");
   }
 
+  handleChange(event, target) {
+    console.log(this.state);
+    this.setState({ [target]: event });
+    console.log(this.state);
+  }
 
   render() {
+    const { userName, gameLength, numberOfPlayers } = this.state;
     return (
-      <div className='wrapper fade-in'>
-        <div id='newgame'>
-          <div className='newgame'>
-            <div className='newgamestyles'>
-              <div className='container'>
+      <div className="wrapper fade-in">
+        <div id="newgame">
+          <div className="newgame">
+            <div className="newgamestyles">
+              <div className="container">
                 <form onSubmit={this.handleNewGameSubmission}>
                   <h2>
-                    <label htmlFor='nameValue'>Your Name:</label>
+                    <label htmlFor="nameValue">Your Name:</label>
                   </h2>
                   <div>
                     <p>
-                      <input type='text' ref={input => {_name = input;}}/>
+                      <input
+                        type="text"
+                        id="userName"
+                        value={userName}
+                        onChange={event => {
+                          this.handleChange(
+                            event.target.value,
+                            event.target.id
+                          );
+                        }}
+                      />
                     </p>
                   </div>
                   <br />
 
                   <h2>
-                    <label htmlFor='playersValue'>
+                    <label htmlFor="playersValue">
                       Number of players (between 3 and 8):
                     </label>
                   </h2>
                   <p>
                     <input
-                      type='range'
-                      name='_players'
-                      min='3'
-                      max='8'
-                      step='1'
-                      value={this.state.value}
-                      ref={input => {
-                        _players = input;
-                      }}/>
+                      type="range"
+                      name="numberOfPlayers"
+                      id="numberOfPlayers"
+                      min="3"
+                      max="8"
+                      step="1"
+                      value={numberOfPlayers}
+                      onChange={event => {
+                        this.handleChange(event.target.value, event.target.id);
+                      }}
+                    />
                   </p>
 
                   <h2>
-                    <label htmlFor='gameValue'>Game length:</label>
+                    <label htmlFor="gameValue">Game length:</label>
                   </h2>
                   <p>
                     <input
-                      type='range'
-                      name='_gamelength'
-                      min='6'
-                      max='10'
-                      step='2'
-                      value={this.state.value}
-                      ref={input => {
-                        _gamelength = input;
-                      }}/>
+                      type="range"
+                      name="gameLength"
+                      id="gameLength"
+                      min="6"
+                      max="10"
+                      step="2"
+                      value={gameLength}
+                      onChange={event => {
+                        this.handleChange(event.target.value, event.target.id);
+                      }}
+                    />
                   </p>
 
                   <p>
-                    <button type='submit' id='newgamebutton'>Submit</button>  |  <button type='reset' id='newgamebutton' styles='transparent'>Reset</button>  |  <button><Link to='/' id='newgamebutton'>Back</Link></button>
+                    <button type="submit" id="newgamebutton">
+                      Submit
+                    </button>{" "}
+                    |{" "}
+                    <button
+                      type="reset"
+                      id="newgamebutton"
+                      styles="transparent"
+                    >
+                      Reset
+                    </button>{" "}
+                    |{" "}
+                    <button>
+                      <Link to="/" id="newgamebutton">
+                        Back
+                      </Link>
+                    </button>
                   </p>
                 </form>
               </div>
@@ -91,8 +127,13 @@ class NewGameForm extends React.Component {
   }
 }
 
+
 NewGameForm.propTypes = {
   dispatch: PropTypes.func
 };
 
-export default withRouter(connect()(NewGameForm));
+const mapDispatchToProps = dispatch => ({
+  newGame: dispatch(newGame())
+});
+
+export default withRouter(connect(mapDispatchToProps)(NewGameForm));

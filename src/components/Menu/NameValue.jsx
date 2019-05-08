@@ -5,6 +5,7 @@ class NameValue extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      username: ''
     };
   }
 
@@ -19,7 +20,7 @@ class NameValue extends React.Component {
   render() {
     return (
       <div>
-        {this.currentUserName}
+        {this.props.name}
       </div>
     )
   };

@@ -1,7 +1,5 @@
 import React from 'react';
 import Board from './Board';
-import constants from './../constants';
-const { c } = constants;
 
 class Game extends React.Component {
 

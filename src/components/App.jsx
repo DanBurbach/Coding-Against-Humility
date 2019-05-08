@@ -10,8 +10,7 @@ import Error404 from './Error404';
 import { Switch, Route, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import constants from './../constants';
-const { c } = constants;
+
 
 import '../assets/styles/Header.css';
 
