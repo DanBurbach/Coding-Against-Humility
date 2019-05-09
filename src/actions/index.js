@@ -1,8 +1,8 @@
 import * as ACTION_TYPES from '../constants/actionTypes';
-import database from '../Firebase';
+import firebase from '../Firebase';
 
 export const newGame = props => {
-  return () => database.ref('gameInfo').push({
+  return () => firebase.database().ref('gameInfo').push({
     userName: props.userName,
     gameLength: props.gameLength,
     numberOfPlayers: props.numberOfPlayers,

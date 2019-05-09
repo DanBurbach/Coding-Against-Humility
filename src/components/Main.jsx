@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from "react-redux";
+import { firebaseConnect } from "react-redux-firebase";
 import '../assets/styles/MainStyles.css';
 
 function Main() {
@@ -21,4 +23,8 @@ function Main() {
   );
 }
 
-export default Main;
+const enhance = connect(({ firebase: { profile } }) => ({
+  profile
+}));
+
+export default firebaseConnect()(enhance(Main));

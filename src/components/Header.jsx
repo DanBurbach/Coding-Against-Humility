@@ -15,7 +15,6 @@ const Header = () => {
           <li><Link to='/headergameplay'>Gameplay</Link></li>
           <li><NameValue/></li>
           <li><GameInfo/></li>
-          <li></li>
         </ul>
       </nav>
     </div>

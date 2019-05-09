@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { compose } from 'redux'
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { firebaseConnect } from "react-redux-firebase";
+
 import '../../assets/styles/NewGameForm.css';
 import { newGame } from '../../actions';
 
@@ -138,6 +141,19 @@ const mapStateToProps = (state) => ({
 })
 
 
-export default withRouter(
-  connect(mapStateToProps)(NewGameForm)
+// export default withRouter(
+//   connect(mapStateToProps)(NewGameForm)
+// );
+//  //  //  //  //  //  //  //
+
+const enhance = compose(
+  withRouter(),
+  firebaseConnect(),
+  connect(({ firebase: { profile } }) => ({
+  profile
+    }),
+    mapStateToProps
+  )
 );
+
+export default enhance(NewGameForm);

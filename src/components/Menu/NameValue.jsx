@@ -1,22 +1,24 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { firebaseConnect } from "react-redux-firebase";
 
 class NameValue extends Component {
-  constructor(props) {
+  constructor(props, context) {
     super(props);
     this.state = {
-      userName: this.props.userName
+      userName: ''
     };
   }
 
   render() {
-    const {userName} = this.state
     return (
-      <div>
-        {userName}
-      </div>
+    <div>{this.state.gameInfo.userName}</div>
     )
-  };
+  }
 }
 
-export default connect()(NameValue);
+const enhance = connect(({ firebase: { profile } }) => ({
+  profile
+}));
+
+export default firebaseConnect()(enhance(NameValue));

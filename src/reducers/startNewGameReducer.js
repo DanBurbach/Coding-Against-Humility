@@ -1,6 +1,6 @@
 import * as ACTION_TYPES from '../constants/actionTypes';
 
-export default (state = {}, action) => {
+export const startNewGameView = (state = {}, action) => {
 let newGame;
 const { name, gamelength, players, id } = action;
 
@@ -23,3 +23,5 @@ const { name, gamelength, players, id } = action;
     return state;
   }
 };
+
+export default startNewGameView;

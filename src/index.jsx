@@ -1,25 +1,62 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App';
+
 import { HashRouter } from 'react-router-dom';
-import { createStore, applyMiddleware } from 'redux';
-import rootReducer from './reducers';
+import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
 import { Provider } from 'react-redux';
-import middlewareLogger from './middleware/middleware-logger';
-import thunkMiddleware from 'redux-thunk';
+import {
+  reactReduxFirebase,
+  ReactReduxFirebaseProvider,
+  firebaseReducer,
+  getFirebase
+} from 'react-redux-firebase';
+import thunk from 'redux-thunk';
+
+import firebase from './Firebase';
+// import gameReducers from '../reducers';
 
 
-const store = createStore(rootReducer, applyMiddleware(middlewareLogger, thunkMiddleware));
+import { default as App } from './components/App';
+
+// const rrfConfig = {
+//   userProfile: 'gameInfo'
+// };
+
+const rootReducer = combineReducers({
+  firebase: firebaseReducer
+  // startNewGameView: gameReducers.startNewGameView
+});
+
+const config = {
+  userProfile: 'gameInfo' // firebase root where user profiles are stored
+  // enableLogging: false // enable/disable Firebase's database logging
+};
+
+const store = createStore(
+  rootReducer,
+  compose(
+    applyMiddleware(thunk.withExtraArgument({ getFirebase })),
+    reactReduxFirebase(firebase, config)
+  )
+);
 export { store };
+
+// const rrfProps = {
+//   firebase,
+//   config: rrfConfig,
+//   dispatch: store.dispatch
+// };
 
 const render = (Component) => {
   ReactDOM.render(
     <HashRouter>
       <Provider store={store}>
-        <Component/>
+        {/* <ReactReduxFirebaseProvider {...rrfProps}> */}
+          <Component />
+        {/* </ReactReduxFirebaseProvider> */}
       </Provider>
     </HashRouter>,
-    document.getElementById('react-app-root')
+  document.getElementById('react-app-root')
   );
 };
 
