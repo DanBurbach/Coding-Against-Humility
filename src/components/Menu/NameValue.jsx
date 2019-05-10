@@ -6,14 +6,17 @@ class NameValue extends Component {
   constructor(props, context) {
     super(props);
     this.state = {
-      userName: ''
     };
   }
 
   render() {
     return (
-    <div>{this.state.gameInfo.userName}</div>
-    )
+      <div>
+        <br />
+        Your name is:{this.props.profile.userName}
+        <br />
+      </div>
+    );
   }
 }
 

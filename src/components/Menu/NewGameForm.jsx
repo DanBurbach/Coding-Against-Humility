@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { compose } from 'redux';
 import PropTypes from 'prop-types';
-import { compose } from 'redux'
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { firebaseConnect } from "react-redux-firebase";
@@ -8,7 +8,7 @@ import { firebaseConnect } from "react-redux-firebase";
 import '../../assets/styles/NewGameForm.css';
 import { newGame } from '../../actions';
 
-class NewGameForm extends React.Component {
+class NewGameForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -128,32 +128,33 @@ class NewGameForm extends React.Component {
   }
 }
 
+const mapStateToProps = state => ({
+  userName: state.userName,
+  gameLength: state.gameLength,
+  numberOfPlayers: state.numberOfPlayers,
+  gameWins: state.gameWins
+});
 
-NewGameForm.propTypes = {
-  dispatch: PropTypes.func
-};
+// const enhance = connect(({ firebase: { profile } }) => ({
+//   profile
+// }));
 
-const mapStateToProps = (state) => ({
-      userName: state.userName,
-      gameLength: state.gameLength,
-      numberOfPlayers: state.numberOfPlayers,
-      gameWins: state.gameWins
-})
+const enhance = compose(
+  withRouter,
+  firebaseConnect(),
+  connect(mapStateToProps),
+  connect(({ firebase: { profile } }) => ({
+    profile
+  }))
+);
 
+export default enhance(NewGameForm);
+
+// NewGameForm.propTypes = {
+//   dispatch: PropTypes.func
+// };
 
 // export default withRouter(
 //   connect(mapStateToProps)(NewGameForm)
 // );
-//  //  //  //  //  //  //  //
 
-const enhance = compose(
-  withRouter(),
-  firebaseConnect(),
-  connect(({ firebase: { profile } }) => ({
-  profile
-    }),
-    mapStateToProps
-  )
-);
-
-export default enhance(NewGameForm);
