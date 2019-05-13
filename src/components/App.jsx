@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import Main from './Main';
-import SignUp from '../SignUp';
-import LogIn from '../LogIn';
-import PasswordForget from '../PasswordForget';
+import SignUp from './SignUp';
+import LogIn from './LogIn';
+import PasswordForget from './PasswordForget';
 import NewGameForm from './Menu/NewGameForm';
 import Info from './Menu/Info';
 import Fineprint from './Menu/Fineprint';
@@ -19,15 +19,11 @@ import '../assets/styles/Header.css';
 import { HashRouter } from 'react-router-dom';
 import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
 import { Provider } from 'react-redux';
-import {
-  reactReduxFirebase,
-  firebaseReducer,
-  getFirebase
-} from 'react-redux-firebase';
+import { reactReduxFirebase, firebaseReducer, getFirebase } from 'react-redux-firebase';
 import thunk from 'redux-thunk';
 
 
-import * as ROUTES from "../../constants/routes";
+import * as ROUTES from "./../constants/routes";
 import Firebase from '../Firebase';
 // import gameReducers from '../reducers';
 

@@ -1,5 +1,5 @@
 {
-  "name": "Coding-Against-Humility",
+  "name": "coding-against-humility",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -13,22 +13,24 @@
   "dependencies": {
     "@material-ui/core": "^3.9.2",
     "bootstrap": "^4.3.1",
-    "firebase": "^3.0.0",
+    "firebase": "^6.0.2",
     "history": "^4.7.2",
-    "prop-types": "^15.5.10",
-    "react": "16.3.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.4",
     "react-animated-css": "^1.0.4",
     "react-auth-firebase": "^1.2.1",
     "react-bootstrap": "^1.0.0-beta.5",
-    "react-dom": "16.3.0",
+    "react-dom": "^16.8.4",
     "react-pure-grid": "^2.1.1",
-    "react-redux": "^5.0.6",
+    "react-redux": "^6.0.1",
     "react-redux-firebase": "^2.2.6",
+    "react-router": "^4.3.1",
     "react-router-bootstrap": "^0.24.4",
     "react-router-dom": "^4.3.1",
     "react-toolbox": "^2.0.0-beta.13",
-    "redux": "^3.7.2",
-    "redux-thunk": "^2.2.0",
+    "recompose": "^0.30.0",
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0",
     "rxjs": "^6.4.0",
     "styled-jsx": "^3.2.1",
     "uuid": "^3.2.1"
@@ -52,5 +54,13 @@
     "webpack": "^3.4.0",
     "webpack-dev-server": "^2.5.0"
   },
-  "description": "A card game based off of Cards Against Humanity"
+  "description": "A card game based off of Cards Against Humanity",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DanBurbach/Coding-Against-Humility.git"
+  },
+  "bugs": {
+    "url": "https://github.com/DanBurbach/Coding-Against-Humility/issues"
+  },
+  "homepage": "https://github.com/DanBurbach/Coding-Against-Humility#readme"
 }
