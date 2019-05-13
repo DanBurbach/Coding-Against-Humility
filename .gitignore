@@ -1,5 +1,4 @@
 .DS_STORE
 node_modules
 build
-src/Firebase/index.js
 .env

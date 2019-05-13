@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import Main from './Main';
+import SignUp from '../SignUp';
+import LogIn from '../LogIn';
+import PasswordForget from '../PasswordForget';
 import NewGameForm from './Menu/NewGameForm';
 import Info from './Menu/Info';
 import Fineprint from './Menu/Fineprint';
@@ -23,7 +26,9 @@ import {
 } from 'react-redux-firebase';
 import thunk from 'redux-thunk';
 
-import firebase from '../Firebase';
+
+import * as ROUTES from "../../constants/routes";
+import Firebase from '../Firebase';
 // import gameReducers from '../reducers';
 
 const rrfConfig = {
@@ -44,7 +49,7 @@ const config = {
 
 // Add reactReduxFirebase enhancer when making store creator
 const createStoreWithFirebase = compose(
-  reactReduxFirebase(firebase, rrfConfig)
+  reactReduxFirebase(Firebase, rrfConfig)
 )(createStore);
 
 const store = createStoreWithFirebase(
@@ -60,18 +65,30 @@ export { store };
 class App extends Component {
   render() {
     return (
-      <div className='App'>
+      <div className="App">
         <HashRouter>
           <Provider store={store}>
             <Switch>
-              <Route exact path='/' render={() => <Main />} />
-              <Route path='/newgameform' render={() => <NewGameForm />} />
-              <Route path='/info' render={() => <Info />} />
-              <Route path='/fineprint' render={() => <Fineprint />} />
-              <Route path='/game' render={() => <Game />} />
-              <Route path='/header' render={() => <Header />} />
+              <Route exact path={ROUTES.HOME} render={() => <Main />} />
+              <Route exact path={ROUTES.SIGN_UP} render={() => <SignUp />} />
+              <Route exact path={ROUTES.LOG_IN} render={() => <LogIn />} />
+              <Route exact path={ROUTES.PASSWORD_FORGET} render={() => <PasswordForget />} />
               <Route
-                path='/headergameplay'
+                path={ROUTES.NEW_GAME_FORM}
+                render={() => <NewGameForm />}
+              />
+              <Route path={ROUTES.GAME_INFO} render={() => <Info />} />
+              <Route
+                path={ROUTES.GAME_FINEPRINT}
+                render={() => <Fineprint />}
+              />
+              <Route path={ROUTES.MAIN_GAME} render={() => <Game />} />
+              <Route
+                path={ROUTES.MAIN_GAME_HEADER}
+                render={() => <Header />}
+              />
+              <Route
+                path={ROUTES.MAIN_GAME_GAMEPLAY}
                 render={() => <HeaderGameplay />}
               />
               <Route component={Error404} />
