@@ -12,23 +12,22 @@ const SignUpPage = () => (
     </div>
 );
 
-const INITIAL_STATE = {
-    username: '',
-    email: '',
-    passwordOne: '',
-    passwordTwo: '',
-    error: null,
-};
-
 class SignUpFormBase extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            ...INITIAL_STATE
+            username: '',
+            email: '',
+            passwordOne: '',
+            passwordTwo: '',
+            error: null,
         };
+    this.handleSignUpFormSubmit = this.handleSignUpFormSubmit.bind(this);
+    this.handleSignUpUpdate = this.handleSignUpUpdate.bind(this);
+
     }
 
-    onSubmit = event => {
+    handleSignUpFormSubmit(event) {
         const { username, email, passwordOne } = this.state;
 
         this.props.firebase
@@ -44,7 +43,7 @@ class SignUpFormBase extends Component {
         event.preventDefault();
     };
 
-    onChange = event => {
+    handleSignUpUpdate(event) {
         this.setState({[event.target.name]:  event.target.value});
     };
 
@@ -58,15 +57,15 @@ class SignUpFormBase extends Component {
             username === '';
 
         return ( 
-            <form onSubmit = {this.onSubmit} >
+            <form onSubmit = {this.handleSignUpFormSubmit} >
                 <input name = "username" value = {username}
-                    onChange = {this.onChange} type = "text" placeholder = "Full Name" />
+                    onChange = {this.handleSignUpUpdate} type = "text" placeholder = "Full Name" />
                 <input name = "email" value = {email}
-                    onChange = {this.onChange} type = "text" placeholder = "Email Address" />
+                    onChange = {this.handleSignUpUpdate} type = "text" placeholder = "Email Address" />
                 <input name = "passwordOne" value = {passwordOne}
-                    onChange = {this.onChange} type = "password" placeholder = "Password" />
+                    onChange = {this.handleSignUpUpdate} type = "password" placeholder = "Password" />
                 <input name = "passwordTwo" value = {passwordTwo}
-                    onChange = {this.onChange} type = "password" placeholder = "Confirm Password" />
+                    onChange = {this.handleSignUpUpdate} type = "password" placeholder = "Confirm Password" />
                 <button disabled = {isInvalid} type = "submit" > Sign Up </button>
 
                 {error && <p> {error.message}</p>} 

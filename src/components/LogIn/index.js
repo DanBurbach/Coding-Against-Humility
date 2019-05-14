@@ -14,22 +14,20 @@ const SignInPage = () => (
   </div>
 );
 
-const INITIAL_STATE = {
-  email: '',
-  password: '',
-  error: null,
-};
-
 class SignInFormBase extends Component {
   constructor(props) {
     super(props);
-
-    this.state = { ...INITIAL_STATE };
+    this.state = {
+      email: '',
+      password: '',
+      error: null,
+    };
+    this.handleSignInFormSubmit = this.handleSignInFormSubmit.bind(this);
+    this.handleSignInUpdate = this.handleSignInUpdate.bind(this);
   }
 
-  onSubmit = event => {
+  handleSignInFormSubmit(event) {
     const { email, password } = this.state;
-
     this.props.firebase
       .doSignInWithEmailAndPassword(email, password)
       .then(() => {
@@ -39,11 +37,10 @@ class SignInFormBase extends Component {
       .catch(error => {
         this.setState({ error });
       });
-
     event.preventDefault();
   };
 
-  onChange = event => {
+  handleSignInUpdate(event) {
     this.setState({ [event.target.name]: event.target.value });
   };
 
@@ -53,18 +50,18 @@ class SignInFormBase extends Component {
     const isInvalid = password === '' || email === '';
 
     return (
-      <form onSubmit={this.onSubmit}>
+      <form onSubmit={this.handleSignInFormSubmit}>
         <input
           name="email"
           value={email}
-          onChange={this.onChange}
+          onChange = {this.handleSignInUpdate}
           type="text"
           placeholder="Email Address"
         />
         <input
           name="password"
           value={password}
-          onChange={this.onChange}
+          onChange={this.handleSignInUpdate}
           type="password"
           placeholder="Password"
         />

@@ -36,10 +36,10 @@ class NameValue extends Component {
   }
 }
 
-const enhance = connect(
-  ({ firebase: { profile } }) => ({
-    profile
-  })
-);
+const enhance = connect(({ firebase: { auth, profile } }) => ({
+  auth,
+  profile
+}));
+
 
 export default firebaseConnect()(enhance(NameValue));

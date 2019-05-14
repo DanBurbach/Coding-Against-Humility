@@ -130,7 +130,8 @@ class NewGameForm extends Component {
 
 const enhance = compose(
   withRouter,
-  connect(({ firebase: { profile } }) => ({
+  connect(({ firebase: { auth, profile } }) => ({
+    auth,
     profile
   }))
 );
