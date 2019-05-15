@@ -28,11 +28,11 @@ export const getNameFromFb = (ref) => {
   });
 };
 
-    firebase.database().ref().orderByKey().once('value')
-      .then((childSnapshot) => {
-        this.setState({
-          userName: childSnapshot.val('gameInfo/userName')
-        });
-        let name_val = childSnapshot.val().userName;
-        $("#name").append(name_val);
-      });
+    // firebase.database().ref().orderByKey().once('value')
+    //   .then((childSnapshot) => {
+    //     this.setState({
+    //       userName: childSnapshot.val('gameInfo/userName')
+    //     });
+    //     let name_val = childSnapshot.val().userName;
+    //     $("#name").append(name_val);
+    //   });
