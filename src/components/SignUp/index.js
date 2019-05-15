@@ -56,7 +56,7 @@ class SignUpFormBase extends Component {
             this.setState({
                 error
             });
-            });
+        });
 
         event.preventDefault();
     };

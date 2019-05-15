@@ -2,7 +2,8 @@
   "env": {
     "browser": true,
     "es6": true,
-    "amd": true
+    "amd": true,
+    "node": 1
   },
   "extends": [
     "eslint:recommended",
@@ -41,7 +42,7 @@
   "react/prop-types": 2,
   "react/require-render-return": 2,
   "linebreak-style": ["error", "unix"],
-  "quotes": ["error", "single"],
+  "quotes": [2, "single", {"avoidEscape": true}],
   "semi": ["error", "always"]
   }
 }

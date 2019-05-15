@@ -10,12 +10,14 @@ const PasswordForgetPage = () => (
         <PasswordForgetForm/>
     </div>);
 
-const INITIAL_STATE = { email: '', error: null,};
+const INITIAL_STATE = { 
+    email: '', 
+    error: null,
+};
 
 class PasswordForgetFormBase extends Component {
     constructor(props) {
         super(props);
-
         this.state = {
             ...INITIAL_STATE
         };
@@ -24,7 +26,9 @@ class PasswordForgetFormBase extends Component {
     onSubmit = event => {
         const { email } = this.state;
 
-        this.props.firebase.userPasswordReset(email).then(() => {
+        this.props.firebase.
+        userPasswordReset(email).
+        then(() => {
                 this.setState({...INITIAL_STATE});
             })
             .catch(error => {
@@ -40,9 +44,7 @@ class PasswordForgetFormBase extends Component {
 
     render() {
         const { email, error } = this.state;
-
         const isInvalid = email === '';
-
         return ( 
             <form onSubmit = {this.onSubmit}>
                 <input name = "email"
@@ -64,9 +66,7 @@ class PasswordForgetFormBase extends Component {
 
     const PasswordForgetLink = () => ( 
         <p>
-            <Link to = {ROUTES.PASSWORD_FORGET}>
-                 Forgot Password ? 
-            </Link> 
+            <Link to = {ROUTES.PASSWORD_FORGET}>Forgot Password ?</Link> 
         </p>
     );
 

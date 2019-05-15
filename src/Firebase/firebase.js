@@ -15,6 +15,8 @@ const firebaseConfig = {
 class Firebase {
     constructor() {
         app.initializeApp(firebaseConfig);
+        this.serverValue = app.database.ServerValue;
+        this.emailAuthProvider = app.auth.EmailAuthProvider;
 
         this.auth = app.auth();
         this.db = app.database();
@@ -31,6 +33,39 @@ class Firebase {
     userPasswordReset = email => this.auth.sendPasswordResetEmail(email);
 
     userPasswordUpdate = password => this.auth.currentUser.updatePassword(password);
+
+    doSendEmailVerification = () =>
+        this.auth.currentUser.sendEmailVerification({
+            url: process.env.REACT_APP_CONFIRMATION_EMAIL_REDIRECT,
+        });
+
+    onAuthUserListener = (next, fallback) =>
+        this.auth.onAuthStateChanged(authUser => {
+            if (authUser) {
+                this.user(authUser.uid)
+                    .once('value')
+                    .then(snapshot => {
+                        const dbUser = snapshot.val();
+
+                        if (!dbUser.roles) {
+                            dbUser.roles = [];
+                        }
+
+                        authUser = {
+                            uid: authUser.uid,
+                            email: authUser.email,
+                            emailVerified: authUser.emailVerified,
+                            providerData: authUser.providerData,
+                            ...dbUser
+                        };
+
+                        next(authUser);
+                    });
+            } else {
+                fallback();
+            }
+        });
+
 
     user = uid => this.db.ref(`users/${uid}`);
 
