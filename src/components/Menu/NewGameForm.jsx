@@ -6,6 +6,7 @@ import { firebaseConnect } from 'react-redux-firebase';
 
 import '../../assets/styles/NewGameForm.css';
 import { newGame } from '../../actions';
+import * as ROUTES from "../../constants/routes";
 
 class NewGameForm extends Component {
   constructor(props) {
@@ -35,20 +36,20 @@ class NewGameForm extends Component {
   render() {
     const { userName, gameLength, numberOfPlayers } = this.state;
     return (
-      <div className='wrapper fade-in'>
-        <div id='newgame'>
-          <div className='newgame'>
-            <div className='newgamestyles'>
-              <div className='container'>
+      <div className="wrapper fade-in">
+        <div id="newgame">
+          <div className="newgame">
+            <div className="newgamestyles">
+              <div className="container">
                 <form onSubmit={this.handleNewGameSubmission}>
                   <h2>
-                    <label htmlFor='nameValue'>Your Name:</label>
+                    <label htmlFor="nameValue">Your Name:</label>
                   </h2>
                   <div>
                     <p>
                       <input
-                        type='text'
-                        id='userName'
+                        type="text"
+                        id="userName"
                         value={userName}
                         onChange={event => {
                           this.handleChange(
@@ -62,58 +63,64 @@ class NewGameForm extends Component {
                   <br />
 
                   <h2>
-                    <label htmlFor='playersValue'>
+                    <label htmlFor="playersValue">
                       Number of players (between 3 and 8):
                     </label>
                   </h2>
                   <p>
                     <input
-                      type='range'
-                      name='numberOfPlayers'
-                      id='numberOfPlayers'
-                      min='3'
-                      max='8'
-                      step='1'
+                      type="range"
+                      name="numberOfPlayers"
+                      id="numberOfPlayers"
+                      min="3"
+                      max="8"
+                      step="1"
                       value={numberOfPlayers}
                       onChange={event => {
-                        this.handleChange(event.target.value, event.target.id);
+                        this.handleChange(
+                          event.target.value,
+                          event.target.id
+                        );
                       }}
                     />
                   </p>
 
                   <h2>
-                    <label htmlFor='gameValue'>Game length:</label>
+                    <label htmlFor="gameValue">Game length:</label>
                   </h2>
                   <p>
                     <input
-                      type='range'
-                      name='gameLength'
-                      id='gameLength'
-                      min='6'
-                      max='10'
-                      step='2'
+                      type="range"
+                      name="gameLength"
+                      id="gameLength"
+                      min="6"
+                      max="10"
+                      step="2"
                       value={gameLength}
                       onChange={event => {
-                        this.handleChange(event.target.value, event.target.id);
+                        this.handleChange(
+                          event.target.value,
+                          event.target.id
+                        );
                       }}
                     />
                   </p>
 
                   <p>
-                    <button type='submit' id='newgamebutton'>
+                    <button type="submit" id="newgamebutton">
                       Submit
-                    </button>{' '}
-                    |{' '}
+                    </button>
+                    |
                     <button
-                      type='reset'
-                      id='newgamebutton'
-                      styles='transparent'
+                      type="reset"
+                      id="newgamebutton"
+                      styles="transparent"
                     >
                       Reset
-                    </button>{' '}
-                    |{' '}
+                    </button>
+                    |
                     <button>
-                      <Link to='/' id='newgamebutton'>
+                      <Link to={ROUTES.HOME} id="newgamebutton">
                         Back
                       </Link>
                     </button>
