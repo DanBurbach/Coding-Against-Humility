@@ -3,14 +3,8 @@ import ReactDOM from 'react-dom';
 import App from './components/App';
 
 
-const render = (Component) => {
-  ReactDOM.render(
-    <Component />,
-    document.getElementById('react-app-root')
-  );
-};
-
-render(App);
+ReactDOM.render(<App />,
+    document.getElementById('react-app-root'));
 
 /*eslint-disable */
 if (module.hot) {

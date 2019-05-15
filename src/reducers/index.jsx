@@ -6,6 +6,8 @@ import gameLengthReducer from './gameLengthReducer';
 import numberOfPlayersReducer from './numberOfPlayersReducer';
 import userNameReducer from './userNameReducer';
 import { combineReducers } from 'redux';
+import sessionReducer from "./sessions";
+import userReducer from "./user";
 
 const gameReducers = combineReducers({
   dealBlackCards: dealBlackCardsReducer,
@@ -14,7 +16,9 @@ const gameReducers = combineReducers({
   startNewGameView,
   gameLength: gameLengthReducer,
   numberOfPlayers: numberOfPlayersReducer,
-  userName: userNameReducer
+  userName: userNameReducer,
+  sessionState: sessionReducer,
+  userState: userReducer,
 });
 
 export default gameReducers;

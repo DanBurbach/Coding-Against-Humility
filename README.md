@@ -127,8 +127,6 @@ Knowledge of cellphone GPS and Bluetooth login and local device routing/connecti
   [React-Flippy](https://reactjsexample.com/flipping-cards-for-your-react-projects/)
   UI effects and ease of flipping card
 
-  [npm history](https://www.npmjs.com/package/history)
-  npm JS library for managing session history
 
 
 ### __Version__
