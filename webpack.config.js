@@ -4,7 +4,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
 
+  // mode: 'development',
+
   entry: [
+    'babel-polyfill',
     'react-hot-loader/patch',
     'webpack-dev-server/client?http://localhost:8080',
     'webpack/hot/only-dev-server',
@@ -21,8 +24,6 @@ module.exports = {
     extensions: ['.js', '.jsx']
   },
 
-  devtool: '#source-map',
-
   devServer: {
     hot: true,
     contentBase: resolve(__dirname, 'build'),
@@ -30,51 +31,49 @@ module.exports = {
   },
 
   module: {
-  rules: [
-    {
-      test: /\.jsx?$/,
-      enforce: "pre",
-      loader: "eslint-loader",
-      exclude: /node_modules/,
-      options: {
-        emitWarning: true,
-        configFile: "./.eslintrc.json"
-      }
-    },
-    {
-      test: /\.jsx?$/,
-      loader: "babel-loader",
-      exclude: /node_modules/,
-      options: {
-        presets: [
-          ["es2015", {"modules": false}],
-          "react",
-        ],
-        plugins: [
-          "react-hot-loader/babel",
-          "styled-jsx/babel"
-        ]
-      }
-    },
-    {
-      test: /\.(png|gif|jp(e*)g|svg)$/,
-      use: {
-        loader: 'url-loader',
+    rules: [{
+        test: /\.jsx?$/,
+        loader: "eslint-loader",
+        exclude: /node_modules/,
         options: {
-          limit: 8000,
-          name: 'images/[hash]-[name].[ext]'
+          emitWarning: true,
+          configFile: "./.eslintrc.json"
         }
-      }
-    },
-    {
-      test: /\.css$/,
-      use: [
-        'style-loader',
-        'css-loader'
-      ]
-    },
-  ]
-},
+      },
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-react'],
+            plugins: [
+              'react-hot-loader/babel',
+              '@babel/plugin-proposal-class-properties',
+              'styled-jsx/babel'
+            ]
+          }
+        }
+      }, 
+      {
+        test: /\.(png|gif|jp(e*)g|svg)$/,
+        use: {
+          loader: 'url-loader',
+          options: {
+            limit: 8000,
+            name: 'images/[hash]-[name].[ext]'
+          }
+        }
+      },
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader'
+        ]
+      },
+    ]
+  },
 
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
