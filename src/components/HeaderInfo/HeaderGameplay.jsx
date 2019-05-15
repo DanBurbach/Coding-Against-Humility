@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { SignOutButton } from "../LogOut";
+import { withFirebase } from "../../Firebase";
+import * as ROUTES from "../../constants/routes";
+import SignOutButton from "../LogOut.jsx";
+
 
 import '../../assets/styles/InfoCSS.css';
 
@@ -29,7 +32,7 @@ function HeaderGameplay(){
               </p>
               <p>
                 The Judge, and other players, read the returned White Cards.
-                The Judge deems the "best answer" to the Black Card and gives
+                The Judge deems the 'best answer' to the Black Card and gives
                 a point to that player
               </p>
               <p>
@@ -76,8 +79,8 @@ function HeaderGameplay(){
               </p>
             </div>
             <br />
-            <Link to="/game">Back</Link>
-            <SignOutButton/>
+            <Link to={ROUTES.MAIN_GAME}>Back</Link>
+            <SignOutButton />
           </div>
         </div>
       </div>

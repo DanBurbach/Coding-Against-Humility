@@ -9,12 +9,12 @@ import { connect } from 'react-redux';
 function Board(){
   return (
     <div>
-      <Header />
+      <Header/>
       <br/>
-      <BlackDeckDisplay />
+      <BlackDeckDisplay/>
       <br/>
-      <MainPlayer />
-      <JudgePlayer />
+      <MainPlayer/>
+      <JudgePlayer/>
     </div>
   );
 }
