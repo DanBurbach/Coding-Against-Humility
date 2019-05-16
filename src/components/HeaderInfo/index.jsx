@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { withFirebase } from "../../Firebase";
-import * as ROUTES from "../../constants/routes";
-import SignOutButton from "../LogOut.jsx";
+import { withFirebase } from '../../Firebase';
+import * as ROUTES from '../../constants/routes';
+import SignOutButton from '../LogOut';
 
 
 import '../../assets/styles/InfoCSS.css';
@@ -14,10 +14,10 @@ function HeaderGameplay(){
   };
 
   return (
-    <div className="wrapper fade-in">
-      <div id="info">
-        <div className="info">
-          <div className="infostyles">
+    <div className='wrapper fade-in'>
+      <div id='info'>
+        <div className='info'>
+          <div className='infostyles'>
             <div style={mainbody}>
               <h2>Game Play Rules</h2>
               <p>To start the game, click on New Game</p>
@@ -74,7 +74,7 @@ function HeaderGameplay(){
 
               <h2>Disclaimer:</h2>
               <p>
-                You will laugh or you will be insulted. Either way, it is a{" "}
+                You will laugh or you will be insulted. Either way, it is a{' '}
                 <strong>game</strong> and it will bring out the worst in you.
               </p>
             </div>

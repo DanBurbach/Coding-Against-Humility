@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { compose } from 'recompose';
+// import { connect } from 'react-redux';
+// import { firebaseConnect } from 'react-redux-firebase';
 
 import { SignUpLink } from '../SignUp';
 import { PasswordForgetLink } from '../PasswordForget';
@@ -17,9 +19,9 @@ const SignInPage = () => (
 );
 
 const INITIAL_STATE = {
-  email: '',
-  password: '',
-  error: null,
+    email: '',
+    password: '',      
+    error: null
 };
 
 const ERROR_CODE_ACCOUNT_EXISTS = 'auth/account-exists-with-different-credential';
@@ -30,7 +32,9 @@ class SignInFormBase extends Component {
   constructor(props) {
     super(props);
     this.state = { 
-      ...INITIAL_STATE 
+      email: '',
+      password: '',
+      error: null
     };
     this.handleSignInFormSubmit = this.handleSignInFormSubmit.bind(this);
     this.handleSignInUpdate = this.handleSignInUpdate.bind(this);
@@ -50,7 +54,7 @@ class SignInFormBase extends Component {
           }
         this.setState({ error });
       });
-    event.preventDefault();
+      event.preventDefault();
   };
 
   handleSignInUpdate(event) {
@@ -89,10 +93,8 @@ class SignInFormBase extends Component {
 }
 
 const SignInForm = compose(
-  withRouter,
-  withFirebase,
-)(SignInFormBase);
+  withRouter, 
+  withFirebase,)
+(SignInFormBase);
 
 export default SignInPage;
-
-export { SignInForm };

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-
+import { compose } from 'recompose';
 import { withFirebase } from '../../Firebase';
 import * as ROUTES from '../../constants/routes';
 
@@ -35,7 +35,6 @@ class SignUpFormBase extends Component {
 
     handleSignUpFormSubmit(event) {
         const { username, email, passwordOne } = this.state;
-
         this.props.firebase
             .createUserWithEmailAndPassword(email, passwordOne)
             this.props.firebase
@@ -52,17 +51,15 @@ class SignUpFormBase extends Component {
             if (error.code === ERROR_CODE_ACCOUNT_EXISTS) {
                 error.message = ERROR_MSG_ACCOUNT_EXISTS;
             }
-
             this.setState({
                 error
             });
         });
-
         event.preventDefault();
     };
 
     handleSignUpUpdate(event) {
-        this.setState({[event.target.name]:  event.target.value});
+        this.setState({[event.target.name]:event.target.value});
     };
 
     render() {
@@ -106,8 +103,11 @@ class SignUpFormBase extends Component {
         </p>
     );
 
- const SignUpForm = withRouter(withFirebase(SignUpFormBase));
+ const SignUpForm = compose(
+    withRouter, 
+    withFirebase,
+    )(SignUpFormBase);
 
-    export default SignUpPage;
+export default SignUpPage;
 
-    export { SignUpForm, SignUpLink };
+export { SignUpForm, SignUpLink };

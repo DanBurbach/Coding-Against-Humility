@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { firebaseConnect } from 'react-redux-firebase';
 
-import * as ROUTES from "../constants/routes";
+import * as ROUTES from "../../constants/routes";
 
-import '../assets/styles/MainStyles.css';
+import '../../assets/styles/MainStyles.css';
 
 function Main() {
   return (

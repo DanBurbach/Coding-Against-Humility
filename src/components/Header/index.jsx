@@ -1,10 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import NameValue from './Menu/NameValue';
-import GameInfo from './GameInfo';
-import * as ROUTES from '../constants/routes';
-import '../assets/styles/Header.css';
+import NameValue from '../Menu/NameValue';
+import GameInfo from '../GameInfo';
+import * as ROUTES from '../../constants/routes';
+import '../../assets/styles/Header.css';
 
 
 const Header = () => {
@@ -30,4 +29,4 @@ const Header = () => {
   );
 };
 
-export default connect()(Header);
+export default Header;

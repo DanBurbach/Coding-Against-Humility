@@ -4,8 +4,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
 
-  // mode: 'development',
-
   entry: [
     'babel-polyfill',
     'react-hot-loader/patch',
@@ -28,13 +26,13 @@ module.exports = {
 
   devServer: {
     hot: true,
-    contentBase: resolve(__dirname, 'build'),
-    publicPath: '/'
+    contentBase: resolve(__dirname, 'build')
   },
 
   module: {
     rules: [{
         test: /\.jsx?$/,
+        enforce: 'pre',
         loader: "eslint-loader",
         exclude: /node_modules/,
         options: {
@@ -48,11 +46,10 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-react'],
+            presets: ['@babel/preset-env', '@babel/preset-react'],
             plugins: [
               'react-hot-loader/babel',
-              '@babel/plugin-proposal-class-properties',
-              'styled-jsx/babel'
+              '@babel/plugin-proposal-class-properties'
             ]
           }
         }

@@ -10,27 +10,13 @@ import Info from './Menu/Info';
 import Fineprint from './Menu/Fineprint';
 import Header from './Header';
 import Game from './Game';
-import HeaderGameplay from './HeaderInfo/HeaderGameplay';
-import Error404 from './Error404';
+import HeaderGameplay from './HeaderInfo';
+import Error404 from './ERROR404';
 
 import '../assets/styles/Header.css';
 
-
-
-import * as ROUTES from './../constants/routes';
+import * as ROUTES from '../constants/routes';
 import { withAuthentication } from './Session';
-
-// import gameReducers from '../reducers';
-
-// const rrfConfig = {
-//   userProfile: 'gameInfo'
-// };
-
-  // const rrfProps = {
-  //   firebase,
-  //   config: rrfConfig,
-  //   dispatch: store.dispatch
-  // };
 
 class App extends Component {
   render() {

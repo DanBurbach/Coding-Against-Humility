@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import * as ROUTES from '../constants/routes';
-import '../assets/styles/Error404.css';
+import * as ROUTES from '../../constants/routes';
+import '../../assets/styles/Error404.css';
 
 function Error404() {
   return (

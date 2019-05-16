@@ -1,33 +1,33 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App';
-
-import { Provider } from 'react-redux';
-import Firebase, { FirebaseContext } from './Firebase';
 import firebase from './Firebase';
-
-import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
-import { firebaseReducer } from 'react-redux-firebase';
+import { createStore, applyMiddleware, compose } from 'redux';
+import { Provider } from 'react-redux';
+import { ReactReduxFirebaseProvider } from "react-redux-firebase";
 import thunk from 'redux-thunk';
+import gameReducers from './reducers';
 
-const rootReducer = combineReducers({
-  firebase: firebaseReducer
-  // startNewGameView: gameReducers.startNewGameView
-});
+const rrfConfig = { userProfile: 'users' };
 
-const store = createStore(
-  rootReducer,
-  compose(applyMiddleware(thunk.withExtraArgument(firebase)))
-);
+const store = createStore(rootReducer,compose(applyMiddleware(thunk.withExtraArgument(firebase))));
+
+const rootReducer = { gameReducers };
+
+const rrfProps = {
+  firebase,
+  config: rrfConfig,
+  dispatch: store.dispatch
+}
 
 ReactDOM.render(
   <Provider store={store}>
-    <FirebaseContext.Provider value={new Firebase()}>
+    <ReactReduxFirebaseProvider {...rrfProps}>
       <App />
-    </FirebaseContext.Provider>
+    </ReactReduxFirebaseProvider>,
   </Provider>,
-document.getElementById('react-app-root'));
-
+  document.getElementById("react-app-root")
+);
 
 /*eslint-disable */
 if (module.hot) {
