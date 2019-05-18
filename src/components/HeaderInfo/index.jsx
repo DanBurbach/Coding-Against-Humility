@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { withFirebase } from '../../Firebase';
 import * as ROUTES from '../../constants/routes';
 import SignOutButton from '../LogOut';
 
@@ -88,4 +87,4 @@ function HeaderGameplay(){
   );
 }
 
-export default withFirebase(HeaderGameplay);
+export default HeaderGameplay;

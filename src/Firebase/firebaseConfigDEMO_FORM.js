@@ -1,4 +1,5 @@
 // All below information needs to be updated to use firebase
+// Create an .env file in the main root of the project to use
 
 // process.env.REACT_APP_API_KEY = XXXXxxxx
 // process.env.REACT_APP_AUTH_DOMAIN = xxxxXXXX.firebaseapp.com

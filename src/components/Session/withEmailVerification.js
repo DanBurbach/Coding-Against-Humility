@@ -1,57 +1,56 @@
 import React from 'react';
-import AuthUserContext from './context';
-import { withFirebase} from "../../Firebase";
+import { connect } from 'react-redux';
+import { compose } from 'recompose';
+import { withFirebase } from '../../Firebase/context.js';
 
-const needsEmailVerification = authUser =>
-    authUser &&
-    !authUser.emailVerified &&
-    authUser.providerData
-        .map(provider => provider.providerId)
-        .includes('password');
+const needsEmailVerification = authUser => {
+    authUser && !authUser.emailVerified && authUser.providerData
+    .map(provider => provider.providerId)
+    .includes('password');
+    }
 
-const withEmailVerified = Component => {
-    class withEmailVerified extends React.Component {
-        constructor(props){
+const withEmailVerification = Component => {
+    class WithEmailVerification extends React.Component {
+        constructor(props) {
             super(props);
-
-            this.state = { isSent: false };
+            this.state = {
+                isSent: false
+            };
         }
 
-
-        onSendAdminEmailVerification = () => {
-            this.props.firebase.sendAdminEmailVerification()
-                .then(() => this.setState({ isSent: true }));
+        onSendEmailVerification = () => {
+            this.props.firebase
+                .doSendEmailVerification()
+                .then(() => this.setState({
+                    isSent: true
+                }));
         };
 
         render() {
-            return(
-              <AuthUserContext.Consumer>
-                  {authUser =>
-                      needsEmailVerification(authUser) ? (
-                          <div>
-                              {this.state.isSent ? (
-                              <p>
-                                Email Confirmation sent
-                              </p>
-                              ) : (
-                              <p>
-                                  Please verify your email
-                              </p>
-                              )}
+            return needsEmailVerification(this.props.authUser) ? ( <div> {this.state.isSent ? ( <p>
+                        E - Mail confirmation sent: Check you E - Mails(Spam folder included) for a confirmation E - Mail.Refresh this page once you confirmed your E - Mail. </p>
+                    ) : ( <p>
+                        Verify your E - Mail: Check you E - Mails(Spam folder included) for a confirmation E - Mail or send another confirmation E - Mail. </p>
+                    )
+                }
 
-                              <button type='button' onClick={this.onSendAdminEmailVerification} disabled={this.state.isSent}>
-                                  Send Email
-                              </button>
-                          </div>
-                          ) : (
-                              <Component {...this.props} />
-                              )
-                  }
-              </AuthUserContext.Consumer>
-          );
+                    <button type = "button"
+                        onClick = {this.onSendEmailVerification}
+                        disabled = {this.state.isSent}>Send confirmation E - Mail 
+                    </button> 
+                </div>
+                ) : ( <Component {...this.props}/>
+            );
         }
     }
-    return withFirebase(withEmailVerified);
+
+    const mapStateToProps = state => ({
+        authUser: state.sessionState.authUser,
+    });
+
+    return compose(
+        withFirebase,
+        connect(mapStateToProps))(WithEmailVerification);
 };
 
-export default withEmailVerified;
+export default withEmailVerification;

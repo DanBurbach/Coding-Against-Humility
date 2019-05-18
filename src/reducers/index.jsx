@@ -4,11 +4,12 @@ import startNewGameViewReducer from './startNewGameReducer';
 // import dealWhiteCardsReducer from './dealWhiteCardsReducer';
 // import gameLengthReducer from './gameLengthReducer';
 // import numberOfPlayersReducer from './numberOfPlayersReducer';
-import sessionReducer from "./sessions";
-import userReducer from "./user";
+import sessionReducer from './sessions';
+import userReducer from './user';
 import authReducer from './authReducer';
+import { firebaseReducer } from 'react-redux-firebase';
+
 import { combineReducers } from 'redux';
-import { firebaseReducer } from "react-redux-firebase";
 
 const gameReducers = combineReducers({
   // dealBlackCards: dealBlackCardsReducer,

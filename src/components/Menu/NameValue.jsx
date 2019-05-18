@@ -15,12 +15,7 @@ class NameValue extends Component {
 
   componentDidMount() {
     this.props.dispatch(getNameFromFb(this.state));
-    
-    // userNameRef.once('value')
-    //   .then((snapshot) => {
-    //     this.setState({userName: snapshot.child('gameInfo/userName').val()});
-    //   });
-  }
+      }
 
 
   render() {

@@ -2,17 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App';
 import firebase from './Firebase';
-import { createStore, applyMiddleware, compose } from 'redux';
+import { createStore, applyMiddleware, compose } from "redux";
 import { Provider } from 'react-redux';
 import { ReactReduxFirebaseProvider } from "react-redux-firebase";
 import thunk from 'redux-thunk';
 import gameReducers from './reducers';
 
+
 const rrfConfig = { userProfile: 'users' };
 
-const store = createStore(rootReducer,compose(applyMiddleware(thunk.withExtraArgument(firebase))));
-
-const rootReducer = { gameReducers };
+const store = createStore(
+  gameReducers,
+  compose(applyMiddleware(thunk.withExtraArgument(firebase)))
+);
 
 const rrfProps = {
   firebase,

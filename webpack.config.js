@@ -9,13 +9,12 @@ module.exports = {
     'react-hot-loader/patch',
     'webpack-dev-server/client?http://localhost:8080',
     'webpack/hot/only-dev-server',
-    resolve(__dirname, "src", "index.jsx")
+    resolve(__dirname, 'src') + '/index.jsx'
   ],
 
   output: {
     filename: 'app.bundle.js',
     path: resolve(__dirname, 'build'),
-    publicPath: '/'
   },
 
   resolve: {
@@ -23,7 +22,6 @@ module.exports = {
   },
 
   devtool: '#source-map',
-
   devServer: {
     hot: true,
     contentBase: resolve(__dirname, 'build')
@@ -33,11 +31,11 @@ module.exports = {
     rules: [{
         test: /\.jsx?$/,
         enforce: 'pre',
-        loader: "eslint-loader",
+        loader: 'eslint-loader',
         exclude: /node_modules/,
         options: {
           emitWarning: true,
-          configFile: "./.eslintrc.json"
+          configFile: './.eslintrc.json'
         }
       },
       {
@@ -81,7 +79,7 @@ module.exports = {
       template: 'template.ejs',
       appMountId: 'react-app-root',
       title: 'Coding-Against-Humility',
-      filename: resolve(__dirname, "build", "index.html"),
+      filename: resolve(__dirname, 'build', 'index.html'),
     }),
   ]
 };

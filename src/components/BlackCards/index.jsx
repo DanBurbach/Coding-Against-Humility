@@ -13,7 +13,6 @@ const BlackCards = ({currentBlackCardArray, dispatch}) => {
       <BlackDeckDisplay text={addBlackCard.text}
     </div>
   );
-};
 
 BlackCards.propTypes = {
   currentBlackCardArray: PropTypes.arrayOf(Object),
@@ -26,7 +25,7 @@ const mapStateToProps = state => {
   return {
     currentBlackCardArray: state.currentBlackCardArray,
     selectedBlackCard: state.selectedBlackCard
-  };
+  }
 };
 
-export default connect(mapStateToProps)(BlackCards);
+export default connect(mapStateToProps)(BlackCards)};

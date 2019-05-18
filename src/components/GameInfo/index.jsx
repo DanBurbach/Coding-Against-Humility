@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from "react-redux";
+import { firebaseConnect } from "react-redux-firebase";
 
 
 function GameInfo() {
@@ -14,5 +16,8 @@ function GameInfo() {
 }
 
 
+const enhance = connect(
+  ({ firebase: { auth, profile } }) => ({ auth, profile,})
+)
 
-export default GameInfo;
+export default firebaseConnect()(enhance(GameInfo));

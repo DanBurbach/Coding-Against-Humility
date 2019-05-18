@@ -1,4 +1,7 @@
 import React from 'react';
+import { connect } from "react-redux";
+import { firebaseConnect } from "react-redux-firebase";
+
 import { Link } from 'react-router-dom';
 import * as ROUTES from "../../constants/routes";
 import '../../assets/styles/InfoCSS.css';
@@ -83,4 +86,8 @@ function Info(){
   );
 }
 
-export default Info;
+const enhance = connect(
+  ({ firebase: { auth, profile } }) => ({ auth, profile,})
+)
+
+export default firebaseConnect()(enhance(Info));

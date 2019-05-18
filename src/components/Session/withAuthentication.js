@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
 
-import { withFirebase } from '../../Firebase';
+import { withFirebase } from '../../Firebase/context.js';
 
 const withAuthentication = Component => {
     class WithAuthentication extends React.Component {
@@ -16,12 +16,10 @@ const withAuthentication = Component => {
 
         componentDidMount() {
             this.listener = this.props.firebase.onAuthUserListener(
-                authUser => {
-                    localStorage.setItem('authUser', JSON.stringify(authUser));
+                authUser => {localStorage.setItem('authUser', JSON.stringify(authUser));
                     this.props.onSetAuthUser(authUser);
                 },
-                () => {
-                    localStorage.removeItem('authUser');
+                () => {localStorage.removeItem('authUser');
                     this.props.onSetAuthUser(null);
                 },
             );
@@ -32,27 +30,18 @@ const withAuthentication = Component => {
         }
 
         render() {
-            return <Component {
-                ...this.props
-            }
-            />;
+            return <Component {...this.props}/>;
         }
     }
 
     const mapDispatchToProps = dispatch => ({
         onSetAuthUser: authUser =>
-            dispatch({
-                type: 'AUTH_USER_SET',
-                authUser
-            }),
+            dispatch({ type: 'AUTH_USER_SET', authUser }),
     });
 
     return compose(
         withFirebase,
-        connect(
-            null,
-            mapDispatchToProps,
-        ),
+        connect( null, mapDispatchToProps),
     )(WithAuthentication);
 };
 

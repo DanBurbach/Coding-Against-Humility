@@ -4,22 +4,21 @@ import 'firebase/auth';
 
 
 const config = {
-    apiKey: 'AIzaSyCKLHnqaz10xqkGnLj0uLvo9p_9WPaLbgI',
-    authDomain: 'codingagainsthumilityapi.firebaseapp.com',
-    databaseURL: 'https: //codingagainsthumilityapi.firebaseio.com',
-    projectId: 'codingagainsthumilityapi',
-    storageBucket: 'codingagainsthumilityapi.appspot.com',
-    messagingSenderId: '568078378035',
-    appId: '1: 568078378035: web: 0 cf1dd4583639518',
+    apiKey: process.env.REACT_APP_API_KEY,
+    authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+    databaseURL: process.env.REACT_APP_DATABASE_URL,
+    projectId: process.env.REACT_APP_PROJECT_ID,
+    storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+    messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID
 };
-
 
 class Firebase {
     constructor() {
         app.initializeApp(config);
-        // this.serverValue = app.database.ServerValue;
-        // this.emailAuthProvider = app.auth.EmailAuthProvider;
 
+        this.serverValue = app.database.ServerValue;
+        this.emailAuthProvider = app.auth.EmailAuthProvider;
+        
         this.auth = app.auth();
         this.db = app.database();
     }
@@ -47,11 +46,15 @@ class Firebase {
                 this.user(authUser.uid)
                     .once('value')
                     .then(snapshot => {
+                        const dbUser = snapshot.val();
+                        if (!dbUser.roles) {dbUser.roles = {};
+                    }
                         authUser = {
                             uid: authUser.uid,
                             email: authUser.email,
                             emailVerified: authUser.emailVerified,
                             providerData: authUser.providerData,
+                            ...dbUser,
                         };
                         next(authUser);
                     });

@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {HashRouter, Route, Switch} from "react-router-dom";
+import React, { Component } from 'react';
+import { HashRouter, Route, Switch } from "react-router-dom";
 
 import Main from './Main';
 import SignInPage from "./LogIn";
@@ -13,10 +13,11 @@ import Game from './Game';
 import HeaderGameplay from './HeaderInfo';
 import Error404 from './ERROR404';
 
-import '../assets/styles/Header.css';
-
 import * as ROUTES from '../constants/routes';
 import { withAuthentication } from './Session';
+
+import '../assets/styles/Header.css';
+
 
 class App extends Component {
   render() {

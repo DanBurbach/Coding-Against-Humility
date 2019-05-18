@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import { compose } from 'recompose';
-import { withFirebase } from '../../Firebase';
+// import { compose } from 'recompose';
+// import { withFirebase } from '../../Firebase/context.js';
+
+import { connect } from 'react-redux';
+import { firebaseConnect, withFirebase } from 'react-redux-firebase';
+
 import * as ROUTES from '../../constants/routes';
 
 const SignUpPage = () => ( 
@@ -16,6 +20,7 @@ const INITIAL_STATE = {
     email: '',
     passwordOne: '',
     passwordTwo: '',
+    isAdmin: true,
     error: null,
 };
 
@@ -28,22 +33,27 @@ class SignUpFormBase extends Component {
         super(props);
         this.state = {...INITIAL_STATE};
 
-    this.handleSignUpFormSubmit = this.handleSignUpFormSubmit.bind(this);
-    this.handleSignUpUpdate = this.handleSignUpUpdate.bind(this);
-
     }
 
-    handleSignUpFormSubmit(event) {
+    handleSignUpFormSubmit = event => {
         const { username, email, passwordOne } = this.state;
+        const roles = {};
+
+        if (isAdmin) { roles[ROLES.ADMIN] = ROLES.ADMIN }
+
         this.props.firebase
             .createUserWithEmailAndPassword(email, passwordOne)
-            this.props.firebase
-                .user(authUser.user.uid)
-                .set({
-                    username,
-                    email,
-                })
-            .then(() => {
+            .then(authUser => {
+
+        return this.props.firebase.user(authUser.user.uid).set({
+                username,
+                email,
+                roles,
+            });
+        })
+        .then(() => {
+                return this.props.firebase.doSendEmailVerification();
+            }).then(() => {
                 this.setState({...INITIAL_STATE});
                 this.props.history.push(ROUTES.HOME);
             })
@@ -51,19 +61,23 @@ class SignUpFormBase extends Component {
             if (error.code === ERROR_CODE_ACCOUNT_EXISTS) {
                 error.message = ERROR_MSG_ACCOUNT_EXISTS;
             }
-            this.setState({
-                error
-            });
+            this.setState({ error });
         });
         event.preventDefault();
     };
 
-    handleSignUpUpdate(event) {
+    handleSignUpUpdate = event => {
         this.setState({[event.target.name]:event.target.value});
     };
 
     render() {
-        const { username, email, passwordOne, passwordTwo, error } = this.state;
+        const {
+            username,
+            email,
+            passwordOne,
+            passwordTwo,
+            error
+        } = this.state;
 
         const isInvalid =
             passwordOne !== passwordTwo ||
@@ -98,16 +112,18 @@ class SignUpFormBase extends Component {
     }
 
     const SignUpLink = () => ( 
-        <p>Don 't have an account? 
-            <Link to={ROUTES.SIGN_UP}>Sign Up</Link> 
+        <p>Don 't have an account? <Link to={ROUTES.SIGN_UP}> Sign Up </Link> 
         </p>
     );
 
- const SignUpForm = compose(
-    withRouter, 
-    withFirebase,
-    )(SignUpFormBase);
+const SignUpForm = withRouter(withFirebase(SignUpFormBase));
 
-export default SignUpPage;
+const enhance = connect(
+    ({ firebase: { auth, profile }}) => ({auth,profile,})
+);
+
+export default firebaseConnect()(enhance(SignUpPage));
+
+
 
 export { SignUpForm, SignUpLink };
