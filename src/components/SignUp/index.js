@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-// import { compose } from 'recompose';
-// import { withFirebase } from '../../Firebase/context.js';
-
-import { connect } from 'react-redux';
+import { connect } from 'react-redux'
 import { firebaseConnect, withFirebase } from 'react-redux-firebase';
+// import firebase from "firebase/app";
 
 import * as ROUTES from '../../constants/routes';
 
@@ -35,27 +33,25 @@ class SignUpFormBase extends Component {
 
     }
 
-    handleSignUpFormSubmit = event => {
+    handleSignUpFormSubmit = event => {        
         const { username, email, passwordOne } = this.state;
+
         const roles = {};
 
-        if (isAdmin) { roles[ROLES.ADMIN] = ROLES.ADMIN }
-
-        this.props.firebase
+        this.props.firebase.auth()
             .createUserWithEmailAndPassword(email, passwordOne)
             .then(authUser => {
-
-        return this.props.firebase.user(authUser.user.uid).set({
+            return this.props.firebase.auth().username(authUser.user.uid).set({
                 username,
                 email,
                 roles,
             });
         })
-        .then(() => {
-                return this.props.firebase.doSendEmailVerification();
+            .then(() => {
+                return this.props.firebase.auth().doSendEmailVerification();
             }).then(() => {
                 this.setState({...INITIAL_STATE});
-                this.props.history.push(ROUTES.HOME);
+                this.props.history.push(ROUTES.LOG_IN);
             })
             .catch(error => {
             if (error.code === ERROR_CODE_ACCOUNT_EXISTS) {
@@ -111,19 +107,17 @@ class SignUpFormBase extends Component {
         }
     }
 
-    const SignUpLink = () => ( 
-        <p>Don 't have an account? <Link to={ROUTES.SIGN_UP}> Sign Up </Link> 
-        </p>
-    );
-
+const SignUpLink = () => ( 
+    <p>
+        Don 't have an account? <Link to={ROUTES.SIGN_UP}>Sign Up</Link> 
+    </p>
+);
 const SignUpForm = withRouter(withFirebase(SignUpFormBase));
 
 const enhance = connect(
-    ({ firebase: { auth, profile }}) => ({auth,profile,})
-);
+    ({ firebase: { auth, profile } }) => ({ auth, profile})
+)
 
 export default firebaseConnect()(enhance(SignUpPage));
-
-
 
 export { SignUpForm, SignUpLink };
