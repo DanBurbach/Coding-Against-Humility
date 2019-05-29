@@ -3,6 +3,7 @@ import { compose } from 'redux';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { firebaseConnect } from 'react-redux-firebase';
+import firebase from "firebase/app";
 
 import '../../assets/styles/NewGameForm.css';
 import { newGame } from '../../actions';
@@ -12,10 +13,10 @@ class NewGameForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      userName: '',
-      gameLength: '',
-      numberOfPlayers: '',
-      gameWins: ''
+      userName: this.props.profile.username,
+      gameLength: "",
+      numberOfPlayers: "",
+      gameWins: ""
     };
     this.handleNewGameSubmission = this.handleNewGameSubmission.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -31,6 +32,7 @@ class NewGameForm extends Component {
     console.log(event);
     await this.setState({ [target]: event });
     console.log(this.state);
+    console.log(firebase.auth().currentUser.displayName);
   }
 
   render() {
@@ -50,6 +52,7 @@ class NewGameForm extends Component {
                       <input
                         type="text"
                         id="userName"
+                        placeholder={this.props.profile.username}
                         value={userName}
                         onChange={event => {
                           this.handleChange(
