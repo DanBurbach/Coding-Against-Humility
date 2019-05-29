@@ -1,9 +1,9 @@
-import * as ACTION_TYPES from '../constants/actionTypes';
+import * as ACTION_TYPES from '../constants/ActionTypes';
 
 export const newGame = props => {
-  return (dispatch, getState, getFirebase) => {
-    const firebase = getFirebase();
-    firebase.database().ref('gameInfo').push({
+  return (dispatch, getState, firebase) => {
+    const userId = firebase.auth().currentUser.uid;
+    this.props.firebase.database().ref(`gameInfo/${userId}`).set({
       userName: props.userName,
       gameLength: props.gameLength,
       numberOfPlayers: props.numberOfPlayers,
