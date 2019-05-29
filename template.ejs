@@ -5,18 +5,13 @@
   <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:700,900" rel="stylesheet">
 
-  <title><%= htmlWebpackPlugin.options.title %></title>
+  <title>Coding Against Humility</title>
 </head>
 
-<body>
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/redux/3.7.2/redux.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/expect/1.20.2/expect.min.js"></script>
-
-
-  <% if (htmlWebpackPlugin.options.appMountId) { %>
-    <div id="<%= htmlWebpackPlugin.options.appMountId%>"></div>
-    <% } %>
+  <body>
+    <div id="react-app-root"></div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/redux/3.7.2/redux.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/expect/1.20.2/expect.min.js"></script>
   </body>
-
-  </html>
+</html>

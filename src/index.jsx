@@ -1,19 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App';
-import firebase from './Firebase';
-import { createStore, applyMiddleware, compose } from "redux";
+import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
-import { ReactReduxFirebaseProvider } from "react-redux-firebase";
+import { ReactReduxFirebaseProvider, getFirebase } from "react-redux-firebase";
 import thunk from 'redux-thunk';
 import gameReducers from './reducers';
+// import * as serviceWorker from "./serviceWorker";
 
+import firebase from "firebase/app";
 
 const rrfConfig = { userProfile: 'users' };
 
 const store = createStore(
   gameReducers,
-  compose(applyMiddleware(thunk.withExtraArgument(firebase)))
+  compose(applyMiddleware(thunk.withExtraArgument(getFirebase)))
 );
 
 const rrfProps = {
@@ -26,10 +27,11 @@ ReactDOM.render(
   <Provider store={store}>
     <ReactReduxFirebaseProvider {...rrfProps}>
       <App />
-    </ReactReduxFirebaseProvider>,
+    </ReactReduxFirebaseProvider>
   </Provider>,
-  document.getElementById("react-app-root")
+  document.getElementById('react-app-root')
 );
+
 
 /*eslint-disable */
 if (module.hot) {
