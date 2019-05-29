@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { firebaseConnect } from 'react-redux-firebase';
+import { firebaseConnect, getFirebase } from 'react-redux-firebase';
 // import { compose } from 'recompose';
+import firebase from "firebase/app";
 
 import { SignUpLink } from '../SignUp';
 import { PasswordForgetLink } from '../PasswordForget';
@@ -24,19 +25,19 @@ const INITIAL_STATE = {
     error: null
 };
 
+
 class SignInFormBase extends Component {
   constructor(props) {
     super(props);
-    this.state = { ...INITIAL_STATE };
+    this.state = {...INITIAL_STATE};
   }
 
   handleSignInFormSubmit = event => {
     const { email, password } = this.state;
-    this.props.firebase
-      .signInWithEmailAndPassword(email, password)
+    firebase.auth().signInWithEmailAndPassword(email, password)
       .then(() => {
         this.setState({...INITIAL_STATE});
-        this.props.history.push(ROUTES.HOME);
+        this.props.history.push(ROUTES.NEW_GAME_FORM);
       })
       .catch(error => {
         this.setState({ error });
