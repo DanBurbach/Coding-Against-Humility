@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { firebaseConnect } from 'react-redux-firebase';
 
-import { getNameFromFb } from "../../actions";
+// import { getNameFromFb } from "../../actions";
 
 
 class NameValue extends Component {
@@ -13,9 +13,9 @@ class NameValue extends Component {
     };
   }
 
-  componentDidMount() {
-    this.props.dispatch(getNameFromFb(this.state));
-      }
+  // componentDidMount() {
+  //   this.props.dispatch(getNameFromFb(this.state));
+  //     }
 
 
   render() {

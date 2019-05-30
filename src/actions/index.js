@@ -18,21 +18,14 @@ export const userName = (ref, userName) => ({
   userName
 });
 
-export const getNameFromFb = (ref) => {
-  return ((dispatch, state, getFirebase) => {
-    const firebase = getFirebase();
-    firebase.database().ref().once('value')
-    .then(response=> {
-      dispatch(userName(ref, response.val()));
-    });
-  });
-};
-
-    // firebase.database().ref().orderByKey().once('value')
-    //   .then((childSnapshot) => {
-    //     this.setState({
-    //       userName: childSnapshot.val('gameInfo/userName')
-    //     });
-    //     let name_val = childSnapshot.val().userName;
-    //     $("#name").append(name_val);
-    //   });
+export function loginUser(email, password) {
+  return (dispatch) => {
+    dispatch({ type: LOGIN_USER });
+    return firebase.auth().signInWithEmailAndPassword(email, password)
+      .then(user => loginUserSuccess(dispatch, user))
+      .catch(() => {
+        console.log('failed to sign in');
+        return;
+      });
+  };
+}

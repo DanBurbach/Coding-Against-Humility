@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux'
 import { firebaseConnect, withFirebase } from 'react-redux-firebase';
-// import firebase from "firebase/app";
+import firebase from "firebase/app";
 
 import * as ROUTES from '../../constants/routes';
 
@@ -33,33 +33,36 @@ class SignUpFormBase extends Component {
 
     }
 
-    handleSignUpFormSubmit = event => {        
+    handleSignUpFormSubmit = event => {     
+        event.preventDefault();
         const { username, email, passwordOne } = this.state;
 
-        const roles = {};
-
-        this.props.firebase.auth()
+        firebase.auth()
             .createUserWithEmailAndPassword(email, passwordOne)
             .then(authUser => {
-            return this.props.firebase.auth().username(authUser.user.uid).set({
-                username,
-                email,
-                roles,
-            });
-        })
+                return this.props.firebase.user(authUser.user.uid).set({
+                    username,
+                    email,
+                });
+            })
             .then(() => {
-                return this.props.firebase.auth().doSendEmailVerification();
-            }).then(() => {
-                this.setState({...INITIAL_STATE});
+                return this.props.firebase.sendEmailVerification();
+            })
+            .then(() => {
+                this.setState({
+                    ...INITIAL_STATE
+                });
                 this.props.history.push(ROUTES.LOG_IN);
             })
             .catch(error => {
-            if (error.code === ERROR_CODE_ACCOUNT_EXISTS) {
-                error.message = ERROR_MSG_ACCOUNT_EXISTS;
-            }
-            this.setState({ error });
-        });
-        event.preventDefault();
+                if (error.code === ERROR_CODE_ACCOUNT_EXISTS) {
+                    error.message = ERROR_MSG_ACCOUNT_EXISTS;
+                }
+                this.setState({
+                    error
+                });
+            });
+        this.props.history.push(ROUTES.LOG_IN);
     };
 
     handleSignUpUpdate = event => {

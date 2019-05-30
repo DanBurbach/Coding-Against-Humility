@@ -32,7 +32,7 @@ class NewGameForm extends Component {
     console.log(event);
     await this.setState({ [target]: event });
     console.log(this.state);
-    console.log(firebase.auth().currentUser.displayName);
+    console.log(firebase.auth().currentUser);
   }
 
   render() {

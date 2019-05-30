@@ -16,10 +16,6 @@ const withAuthorization = condition => Component => {
             });
         }
 
-        // componentWillUnmount() {
-        //     this.listener();
-        // }
-
     render() {
         return this.props.authUser ? <Component /> : null;
     }
