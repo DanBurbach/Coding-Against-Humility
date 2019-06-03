@@ -18,14 +18,14 @@ export const userName = (ref, userName) => ({
   userName
 });
 
-export function loginUser(email, password) {
-  return (dispatch) => {
-    dispatch({ type: LOGIN_USER });
-    return firebase.auth().signInWithEmailAndPassword(email, password)
-      .then(user => loginUserSuccess(dispatch, user))
-      .catch(() => {
-        console.log('failed to sign in');
-        return;
-      });
-  };
-}
+// export function loginUser(email, password) {
+//   return (dispatch) => {
+//     dispatch({ type: LOGIN_USER });
+//     return firebase.auth().signInWithEmailAndPassword(email, password)
+//       .then(user => loginUserSuccess(dispatch, user))
+//       .catch(() => {
+//         console.log('failed to sign in');
+//         return;
+//       });
+//   };
+// }

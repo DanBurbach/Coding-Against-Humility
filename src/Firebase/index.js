@@ -1,3 +1,6 @@
+import FirebaseContext, { withFirebase } from './context';
+
+import Firebase from './firebase';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/database';
@@ -15,3 +18,4 @@ const config = {
 firebase.initializeApp(config);
 
 export default firebase;
+export { FirebaseContext, withFirebase, Firebase };

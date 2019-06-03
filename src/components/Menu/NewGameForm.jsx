@@ -3,20 +3,21 @@ import { compose } from 'redux';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { firebaseConnect } from 'react-redux-firebase';
-import firebase from "firebase/app";
+import firebase from 'firebase/app';
 
 import '../../assets/styles/NewGameForm.css';
 import { newGame } from '../../actions';
-import * as ROUTES from "../../constants/routes";
+import * as ROUTES from '../../constants/routes';
 
 class NewGameForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      userName: this.props.profile.username,
-      gameLength: "",
-      numberOfPlayers: "",
-      gameWins: ""
+      displayName: this.props.auth.displayName,
+      userName: '',
+      gameLength: '',
+      numberOfPlayers: '',
+      gameWins: ''
     };
     this.handleNewGameSubmission = this.handleNewGameSubmission.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -36,7 +37,7 @@ class NewGameForm extends Component {
   }
 
   render() {
-    const { userName, gameLength, numberOfPlayers } = this.state;
+    const { userName, gameLength, numberOfPlayers, displayName } = this.state;
     return (
       <div className="wrapper fade-in">
         <div id="newgame">
@@ -48,11 +49,11 @@ class NewGameForm extends Component {
                     <label htmlFor="nameValue">Your Name:</label>
                   </h2>
                   <div>
+                    <p>Your displayName: {this.props.auth.displayName}</p>
                     <p>
                       <input
                         type="text"
                         id="userName"
-                        placeholder={this.props.profile.username}
                         value={userName}
                         onChange={event => {
                           this.handleChange(

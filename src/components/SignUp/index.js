@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux'
-import { firebaseConnect, withFirebase } from 'react-redux-firebase';
+import { firebaseConnect } from 'react-redux-firebase';
 import firebase from "firebase/app";
+import { withFirebase } from '../../Firebase';
 
 import * as ROUTES from '../../constants/routes';
 
@@ -33,27 +34,28 @@ class SignUpFormBase extends Component {
 
     }
 
-    handleSignUpFormSubmit = event => {     
+    handleSignUpFormSubmit = event => {
         event.preventDefault();
-        const { username, email, passwordOne } = this.state;
+        const user = firebase.auth().currentUser;
+        const { email, passwordOne } = this.state;
 
-        firebase.auth()
-            .createUserWithEmailAndPassword(email, passwordOne)
-            .then(authUser => {
-                return this.props.firebase.user(authUser.user.uid).set({
-                    username,
-                    email,
-                });
-            })
+        firebase.auth().createUserWithEmailAndPassword(email, passwordOne)
             .then(() => {
-                return this.props.firebase.sendEmailVerification();
-            })
-            .then(() => {
-                this.setState({
-                    ...INITIAL_STATE
-                });
-                this.props.history.push(ROUTES.LOG_IN);
-            })
+                return firebase.auth().currentUser.updateProfile({
+                    displayName: document.getElementById("username").value
+                    })
+                })
+            // .then(() => {
+            //     return user.sendEmailVerification({
+            //         url: process.env.REACT_APP_CONFIRMATION_EMAIL_REDIRECT,
+            //     })
+            // })
+            // .then(() => {
+            //     this.setState({
+            //         ...INITIAL_STATE
+            //     });
+            //     this.props.history.push(ROUTES.LOG_IN);
+            // })
             .catch(error => {
                 if (error.code === ERROR_CODE_ACCOUNT_EXISTS) {
                     error.message = ERROR_MSG_ACCOUNT_EXISTS;
@@ -62,7 +64,7 @@ class SignUpFormBase extends Component {
                     error
                 });
             });
-        this.props.history.push(ROUTES.LOG_IN);
+            this.props.history.push(ROUTES.LOG_IN);
     };
 
     handleSignUpUpdate = event => {
@@ -88,7 +90,8 @@ class SignUpFormBase extends Component {
             <form onSubmit = {this.handleSignUpFormSubmit}>
                 <input name = "username" 
                     value = {username}
-                    onChange = {this.handleSignUpUpdate} type = "text" 
+                    onChange = {this.handleSignUpUpdate} type = "text"
+                    id = "username"
                     placeholder = "Full Name"/>
                 <input name = "email" 
                     value = {email}
