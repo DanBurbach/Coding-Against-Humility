@@ -13,7 +13,6 @@ class NewGameForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      displayName: this.props.auth.displayName,
       userName: '',
       gameLength: '',
       numberOfPlayers: '',
@@ -37,7 +36,7 @@ class NewGameForm extends Component {
   }
 
   render() {
-    const { userName, gameLength, numberOfPlayers, displayName } = this.state;
+    const { userName, gameLength, numberOfPlayers } = this.state;
     return (
       <div className="wrapper fade-in">
         <div id="newgame">
