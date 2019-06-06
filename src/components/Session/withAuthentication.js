@@ -20,39 +20,40 @@ const withAuthentication = Component => {
     //     });
     //   }
 
-    componentDidMount() {
-        this.listener = firebase.auth().onAuthStateChanged(
-            authUser => {
-                localStorage.setItem('authUser', JSON.stringify(authUser));
-                this.props.onSetAuthUser(authUser);
-            },
-            () => {
-                localStorage.removeItem('authUser');
-                this.props.onSetAuthUser(null);
-            },
-        );
-    }
+        componentDidMount() {
+            this.listener = firebase.auth().onAuthStateChanged(
+                authUser => {
+                    localStorage.setItem('authUser', JSON.stringify(authUser));
+                    this.props.onSetAuthUser(authUser);
+                },
+                () => {
+                    localStorage.removeItem('authUser');
+                    this.props.onSetAuthUser(null);
+                },
+            );
+        }
 
-    componentWillUnmount() {
-        this.listener();
-    }
-        
+        componentWillUnmount() {
+            this.listener();
+        }
+
         render() {
-            return ( <AuthUserContext.Provider value = { this.state.authUser }>
-                <Component { ...this.props }/> 
+            return ( 
+                <AuthUserContext.Provider value = {this.state.authUser}>
+                    <Component {...this.props}/>
                 </AuthUserContext.Provider>
             );
         }
     }
 
-const mapDispatchToProps = dispatch => ({
-    onSetAuthUser: authUser =>
-        dispatch({ type: 'AUTH_USER_SET', authUser }),
-});
+    const mapDispatchToProps = dispatch => ({
+        onSetAuthUser: authUser =>
+            dispatch({ type: 'AUTH_USER_SET', authUser }),
+    });
 
-return compose(withFirebase,
-    connect( null, mapDispatchToProps,),
-)(WithAuthentication);
+    return compose(withFirebase,
+        connect(null, mapDispatchToProps, ),
+    )(WithAuthentication);
 };
 
 export default withAuthentication;

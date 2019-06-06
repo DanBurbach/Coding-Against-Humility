@@ -26,9 +26,6 @@ function Main() {
   );
 }
 
-const enhance = connect(({ firebase: { auth, profile } }) => ({
-  auth,
-  profile
-}));
+const enhance = connect(({ firebase: { auth, profile } }) => ({ auth, profile }));
 
 export default firebaseConnect()(enhance(Main));

@@ -28,43 +28,15 @@ class App extends Component {
         <div>
           <Switch>
             <Route exact path={ROUTES.HOME} component={Main} />
-            <Route
-              exact
-              path={ROUTES.SIGN_UP}
-              component={SignUpPage}
-            />
-            <Route
-              exact
-              path={ROUTES.LOG_IN}
-              component={SignInPage}
-            />
-            <Route
-              exact
-              path={ROUTES.PASSWORD_FORGET}
-              component={PasswordForgetPage}
-            />
-            <Route
-              exact
-              path={ROUTES.NEW_GAME_FORM}
-              component={NewGameForm}
-            />
+            <Route xact path={ROUTES.SIGN_UP} component={SignUpPage} />
+            <Route exact path={ROUTES.LOG_IN} component={SignInPage} />
+            <Route exact path={ROUTES.PASSWORD_FORGET} component={PasswordForgetPage} />
+            <Route exact path={ROUTES.NEW_GAME_FORM} component={NewGameForm} />
             <Route exact path={ROUTES.GAME_INFO} component={Info} />
-            <Route
-              exact
-              path={ROUTES.GAME_FINEPRINT}
-              component={Fineprint}
-            />
+            <Route exact path={ROUTES.GAME_FINEPRINT} component={Fineprint} />
             <Route exact path={ROUTES.MAIN_GAME} component={Game} />
-            <Route
-              exact
-              path={ROUTES.MAIN_GAME_HEADER}
-              component={Header}
-            />
-            <Route
-              exact
-              path={ROUTES.MAIN_GAME_GAMEPLAY}
-              component={HeaderGameplay}
-            />
+            <Route exact path={ROUTES.MAIN_GAME_HEADER} component={Header} />
+            <Route exact path={ROUTES.MAIN_GAME_GAMEPLAY}  component={HeaderGameplay} />
             <Route component={Error404} />
           </Switch>
         </div>
