@@ -1,20 +1,21 @@
-import constants from '../constants';
-const { c } = constants;
+import * as ACTION_TYPES from '../constants/actionTypes';
 
-const scorePoints = (state = {}, action) => {
+const scorePointsReducer = (state = {}, action) => {
 
   switch (action.type) {
 
-  case c.POINT_GIVEN:
-    const { point } = action;
-    let newPointScoreValue = state.pointScoreValue + 1;
-    newState = {
-      point: state.gameScoreValue
-    };
-    return newState;
-  default:
-    return state;
+    case ACTION_TYPES.POINT_GIVEN:
+      const {
+        point
+      } = action;
+      let newPointScoreValue = state.pointScoreValue + 1;
+      newState = {
+        point: state.gameScoreValue
+      };
+      return newState;
+    default:
+      return state;
   }
 };
 
-export default scorePoints;
+export default scorePointsReducer;

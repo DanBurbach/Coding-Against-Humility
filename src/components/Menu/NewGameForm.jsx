@@ -1,38 +1,22 @@
-<<<<<<< HEAD
-import React, { Component } from 'react';
-import { compose } from 'redux';
-=======
-import React from 'react';
-import { compose } from 'redux';
-import PropTypes from 'prop-types';
->>>>>>> feature/refactor-attempt-react-redux-firebase
-import { Link, withRouter } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { firebaseConnect } from 'react-redux-firebase';
-import firebase from 'firebase/app';
+import React, { Component } from "react";
+import { compose } from "redux";
+import { Link, withRouter } from "react-router-dom";
+import { connect } from "react-redux";
+import { firebaseConnect } from "react-redux-firebase";
+import firebase from "firebase/app";
 
-import '../../assets/styles/NewGameForm.css';
-import { firebaseConnect } from 'react-redux-firebase';
-import { newGame } from '../../actions';
-import * as ROUTES from '../../constants/routes';
+import "../../assets/styles/NewGameForm.css";
+import { newGame } from "../../actions";
+import * as ROUTES from "../../constants/routes";
 
-<<<<<<< HEAD
 class NewGameForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      userName: '',
-=======
-class NewGameForm extends React.Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      userName:  '',
->>>>>>> feature/refactor-attempt-react-redux-firebase
-      gameLength: '',
-      numberOfPlayers: '',
-      gameWins: ''
+      userName: "",
+      gameLength: "",
+      numberOfPlayers: "",
+      gameWins: ""
     };
     this.handleNewGameSubmission = this.handleNewGameSubmission.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -40,9 +24,8 @@ class NewGameForm extends React.Component {
 
   handleNewGameSubmission(event) {
     event.preventDefault();
-<<<<<<< HEAD
     this.props.dispatch(newGame(this.state));
-    this.props.history.push('/game');
+    this.props.history.push("/game");
   }
 
   async handleChange(event, target) {
@@ -54,22 +37,6 @@ class NewGameForm extends React.Component {
 
   render() {
     const { userName, gameLength, numberOfPlayers } = this.state;
-=======
-    console.log(this.state);
-    this.props.dispatch(newGame(this.state));
-    this.props.history.push('/game'); 
-  }
-
-  handleChange(event, target) {
-    console.log(this.state);
-    this.setState({ [target]: event });
-    console.log(this.state);
-  }
-
-
-  render() {
-    const { userName, gameLength, numberOfPlayers } = this.state
->>>>>>> feature/refactor-attempt-react-redux-firebase
     return (
       <div className="wrapper fade-in">
         <div id="newgame">
@@ -83,7 +50,6 @@ class NewGameForm extends React.Component {
                   <div>
                     <p>Your displayName: {this.props.auth.displayName}</p>
                     <p>
-<<<<<<< HEAD
                       <input
                         type="text"
                         id="userName"
@@ -93,12 +59,6 @@ class NewGameForm extends React.Component {
                             event.target.value,
                             event.target.id
                           );
-=======
-                      <input type='text' 
-                      id='userName' 
-                      value={userName}
-                      onChange={event => {this.handleChange(event.target.value, event.target.id)
->>>>>>> feature/refactor-attempt-react-redux-firebase
                         }}
                       />
                     </p>
@@ -119,18 +79,10 @@ class NewGameForm extends React.Component {
                       max="8"
                       step="1"
                       value={numberOfPlayers}
-<<<<<<< HEAD
                       onChange={event => {
-                        this.handleChange(
-                          event.target.value,
-                          event.target.id
-                        );
+                        this.handleChange(event.target.value, event.target.id);
                       }}
                     />
-=======
-                      onChange={event => {this.handleChange(event.target.value, event.target.id)}}
-                      />
->>>>>>> feature/refactor-attempt-react-redux-firebase
                   </p>
 
                   <h2>
@@ -145,19 +97,10 @@ class NewGameForm extends React.Component {
                       max="10"
                       step="2"
                       value={gameLength}
-<<<<<<< HEAD
                       onChange={event => {
-                        this.handleChange(
-                          event.target.value,
-                          event.target.id
-                        );
+                        this.handleChange(event.target.value, event.target.id);
                       }}
                     />
-=======
-                      onChange={event => {this.handleChange(event.target.value, event.target.id)
-                      }}
-                      />
->>>>>>> feature/refactor-attempt-react-redux-firebase
                   </p>
 
                   <p>
@@ -198,12 +141,3 @@ const enhance = compose(
 );
 
 export default firebaseConnect()(enhance(NewGameForm));
-
-
-<<<<<<< HEAD
-=======
-export default compose(
-  withRouter,
-  firebaseConnect(),
-  connect()(NewGameForm));
->>>>>>> feature/refactor-attempt-react-redux-firebase

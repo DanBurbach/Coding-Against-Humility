@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { HashRouter, Route, Switch } from "react-router-dom";
+import { HashRouter, Route, Switch } from 'react-router-dom';
 
 import Main from './Main';
-import SignInPage from "./LogIn";
+import SignInPage from './LogIn';
 import SignUpPage from './SignUp';
-import PasswordForgetPage from "./PasswordForget";
+import PasswordForgetPage from './PasswordForget';
 import NewGameForm from './Menu/NewGameForm';
 import Info from './Menu/Info';
 import Fineprint from './Menu/Fineprint';
@@ -15,7 +15,7 @@ import Error404 from './ERROR404';
 
 import * as ROUTES from '../constants/routes';
 import { withAuthentication } from './Session';
-// import withFirebaseAuth from "react-auth-firebase";
+// import withFirebaseAuth from 'react-auth-firebase';
 
 import '../assets/styles/Header.css';
 

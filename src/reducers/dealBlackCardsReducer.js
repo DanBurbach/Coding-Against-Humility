@@ -1,28 +1,28 @@
-import constants from '../constants';
-const { c } = constants;
+import * as ACTION_TYPES from '../constants/actionTypes';
 
-const dealBlackCards = (state = {}, action) => {
-  let dealBlackCards;
+const dealBlackCardsReducer = (state = {}, action) => {
 
   switch (action.type) {
 
-  case c.ADD_BLACK_CARD:
-    const { blackcard, id } = action;
-    let dealBlackCards = Object.assign({}, state, {
-      [id]: {
-        isFetching: true,
-        whitecard: action.whitecard,
-        id: action.id
-      }
-    });
-    return dealBlackCards;
+    case ACTION_TYPES.ADD_BLACK_CARD:
+      const {
+        blackcard, id
+      } = action;
+      let dealBlackCards = Object.assign({}, state, {
+        [id]: {
+          isFetching: true,
+          whitecard: action.whitecard,
+          id: action.id
+        }
+      });
+      return dealBlackCards;
 
-  case c.REMOVE_BLACK_CARD:
-    return dealBlackCards;
+    case ACTION_TYPES.REMOVE_BLACK_CARD:
+      return dealBlackCards;
 
-  default:
-    return state;
+    default:
+      return state;
   }
 };
 
-export default dealBlackCards;
+export default dealBlackCardsReducer;

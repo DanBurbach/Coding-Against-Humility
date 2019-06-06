@@ -7,7 +7,7 @@ class NameValue extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      userName: ''
+      // userName: ''
     };
   }
 
@@ -20,7 +20,8 @@ class NameValue extends Component {
     return (
       <div>
         <br />
-        Your name is:{this.props.profile.userName}
+        Your name is:
+        {/* {this.props.profile.userName} */}
         <br />
       </div>
     );

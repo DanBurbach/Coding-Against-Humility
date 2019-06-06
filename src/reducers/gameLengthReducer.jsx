@@ -1,7 +1,6 @@
-import * as ACTION_TYPES from '../constants/actionTypes';
+import * as ACTION_TYPES from "../constants/actionTypes";
 
 const gameLengthReducer = (state = {}, action) => {
-
   switch (action.type) {
     case ACTION_TYPES.GAME_LENGTH:
       const { gamelength } = action;
@@ -19,3 +18,4 @@ const gameLengthReducer = (state = {}, action) => {
 };
 
 export default gameLengthReducer;
+
