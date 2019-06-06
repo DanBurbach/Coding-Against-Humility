@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import {startNewGameView} from './startNewGameReducer';
 import scorePointsReducer from './scorePointsReducer';
 import dealBlackCardsReducer from './dealBlackCardsReducer';
@@ -16,5 +17,18 @@ const gameReducers = combineReducers({
   numberOfPlayers: numberOfPlayersReducer,
   userName: userNameReducer
 });
+=======
+import { startNewGame } from "./startNewGameReducer";
+import { scorePoints } from './scorePointsReducer';
+import { dealBlackCards } from './dealBlackCardsReducer';
+import { dealWhiteCards } from './dealWhiteCardsReducer';
+
+const gameReducers = {
+  dealBlackCards,
+  dealWhiteCards,
+  scorePoints,
+  startNewGame
+};
+>>>>>>> feature/refactor-attempt-react-redux-firebase
 
 export default gameReducers;

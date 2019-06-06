@@ -8,6 +8,10 @@ class Game extends React.Component {
     this.state = {
     };
   }
+<<<<<<< HEAD
+=======
+
+>>>>>>> feature/refactor-attempt-react-redux-firebase
   render() {
     return (
       <div>

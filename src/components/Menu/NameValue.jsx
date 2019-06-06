@@ -11,7 +11,11 @@ class NameValue extends Component {
   constructor(props) {
     super(props);
     this.state = {
+<<<<<<< HEAD
       userName: {}
+=======
+      player: ''
+>>>>>>> feature/refactor-attempt-react-redux-firebase
     };
   }
 

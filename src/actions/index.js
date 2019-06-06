@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import * as ACTION_TYPES from '../constants/actionTypes';
 
 export const newGame = props => {
@@ -25,9 +26,18 @@ export const getNameFromFb = (ref) => {
     .then(response=> {
       dispatch(userName(ref, response.val()));
     });
+=======
+export function newGame (props) {
+  return (dispatch, getState, firebase) => firebase.database().ref('gameInfo').push({
+    userName: props.userName,
+    gameLength: props.gameLength,
+    numberOfPlayers: props.numberOfPlayers,
+    gameWins: props.gameWins
+>>>>>>> feature/refactor-attempt-react-redux-firebase
   });
 };
 
+<<<<<<< HEAD
     firebase.database().ref().orderByKey().once('value')
       .then((childSnapshot) => {
         this.setState({
@@ -36,3 +46,9 @@ export const getNameFromFb = (ref) => {
         let name_val = childSnapshot.val().userName;
         $("#name").append(name_val);
       });
+=======
+export const userName = (userName) => ({
+  type: c.USER_NAME,
+  userName
+});
+>>>>>>> feature/refactor-attempt-react-redux-firebase

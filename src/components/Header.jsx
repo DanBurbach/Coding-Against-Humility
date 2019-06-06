@@ -15,6 +15,10 @@ const Header = () => {
           <li><Link to='/headergameplay'>Gameplay</Link></li>
           <li><NameValue/></li>
           <li><GameInfo/></li>
+<<<<<<< HEAD
+=======
+          <li>{this.props.name}</li>
+>>>>>>> feature/refactor-attempt-react-redux-firebase
         </ul>
       </nav>
     </div>
