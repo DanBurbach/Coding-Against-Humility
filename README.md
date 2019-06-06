@@ -128,7 +128,6 @@ Knowledge of cellphone GPS and Bluetooth login and local device routing/connecti
   UI effects and ease of flipping card
 
 
-
 ### __Version__
 
 Alpha v0.1

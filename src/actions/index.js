@@ -1,4 +1,4 @@
-import * as ACTION_TYPES from '../constants/ActionTypes';
+import * as ACTION_TYPES from '../constants/actionTypes';
 
 export const newGame = props => {
   return (dispatch, getState, firebase) => {
@@ -12,20 +12,9 @@ export const newGame = props => {
   };
 };
 
-export const userName = (ref, userName) => ({
-  type: ACTION_TYPES.USER_NAME,
-  ref,
+
+export const userName = (userName) => ({
+  type: c.USER_NAME,
   userName
 });
 
-// export function loginUser(email, password) {
-//   return (dispatch) => {
-//     dispatch({ type: LOGIN_USER });
-//     return firebase.auth().signInWithEmailAndPassword(email, password)
-//       .then(user => loginUserSuccess(dispatch, user))
-//       .catch(() => {
-//         console.log('failed to sign in');
-//         return;
-//       });
-//   };
-// }
