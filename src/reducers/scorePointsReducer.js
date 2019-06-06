@@ -1,7 +1,7 @@
-import constants from './../constants';
+import constants from '../constants';
 const { c } = constants;
 
-const scorePointsReducer = (state = {}, action) => {
+const scorePoints = (state = {}, action) => {
 
   switch (action.type) {
 
@@ -17,4 +17,4 @@ const scorePointsReducer = (state = {}, action) => {
   }
 };
 
-export default scorePointsReducer;
+export default scorePoints;

@@ -1,26 +1,29 @@
-import constants from './../constants';
+import constants from '../constants';
 const { c } = constants;
 
-export default (state = {}, action) => {
-let newGame;
-const { name, gamelength, players, id } = action;
-
+const startNewGame = (state = {}, action) => {
+  let NewGame;
   switch (action.type) {
+    
   case c.ADD_NEWGAME:
-    newGame = Object.assign({}, state, {
+    const { userName, gameLength, numberOfPlayers, gameWins, id } = action;
+
+    NewGame = Object.assign({}, state, {
       [id]: {
-        name: name,
-        gamelength: gamelength,
-        players: players,
+        userName: userName,
+        gameLength: gameLength,
+        numberOfPlayers: numberOfPlayers,
+        gameWins: gameWins,
         id: id
       }
     });
-    return newGame;
+    return NewGame;
 
   case c.RESTART_GAME:
-    return newGame;
-
+    return NewGame;
   default:
     return state;
   }
 };
+
+export default startNewGame;

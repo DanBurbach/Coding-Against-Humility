@@ -1,7 +1,7 @@
-import constants from './../constants';
+import constants from '../constants';
 const { c } = constants;
 
-const dealWhiteCardsReducer = (state = {}, action) => {
+const dealWhiteCards = (state = {}, action) => {
   let dealWhiteCards;
 
   switch (action.type) {
@@ -25,4 +25,4 @@ const dealWhiteCardsReducer = (state = {}, action) => {
   }
 };
 
-export default dealWhiteCardsReducer;
+export default dealWhiteCards;

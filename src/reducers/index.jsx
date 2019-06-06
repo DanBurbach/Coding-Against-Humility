@@ -1,20 +1,13 @@
-import startNewGameReducer from './startNewGameReducer';
-import scorePointsReducer from './scorePointsReducer';
-import dealBlackCardsReducer from './dealBlackCardsReducer';
-import dealWhiteCardsReducer from './dealWhiteCardsReducer';
-import gameLengthReducer from './gameLengthReducer';
-import numberOfPlayersReducer from './numberOfPlayersReducer';
-import userNameReducer from './userNameReducer';
-import { combineReducers } from 'redux';
+import { startNewGame } from "./startNewGameReducer";
+import { scorePoints } from './scorePointsReducer';
+import { dealBlackCards } from './dealBlackCardsReducer';
+import { dealWhiteCards } from './dealWhiteCardsReducer';
 
-const rootReducer = combineReducers({
-  dealBlackCards: dealBlackCardsReducer,
-  dealWhiteCards: dealWhiteCardsReducer,
-  scorePoints: scorePointsReducer,
-  startNewGame: startNewGameReducer,
-  gameLength: gameLengthReducer,
-  numberOfPlayers: numberOfPlayersReducer,
-  userName: userNameReducer
-});
+const gameReducers = {
+  dealBlackCards,
+  dealWhiteCards,
+  scorePoints,
+  startNewGame
+};
 
-export default rootReducer;
+export default gameReducers;
