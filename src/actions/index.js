@@ -1,20 +1,38 @@
-import constants from './../constants';
-// import v4 from 'uuid/v4';
-const { firebaseConfig, c } = constants;
-import Firebase from 'firebase';
+import * as ACTION_TYPES from '../constants/actionTypes';
 
-firebase.initializeApp(firebaseConfig);
-const gameInfo = firebase.database().ref('gameInfo');
+export const newGame = props => {
+  return (dispatch, getState, getFirebase) => {
+    const firebase = getFirebase();
+    firebase.database().ref('gameInfo').push({
+      userName: props.userName,
+      gameLength: props.gameLength,
+      numberOfPlayers: props.numberOfPlayers,
+      gameWins: props.gameWins
+    });
+  };
+};
 
-export function newGame(_name, _gamelength, _players) {
-  return () => gameInfo.push({
-    name: _name,
-    gamelength: _gamelength,
-    players: _players
-  });
-}
-
-export const userName = (name) => ({
-  type: c.USER_NAME,
-  name
+export const userName = (ref, userName) => ({
+  type: ACTION_TYPES.USER_NAME,
+  ref,
+  userName
 });
+
+export const getNameFromFb = (ref) => {
+  return ((dispatch, state, getFirebase) => {
+    const firebase = getFirebase();
+    firebase.database().ref().once('value')
+    .then(response=> {
+      dispatch(userName(ref, response.val()));
+    });
+  });
+};
+
+    firebase.database().ref().orderByKey().once('value')
+      .then((childSnapshot) => {
+        this.setState({
+          userName: childSnapshot.val('gameInfo/userName')
+        });
+        let name_val = childSnapshot.val().userName;
+        $("#name").append(name_val);
+      });

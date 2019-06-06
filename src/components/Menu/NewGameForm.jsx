@@ -1,32 +1,39 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import { compose } from 'redux';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { firebaseConnect } from 'react-redux-firebase';
+
 import '../../assets/styles/NewGameForm.css';
 import { newGame } from '../../actions';
 
-let _name = null;
-let _gamelength = null;
-let _players = null;
-
-class NewGameForm extends React.Component {
-
+class NewGameForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      userName: '',
+      gameLength: '',
+      numberOfPlayers: '',
+      gameWins: ''
     };
     this.handleNewGameSubmission = this.handleNewGameSubmission.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   handleNewGameSubmission(event) {
-    const { dispatch } = this.props;
     event.preventDefault();
-    dispatch(newGame(_name.value, _gamelength.value, _players.value));
-    this.props.history.push('/game'); 
+    this.props.dispatch(newGame(this.state));
+    this.props.history.push('/game');
   }
 
+  async handleChange(event, target) {
+    console.log(event);
+    await this.setState({ [target]: event });
+    console.log(this.state);
+  }
 
   render() {
+    const { userName, gameLength, numberOfPlayers } = this.state;
     return (
       <div className='wrapper fade-in'>
         <div id='newgame'>
@@ -39,7 +46,17 @@ class NewGameForm extends React.Component {
                   </h2>
                   <div>
                     <p>
-                      <input type='text' ref={input => {_name = input;}}/>
+                      <input
+                        type='text'
+                        id='userName'
+                        value={userName}
+                        onChange={event => {
+                          this.handleChange(
+                            event.target.value,
+                            event.target.id
+                          );
+                        }}
+                      />
                     </p>
                   </div>
                   <br />
@@ -52,14 +69,16 @@ class NewGameForm extends React.Component {
                   <p>
                     <input
                       type='range'
-                      name='_players'
+                      name='numberOfPlayers'
+                      id='numberOfPlayers'
                       min='3'
                       max='8'
                       step='1'
-                      value={this.state.value}
-                      ref={input => {
-                        _players = input;
-                      }}/>
+                      value={numberOfPlayers}
+                      onChange={event => {
+                        this.handleChange(event.target.value, event.target.id);
+                      }}
+                    />
                   </p>
 
                   <h2>
@@ -68,18 +87,36 @@ class NewGameForm extends React.Component {
                   <p>
                     <input
                       type='range'
-                      name='_gamelength'
+                      name='gameLength'
+                      id='gameLength'
                       min='6'
                       max='10'
                       step='2'
-                      value={this.state.value}
-                      ref={input => {
-                        _gamelength = input;
-                      }}/>
+                      value={gameLength}
+                      onChange={event => {
+                        this.handleChange(event.target.value, event.target.id);
+                      }}
+                    />
                   </p>
 
                   <p>
-                    <button type='submit' id='newgamebutton'>Submit</button>  |  <button type='reset' id='newgamebutton' styles='transparent'>Reset</button>  |  <button><Link to='/' id='newgamebutton'>Back</Link></button>
+                    <button type='submit' id='newgamebutton'>
+                      Submit
+                    </button>{' '}
+                    |{' '}
+                    <button
+                      type='reset'
+                      id='newgamebutton'
+                      styles='transparent'
+                    >
+                      Reset
+                    </button>{' '}
+                    |{' '}
+                    <button>
+                      <Link to='/' id='newgamebutton'>
+                        Back
+                      </Link>
+                    </button>
                   </p>
                 </form>
               </div>
@@ -91,8 +128,13 @@ class NewGameForm extends React.Component {
   }
 }
 
-NewGameForm.propTypes = {
-  dispatch: PropTypes.func
-};
+const enhance = compose(
+  withRouter,
+  connect(({ firebase: { profile } }) => ({
+    profile
+  }))
+);
 
-export default withRouter(connect()(NewGameForm));
+export default firebaseConnect()(enhance(NewGameForm));
+
+

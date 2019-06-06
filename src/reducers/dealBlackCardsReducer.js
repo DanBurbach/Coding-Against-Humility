@@ -1,12 +1,10 @@
-import constants from './../constants';
-const { c } = constants;
+import * as ACTION_TYPES from '../constants/actionTypes';
 
 const dealBlackCardsReducer = (state = {}, action) => {
-  let dealBlackCards;
 
   switch (action.type) {
 
-  case c.ADD_BLACK_CARD:
+  case ACTION_TYPES.ADD_BLACK_CARD:
     const { blackcard, id } = action;
     let dealBlackCards = Object.assign({}, state, {
       [id]: {
@@ -17,7 +15,7 @@ const dealBlackCardsReducer = (state = {}, action) => {
     });
     return dealBlackCards;
 
-  case c.REMOVE_BLACK_CARD:
+  case ACTION_TYPES.REMOVE_BLACK_CARD:
     return dealBlackCards;
 
   default:

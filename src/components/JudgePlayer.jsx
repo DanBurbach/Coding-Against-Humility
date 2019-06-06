@@ -1,12 +1,12 @@
 import React from 'react';
 
-function JudgePlayer({ dispatch }) {
+function JudgePlayer() {
   return (
     <div>
-      <form onSubmit={e => {
-          event.preventDefault();
-          dispatch()
-        }}></form>
+      {/* <form onSubmit={event => {
+        event.preventDefault();
+        dispatch();
+      }}></form> */}
       <button>Deal</button>
     </div>
   );

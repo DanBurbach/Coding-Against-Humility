@@ -1,12 +1,11 @@
-import constants from './../constants';
-const { c } = constants;
+import * as ACTION_TYPES from '../constants/actionTypes';
 
-export default (state = {}, action) => {
+export const startNewGameView = (state = {}, action) => {
 let newGame;
 const { name, gamelength, players, id } = action;
 
   switch (action.type) {
-  case c.ADD_NEWGAME:
+  case ACTION_TYPES.ADD_NEWGAME:
     newGame = Object.assign({}, state, {
       [id]: {
         name: name,
@@ -17,10 +16,12 @@ const { name, gamelength, players, id } = action;
     });
     return newGame;
 
-  case c.RESTART_GAME:
+  case ACTION_TYPES.RESTART_GAME:
     return newGame;
 
   default:
     return state;
   }
 };
+
+export default startNewGameView;

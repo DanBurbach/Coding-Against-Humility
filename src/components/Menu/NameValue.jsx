@@ -1,28 +1,45 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { firebaseConnect } from 'react-redux-firebase';
+import firebase from '../../Firebase';
 
-class NameValue extends React.Component {
+import { getNameFromFb } from "../../actions";
+
+const userNameRef = firebase.database().ref();
+
+class NameValue extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      userName: {}
     };
   }
 
- currentUserName(){
-   firebase.database().ref('gameInfo/').once('value', function
-   (snapshot) {
-     console.log('looking for a username');
-   });
-  };
- 
+  componentDidMount() {
+    // this.props.dispatch(getNameFromFb(this.state));
+    
+    userNameRef.once('value')
+      .then((snapshot) => {
+        this.setState({userName: snapshot.child('gameInfo/userName').val()});
+      });
+  }
+
 
   render() {
     return (
       <div>
-        {this.currentUserName}
+        <br />
+        Your name is:{this.state.userName}
+        <br />
       </div>
-    )
-  };
+    );
+  }
 }
 
-export default connect()(NameValue);
+const enhance = connect(
+  ({ firebase: { profile } }) => ({
+    profile
+  })
+);
+
+export default firebaseConnect()(enhance(NameValue));

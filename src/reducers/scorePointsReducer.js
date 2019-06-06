@@ -1,11 +1,10 @@
-import constants from './../constants';
-const { c } = constants;
+import * as ACTION_TYPES from '../constants/actionTypes';
 
 const scorePointsReducer = (state = {}, action) => {
 
   switch (action.type) {
 
-  case c.POINT_GIVEN:
+  case ACTION_TYPES.POINT_GIVEN:
     const { point } = action;
     let newPointScoreValue = state.pointScoreValue + 1;
     newState = {
