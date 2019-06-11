@@ -34,18 +34,18 @@ module.exports = {
 
   module: {
     rules: [{
-        test: /\.jsx?$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env', '@babel/preset-react'],
-            plugins: ['react-hot-loader/babel',
-              '@babel/plugin-proposal-class-properties'
-            ]
+          test: /\.jsx?$/,
+          exclude: /node_modules/,
+          use: {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env', '@babel/preset-react'],
+              plugins: ['react-hot-loader/babel',
+                '@babel/plugin-proposal-class-properties'
+              ]
+            }
           }
-        }
-      },
+        },
       {
         test: /\.(png|gif|jp(e*)g|svg)$/,
         use: {
@@ -58,7 +58,8 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ['style-loader',
+        use: [
+          'style-loader',
           'css-loader'
         ]
       },
@@ -73,7 +74,7 @@ module.exports = {
       template: 'template.ejs',
       appMountId: 'react-app-root',
       title: 'Coding-Against-Humility',
-      filename: resolve(__dirname, 'build', 'index.html'),
+      filename: resolve(__dirname, "build", "index.html"),
     }),
   ]
-}
+};

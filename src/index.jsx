@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import { ReactReduxFirebaseProvider, getFirebase } from 'react-redux-firebase';
 import thunk from 'redux-thunk';
 import gameReducers from './reducers';
+// import * as serviceWorker from './serviceWorker';
 
 import firebase from 'firebase/app';
 
@@ -19,8 +20,8 @@ const store = createStore(
 const rrfProps = {
   firebase,
   config: rrfConfig,
-  dispatch: store.dispatch,
-};
+  dispatch: store.dispatch
+}
 
 ReactDOM.render(
   <Provider store={store}>
@@ -33,8 +34,6 @@ ReactDOM.render(
 
 /*eslint-disable */
 if (module.hot) {
-  module.hot.accept('./components/App', () => 
-    render(App)
-  );
+  module.hot.accept('./components/App', () => render(App));
 }
 /*eslint-enable */
