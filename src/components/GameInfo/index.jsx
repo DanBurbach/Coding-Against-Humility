@@ -10,6 +10,7 @@ function GameInfo() {
         <li>Who's turn it is.</li>
         <li>Your score.</li>
         <li>Number of players.</li>
+        {this.props.auth.displayName}
       </ul>
     </div>
   );
