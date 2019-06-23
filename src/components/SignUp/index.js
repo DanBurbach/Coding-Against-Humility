@@ -31,40 +31,64 @@ class SignUpFormBase extends Component {
     constructor(props) {
         super(props);
         this.state = {...INITIAL_STATE};
-
     }
 
     handleSignUpFormSubmit = event => {
-        event.preventDefault();
-        const user = firebase.auth().currentUser;
-        const { email, passwordOne } = this.state;
+            event.preventDefault();
+            const authUser = firebase.auth().currentUser
+            const firedata = firebase.database()
+            
+            const { email, passwordOne, username } = this.state;
 
-        firebase.auth().createUserWithEmailAndPassword(email, passwordOne)
+            firebase.auth()
+            .createUserWithEmailAndPassword(email, passwordOne)
             .then(() => {
-                return firebase.auth().currentUser.updateProfile({
-                    displayName: document.getElementById("username").value
+                    authUser.updateProfile({
+                        displayName: username,
+                    })
+                    .then(() => {
+                        firebase.database().ref(`gameInfo/${user.uid}`)
+                        .set({userName: username});
+                        console.log('uid:', user.uid);
+                        console.log('displayName:', user.displayName);
+                        console.log('userName:', user.userName);
+                        
                     })
                 })
-            // .then(() => {
-            //     return user.sendEmailVerification({
-            //         url: process.env.REACT_APP_CONFIRMATION_EMAIL_REDIRECT,
-            //     })
-            // })
-            // .then(() => {
-            //     this.setState({
-            //         ...INITIAL_STATE
-            //     });
-            //     this.props.history.push(ROUTES.LOG_IN);
-            // })
-            .catch(error => {
-                if (error.code === ERROR_CODE_ACCOUNT_EXISTS) {
-                    error.message = ERROR_MSG_ACCOUNT_EXISTS;
-                }
-                this.setState({
-                    error
+                // .then(authUser => {
+                //     return this.props.firebase.user(authUser.user.uid).set({
+                //         username,
+                //         email
+                //     });
+                // })
+                // .then(() => {
+                //     authUser.sendEmailVerification().then(function() {
+                //         //Email sent
+                //     })
+                // })
+                // .then((success) => {
+                //     console.log(success);
+                //     success.updateProfile({
+                //         displayName: username
+                //     })
+                // })
+                // .then(() => {
+                //     this.setState({
+                //         ...INITIAL_STATE
+                //     });
+                //     this.props.history.push(ROUTES.LOG_IN);
+                // })
+
+
+                .catch(error => {
+                    if (error.code === ERROR_CODE_ACCOUNT_EXISTS) {
+                        error.message = ERROR_MSG_ACCOUNT_EXISTS;
+                    }
+                    this.setState({
+                        error
+                    });
                 });
-            });
-            this.props.history.push(ROUTES.LOG_IN);
+        this.props.history.push(ROUTES.LOG_IN);
     };
 
     handleSignUpUpdate = event => {
@@ -88,11 +112,11 @@ class SignUpFormBase extends Component {
 
         return ( 
             <form onSubmit = {this.handleSignUpFormSubmit}>
-                <input name = "username" 
+                < input name = "username"
                     value = {username}
                     onChange = {this.handleSignUpUpdate} type = "text"
                     id = "username"
-                    placeholder = "Full Name"/>
+                    placeholder = "In-Game Name"/>
                 <input name = "email" 
                     value = {email}
                     onChange = {this.handleSignUpUpdate} type = "text" 

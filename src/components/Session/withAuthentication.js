@@ -15,10 +15,10 @@ const withAuthentication = Component => {
             };
         }
 
-        //     componentDidMount() {
-        //         firebase.auth().onAuthStateChanged(authUser => {authUser ? this.setState(authUser) : this.setState(null);
-        //     });
-        //   }
+    //     componentDidMount() {
+    //         firebase.auth().onAuthStateChanged(authUser => {authUser ? this.setState(authUser) : this.setState(null);
+    //     });
+    //   }
 
     componentDidMount() {
         this.listener = firebase.auth().onAuthStateChanged(
