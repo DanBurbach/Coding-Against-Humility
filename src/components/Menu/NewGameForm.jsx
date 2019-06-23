@@ -13,7 +13,7 @@ class NewGameForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      displayName: '',
+      displayName: this.props.auth.displayName,
       userName: '',
       gameLength: '',
       numberOfPlayers: '',

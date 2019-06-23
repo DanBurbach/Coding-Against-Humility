@@ -47,34 +47,21 @@ class SignUpFormBase extends Component {
                         displayName: username,
                     })
                 })
-                // .then(authUser => {
-                //     return this.props.firebase.user(authUser.user.uid).set({
-                //         username,
-                //         email
-                //     });
-                // })
-
-                // .then(() => {
-                //     this.setState({
-                //         ...INITIAL_STATE
-                //     });
-                //     this.props.history.push(ROUTES.LOG_IN);
-                // })
-
-
-                .catch(error => {
-                    if (error.code === ERROR_CODE_ACCOUNT_EXISTS) {
-                        error.message = ERROR_MSG_ACCOUNT_EXISTS;
-                    }
-                    this.setState({
-                        error
-                    });
+            .catch(error => {
+                if (error.code === ERROR_CODE_ACCOUNT_EXISTS) {
+                    error.message = ERROR_MSG_ACCOUNT_EXISTS;
+                }
+                this.setState({
+                    error
                 });
+            });
         this.props.history.push(ROUTES.LOG_IN);
     };
 
     handleSignUpUpdate = event => {
-        this.setState({[event.target.name]:event.target.value});
+        this.setState({[event.target.name]:event.target.value})
+        console.log(this.state);
+        console.log(firebase.auth().currentUser);
     };
 
     render() {
