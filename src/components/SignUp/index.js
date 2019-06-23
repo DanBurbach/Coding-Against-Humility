@@ -53,12 +53,7 @@ class SignUpFormBase extends Component {
                 //         email
                 //     });
                 // })
-                // .then((success) => {
-                //     console.log(success);
-                //     success.updateProfile({
-                //         displayName: username
-                //     })
-                // })
+
                 // .then(() => {
                 //     this.setState({
                 //         ...INITIAL_STATE
