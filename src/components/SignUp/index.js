@@ -34,25 +34,17 @@ class SignUpFormBase extends Component {
     }
 
     handleSignUpFormSubmit = event => {
-            event.preventDefault();
-            const authUser = firebase.auth().currentUser
-            const firedata = firebase.database()
-            
+            event.preventDefault();            
             const { email, passwordOne, username } = this.state;
 
             firebase.auth()
             .createUserWithEmailAndPassword(email, passwordOne)
             .then(() => {
-                    authUser.updateProfile({
+                firebase.auth().currentUser.sendEmailVerification()
+            })
+            .then(() => {
+                    firebase.auth().currentUser.updateProfile({
                         displayName: username,
-                    })
-                    .then(() => {
-                        firebase.database().ref(`gameInfo/${user.uid}`)
-                        .set({userName: username});
-                        console.log('uid:', user.uid);
-                        console.log('displayName:', user.displayName);
-                        console.log('userName:', user.userName);
-                        
                     })
                 })
                 // .then(authUser => {
@@ -60,11 +52,6 @@ class SignUpFormBase extends Component {
                 //         username,
                 //         email
                 //     });
-                // })
-                // .then(() => {
-                //     authUser.sendEmailVerification().then(function() {
-                //         //Email sent
-                //     })
                 // })
                 // .then((success) => {
                 //     console.log(success);
