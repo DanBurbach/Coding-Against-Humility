@@ -1,9 +1,10 @@
-import * as ACTION_TYPES from '../constants/ActionTypes';
+// import * as ACTION_TYPES from '../constants/ActionTypes';
 
 export const newGame = props => {
   return (dispatch, getState, firebase) => {
     const userId = firebase.auth().currentUser.uid;
-    firebase.database().ref(`gameInfo/${userId}`).set({
+    firebase.database().ref(`gameInfo/ + ${userId}`)
+    .set({
       userName: props.userName,
       gameLength: props.gameLength,
       numberOfPlayers: props.numberOfPlayers,
@@ -12,11 +13,11 @@ export const newGame = props => {
   };
 };
 
-export const userName = (ref, userName) => ({
-  type: ACTION_TYPES.USER_NAME,
-  ref,
-  userName
-});
+// export const userName = (ref, userName) => ({
+//   type: ACTION_TYPES.USER_NAME,
+//   ref,
+//   userName
+// });
 
 // export function loginUser(email, password) {
 //   return (dispatch) => {
