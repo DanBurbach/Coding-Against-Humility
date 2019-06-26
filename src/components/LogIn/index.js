@@ -48,7 +48,6 @@ class SignInFormBase extends Component {
     console.log(event);
     console.log(this.state);
     console.log(firebase.auth().currentUser);
-    console.log(firebase.auth().currentUser.uid);
   };
 
   render() {

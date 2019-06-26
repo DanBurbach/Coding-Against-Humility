@@ -1,11 +1,39 @@
-import React from 'react';
+import React, { Component } from "react";
+import { compose } from "redux";
+import { connect } from "react-redux";
+import { firebaseConnect } from "react-redux-firebase";
+import { withRouter } from "react-router-dom";
+import firebase from "firebase/app";
 
-import { withFirebase } from "../../Firebase/context.js";
+import "../../assets/styles/LogOutButton.css";
 
-const SignOutButton = ({firebase}) => ( 
-    <button type = "button" onClick = {firebase.userSignOut}>
-        Sign Out 
-    </button>
+class SignOutButton extends Component {
+  constructor(props) {
+    super(props);
+    this.handleLogOut = this.handleLogOut.bind(this);
+  }
+
+handleLogOut = (event) => {
+    event.preventDefault();
+    firebase.doSignOut;
+    console.log(firebase.auth().currentUser);
+    this.props.history.push('/');
+  };
+
+render() {
+    return (
+      <div className='logOut'>
+        <button id='logOutButton' onClick={this.handleLogOut}>
+          Sign Out
+        </button>
+      </div>
+    );
+    }
+}
+
+const enhance = compose(
+  withRouter,
+  connect(({ firebase: { auth, profile } }) => ({ auth, profile }))
 );
 
-export default withFirebase(SignOutButton);
+export default firebaseConnect()(enhance(SignOutButton));
