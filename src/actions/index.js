@@ -1,9 +1,9 @@
-// import * as ACTION_TYPES from '../constants/ActionTypes';
+import firebase from '../Firebase';
 
 export const newGame = props => {
-  return (dispatch, getState, firebase) => {
+  return async (dispatch) => {
     const userId = firebase.auth().currentUser.uid;
-    firebase.database().ref(`gameInfo/ + ${userId}`)
+    await firebase.database().ref(`gameInfo/ + ${userId}`)
     .set({
       userName: props.userName,
       gameLength: props.gameLength,
@@ -12,12 +12,6 @@ export const newGame = props => {
     });
   };
 };
-
-// export const userName = (ref, userName) => ({
-//   type: ACTION_TYPES.USER_NAME,
-//   ref,
-//   userName
-// });
 
 // export function loginUser(email, password) {
 //   return (dispatch) => {
