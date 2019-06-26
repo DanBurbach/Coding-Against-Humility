@@ -59,6 +59,11 @@ body {
   letter-spacing: 13px;
 }
 
+.info .infostyles .headerNavigation {
+  display: inline;
+  text-align: center;
+}
+
 .info a {
   font-family: 'Montserrat', sans-serif;
   display: inline-block;
