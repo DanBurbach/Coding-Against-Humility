@@ -23,15 +23,15 @@ class NewGameForm extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleNewGameSubmission(event) {
+  async handleNewGameSubmission(event) {
     event.preventDefault();
-    // this.props.dispatch(newGame(this.state));
+    this.props.dispatch(newGame(this.state));
     this.props.history.push('/game');
   }
 
-  async handleChange(event, target) {
+  handleChange(event, target) {
     console.log(event);
-    await this.setState({ [target]: event });
+    this.setState({ [target]: event });
     console.log(this.state);
     console.log(firebase.auth().currentUser);
     console.log(firebase.auth().currentUser.uid);
