@@ -25,7 +25,7 @@ class NewGameForm extends Component {
 
   handleNewGameSubmission(event) {
     event.preventDefault();
-    this.props.dispatch(newGame(this.state));
+    // this.props.dispatch(newGame(this.state));
     this.props.history.push('/game');
   }
 
@@ -34,6 +34,7 @@ class NewGameForm extends Component {
     await this.setState({ [target]: event });
     console.log(this.state);
     console.log(firebase.auth().currentUser);
+    console.log(firebase.auth().currentUser.uid);
   }
 
   render() {
@@ -135,10 +136,7 @@ class NewGameForm extends Component {
 
 const enhance = compose(
   withRouter,
-  connect(({ firebase: { auth, profile } }) => ({
-    auth,
-    profile
-  }))
+  connect(({ firebase: { auth, profile } }) => ({ auth, profile }))
 );
 
 export default firebaseConnect()(enhance(NewGameForm));
