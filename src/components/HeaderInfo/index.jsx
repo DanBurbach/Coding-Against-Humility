@@ -78,8 +78,10 @@ function HeaderGameplay(){
               </p>
             </div>
             <br />
-            <Link to={ROUTES.MAIN_GAME}>Back</Link>
-            <SignOutButton />
+            <div className= 'headerNavigation'>
+              <Link to={ROUTES.MAIN_GAME}>Back</Link>
+              <SignOutButton />
+            </div>
           </div>
         </div>
       </div>
