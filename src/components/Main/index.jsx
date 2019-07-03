@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { firebaseConnect } from 'react-redux-firebase';
 
 import Modal from 'react-modal';
-import SignInPage from '../Login';
+// import SignInPage from '../Login';
 
 import * as ROUTES from "../../constants/routes";
 
@@ -26,6 +26,10 @@ class Main extends Component {
   handleCloseModal = () => {
     this.setState({showModal: false});
   }
+
+  componentDidMount() {
+    Modal.setAppElement('body');
+ }
 
   render() {
     return (
