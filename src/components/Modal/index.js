@@ -1,29 +1,25 @@
-import React from 'react';
-import '../styles/Modal.css';
+// import React from 'react';
+// import {SignInPage} from './Login';
+// import Modal from 'react-modal';
 
-const modal = (props) => {
-    return ( 
-        <div>
-            <div className = "modal-wrapper"
-                style = {
-            {transform: props.show ? 'translateY(0vh)' : 'translateY(-100vh)',
-                opacity: props.show ? '1' : '0'}}>
-            <div className = "modal-header">
-                <h3> Modal Header </h3> 
-                    <span className = "close-modal-btn" onClick = { props.close } > × </span> 
-            </div> 
-            <div className = "modal-body">
-                <p> 
-                    {props.children} 
-                </p> 
-            </div> 
-                <div className = "modal-footer">
-                    <button className = "btn-cancel" onClick = {props.close} > CLOSE </button> 
-                    <button className = "btn-continue" > CONTINUE </button> 
-                </div> 
-            </div> 
-        </div>
-    )
-}
 
-export default modal;
+// const modal = (props) => {
+//     return ( 
+//         <div>
+//             <button onClick={this.openModal}>Open Modal</button>
+//                 <Modal
+//                     isOpen={this.state.modalIsOpen}
+//                     onAfterOpen={this.afterOpenModal}
+//                     onRequestClose={this.closeModal}
+//                     style={customStyles}
+//                     contentLabel="Example Modal"
+//                 >
+        
+//                 <button onClick={this.closeModal}>close</button>
+//                 <div>{SignInPage}</div>
+//                 </Modal>
+//         </div>
+//     )
+// }
+
+// export default modal;
