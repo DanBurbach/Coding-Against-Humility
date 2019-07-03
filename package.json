@@ -20,6 +20,7 @@
     "react": "^16.8.4",
     "react-auth-firebase": "^1.2.1",
     "react-dom": "^16.8.4",
+    "react-modal": "^3.8.2",
     "react-pure-grid": "^2.1.1",
     "react-redux": "^6.0.1",
     "react-redux-firebase": "^3.0.0-alpha.11",
