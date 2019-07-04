@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { firebaseConnect } from 'react-redux-firebase';
 
-import Modal from 'react-modal';
-// import SignInPage from '../Login';
+import { Modal } from 'react-bootstrap';
+import SignInPage from '../Login';
 
-import * as ROUTES from "../../constants/routes";
+import * as ROUTES from '../../constants/routes';
 
 import '../../assets/styles/MainStyles.css';
 
@@ -20,16 +20,12 @@ class Main extends Component {
   this.handleCloseModal = this.handleCloseModal.bind(this);
 }
   handleOpenModal = () => {
-    this.setState({showModal: true});
+    this.setState({ showModal: true });
   }
 
   handleCloseModal = () => {
-    this.setState({showModal: false});
+    this.setState({ showModal: false });
   }
-
-  componentDidMount() {
-    Modal.setAppElement('body');
- }
 
   render() {
     return (
@@ -41,17 +37,27 @@ class Main extends Component {
               <h2>A game that makes you a bad person</h2>
             </div>
             <br />
-            <button onClick={this.handleOpenModal}>NEW Game</button>
-            <Modal
-              isOpen={this.state.showModal}
-              contentLabel="onRequestClose Example"
-              onRequestClose={this.handleCloseModal}
-              className="Modal"
-              overlayClassName="Overlay"
-            >
-              <button onClick={this.handleCloseModal}>close</button>
-              <div>SignInPage Here!</div>
+            
+            <button id="newGameButtonModal" onClick={this.handleOpenModal}>
+              NEW Modal Game
+            </button>
+            <Modal show={this.state.show} onHide={this.handleClose}>
+              <Modal.Header closeButton>
+                <Modal.Title>New Game Log In</Modal.Title>
+              </Modal.Header>
+              <Modal.Body>
+                <SignInPage />
+              </Modal.Body>
+              <Modal.Footer>
+                <button variant="secondary" onClick={this.handleClose}>
+                  Close
+                </button>
+                <button variant="primary" onClick={this.handleClose}>
+                  Save Changes
+                </button>
+              </Modal.Footer>
             </Modal>
+
             <Link to={ROUTES.LOG_IN}>New Game</Link>
             <Link to={ROUTES.GAME_INFO}>Info</Link>
             <Link to={ROUTES.GAME_FINEPRINT}>Fine Print</Link>
