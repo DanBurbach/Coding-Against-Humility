@@ -128,7 +128,7 @@ body {
 
 button {
   background-color: transparent;
-  border: none;
+  outline: 0 none;
 }
 
 /* Fade in effect */
