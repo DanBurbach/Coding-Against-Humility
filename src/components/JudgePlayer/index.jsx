@@ -10,9 +10,12 @@ class JudgePlayer extends Component {
   }
 
   handleDealBlack = () => {
-
-      // const rand = min + Math.random() * (max - min);
-      // this.setState({ random: this.state.blackCard + rand });
+      const min = 0;
+      const max = 414;
+      document.write(blackCards[0].text);
+      document.write(blackCards[0].pick);
+      const rand = min + Math.random() * (max - min);
+      this.setState({ random: this.state.blackCard + rand });
   }
 
   render() {
