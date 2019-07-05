@@ -6,7 +6,7 @@ import firebase from "firebase/app";
 
 import { SignUpLink } from '../SignUp';
 import { PasswordForgetLink } from '../PasswordForget';
-import { withFirebase } from '../../Firebase/context.js';
+import { withFirebase } from '../../Firebase/context';
 import * as ROUTES from '../../constants/routes';
 
 const SignInPage = () => (

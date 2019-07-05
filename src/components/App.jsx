@@ -15,7 +15,6 @@ import Error404 from './ERROR404';
 
 import * as ROUTES from '../constants/routes';
 import { withAuthentication } from './Session';
-// import withFirebaseAuth from 'react-auth-firebase';
 
 import '../assets/styles/Header.css';
 
