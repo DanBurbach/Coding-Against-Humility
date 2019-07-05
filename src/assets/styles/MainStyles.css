@@ -106,6 +106,7 @@ body {
 }
 
 #main #newGameButtonModal {
+  outline: 0 none;
   font-family: 'Montserrat', sans-serif;
   display: inline-block;
   text-transform: uppercase;
@@ -124,12 +125,9 @@ body {
 #main #newGameButtonModal:hover {
   background-color: transparent;
   color: #8400ff;
-}
-
-button {
-  background-color: transparent;
   outline: 0 none;
 }
+
 
 /* Fade in effect */
 .fade-in{
