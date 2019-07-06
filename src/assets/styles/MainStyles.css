@@ -119,7 +119,6 @@ body {
   -webkit-transition: 0.2s all;
   transition: 0.2s all;
   text-decoration: none;
-  background: radial-gradient(#333, #111);
 }
 
 #main #newGameButtonModal:hover {
