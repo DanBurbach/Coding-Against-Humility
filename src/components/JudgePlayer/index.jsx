@@ -19,11 +19,7 @@ class JudgePlayer extends Component {
       let x = Math.floor(Math.random() * blackDeckSize);
       let blackCardSlice = blackCardData.slice(x, x+1);
       console.log(blackCardSlice);
-      let blackSliceTest = blackCardSlice.toString();
-      console.log('just a test for toString:' + blackSliceTest);
       
-
-
       // let blackCard = this.state.blackCard;
       // blackCard.push(blackCardSlice);
       this.setState(prevState => ({ 
@@ -35,8 +31,6 @@ class JudgePlayer extends Component {
       // });
 
       console.log(this.state.blackCard);
-      
-
   }
 
   render() {
