@@ -10,9 +10,10 @@ const BlackCards = ({currentBlackCardArray, dispatch}) => {
           <li key={blackcard.id} className="card">
             <h1>{blackcard.text}</h1>
           </li>
-      <BlackDeckDisplay text={addBlackCard.text}
+      <BlackDeckDisplay text={addBlackCard.text}/>
     </div>
   );
+}
 
 BlackCards.propTypes = {
   currentBlackCardArray: PropTypes.arrayOf(Object),
