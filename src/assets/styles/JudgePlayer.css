@@ -1,4 +1,8 @@
 button {
+    text-align: center;
+}
+
+#dealBlackCard {
     outline: 0 none;
     font-family: 'Montserrat', sans-serif;
     display: inline-block;
@@ -14,7 +18,7 @@ button {
     text-decoration: none;
 }
 
-button :hover {
+#dealBlackCard :hover {
     background-color: transparent;
     color: #8400ff;
     outline: 0 none;
