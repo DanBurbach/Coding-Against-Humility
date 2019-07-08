@@ -1,11 +1,14 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
+import { compose } from "redux";
+import { connect } from 'react-redux';
+import { firebaseConnect } from 'react-redux-firebase';
 import '../../assets/styles/JudgePlayer.css';
 
 class JudgePlayer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      blackCard: []
+      blackCard: [],
     };
     this.handleDealBlack = this.handleDealBlack.bind(this);
   }
@@ -14,32 +17,38 @@ class JudgePlayer extends Component {
 
   handleDealBlack = (event) => {
       event.preventDefault();
+
+      const blackCard = this.state.blackCard;
       const blackCardData = require('../../../decks/BlackCards.json');
       const blackDeckSize = 414;
       let x = Math.floor(Math.random() * blackDeckSize);
-      let blackCardSlice = blackCardData.slice(x, x+1);
-      console.log(blackCardSlice);
+      let [blackCardSlice] = blackCardData.slice(x, x+1);
+      console.log(blackCardSlice.text);
       
-      // let blackCard = this.state.blackCard;
-      // blackCard.push(blackCardSlice);
-      this.setState(prevState => ({ 
-        blackCard: [...prevState.blackCard, blackCardSlice]
-      }));
-
-      // this.setState({
-      //   blackCard: this.state.blackCard.concat([blackCardSlice])
-      // });
+      blackCard.push(blackCardSlice.text);
 
       console.log(this.state.blackCard);
+
+      
+      // let recentBlackCard = blackCardSlice[blackCardSlice.length - 1];
+      // return {this.blackCard};
   }
 
   render() {
+    const { blackCard } = this.state;
     return (
       <div>
-        {/* <div className="blackCardDelt">{this.state.blackCard}</div> */}
+        <div>
+          {blackCard}
+        </div>
         <button onClick={this.handleDealBlack} id='dealBlackCard'>Deal</button>
       </div>
     );
   }
 }
-export default JudgePlayer;
+
+const enhance = compose(
+  connect(({ firebase: { auth, profile } }) => ({ auth, profile }))
+);
+
+export default firebaseConnect()(enhance(JudgePlayer));
