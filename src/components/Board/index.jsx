@@ -14,8 +14,8 @@ function Board(){
       <br/>
       {/* <BlackDeckDisplay/> */}
       <br/>
-      <MainPlayer/>
       <JudgePlayer/>
+      <MainPlayer/>
     </div>
   );
 }

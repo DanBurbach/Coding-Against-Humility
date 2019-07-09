@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { compose } from "redux";
 import { connect } from 'react-redux';
-import { firebaseConnect, populate } from 'react-redux-firebase';
+import { firebaseConnect } from 'react-redux-firebase';
 import '../../assets/styles/JudgePlayer.css';
 import '../../assets/styles/BlackDeckDisplay.css';
 
@@ -18,7 +18,6 @@ class JudgePlayer extends Component {
 
   handleDealBlack = (event) => {
       event.preventDefault();
-      const blackCard = this.state.blackCard;
       const blackCardData = require('../../../decks/BlackCards.json');
       const blackDeckSize = 414;
       const x = Math.floor(Math.random() * blackDeckSize);
@@ -27,7 +26,6 @@ class JudgePlayer extends Component {
       this.setState({
         blackCard: blackCardSlice.text
       })
-      console.log(' Current Black Card: ' + blackCard);
   }
 
   render() {
