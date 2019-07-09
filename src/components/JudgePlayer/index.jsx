@@ -3,7 +3,7 @@ import { compose } from "redux";
 import { connect } from 'react-redux';
 import { firebaseConnect, populate } from 'react-redux-firebase';
 import '../../assets/styles/JudgePlayer.css';
-import "../../assets/styles/NewGameForm.css";
+import '../../assets/styles/BlackDeckDisplay.css';
 
 class JudgePlayer extends Component {
   constructor(props) {
@@ -31,14 +31,31 @@ class JudgePlayer extends Component {
   }
 
   render() {
-    return (
-      <div>
-        <p>
-          {this.state.blackCard}
-        </p>
-        <button onClick={this.handleDealBlack} id='dealBlackCard'>Deal</button>
+  return (
+    <div>
+      <div className='row'>
+        <div className='col-4'></div>
+        <div className='col-4'>
+          <div className='blackcard-card'>
+            <div className='blackcard-container'>
+              <div className='blackcard-front blackcard-side'>
+                <div className='blackcard-content'>
+                  <h1>Coding Against Humility</h1>
+                </div>
+              </div>
+              <div className='blackcard-back blackcard-side'>
+                <div className='blackcard-content'>
+                  <h1>{this.state.blackCard}</h1>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className='col-4'></div>
       </div>
-    );
+    <button onClick={this.handleDealBlack} id='dealBlackCard'>Deal</button>
+    </div>
+    )
   }
 }
 

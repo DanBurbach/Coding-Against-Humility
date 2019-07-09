@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from '../Header';
-import BlackDeckDisplay from '../BlackCards/BlackDeckDisplay';
+// import BlackDeckDisplay from '../BlackCards/BlackDeckDisplay';
 import MainPlayer from '../MainPlayer/MainPlayer';
 import JudgePlayer from '../JudgePlayer';
 import { connect } from 'react-redux';
@@ -12,7 +12,7 @@ function Board(){
     <div>
       <Header/>
       <br/>
-      <BlackDeckDisplay/>
+      {/* <BlackDeckDisplay/> */}
       <br/>
       <MainPlayer/>
       <JudgePlayer/>
