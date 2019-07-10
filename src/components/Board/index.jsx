@@ -2,7 +2,7 @@ import React from 'react';
 import Header from '../Header';
 // import BlackDeckDisplay from '../BlackCards/BlackDeckDisplay';
 import MainPlayer from '../MainPlayer/MainPlayer';
-import JudgePlayer from '../JudgePlayer';
+import BlackCardDraw from '../BlackCardDraw';
 import { connect } from 'react-redux';
 import { firebaseConnect } from "react-redux-firebase";
 
@@ -14,7 +14,7 @@ function Board(){
       <br/>
       {/* <BlackDeckDisplay/> */}
       <br/>
-      <JudgePlayer/>
+      <BlackCardDraw/>
       <MainPlayer/>
     </div>
   );

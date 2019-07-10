@@ -1,10 +1,10 @@
 import React from 'react';
-import WhiteCardDisplay from './../WhiteCards/WhiteCardDisplay';
+import WhiteCardHand from './../WhiteCardDraw/index';
 
 function MainPlayer(){
   return (
     <div>
-      <WhiteCardDisplay />
+      <WhiteCardHand />
     </div>
   );
 }
