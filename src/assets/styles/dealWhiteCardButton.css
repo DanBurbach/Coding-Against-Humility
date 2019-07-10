@@ -1,0 +1,25 @@
+button {
+    text-align: center;
+}
+
+#dealWhiteCard {
+    outline: 0 none;
+    font-family: 'Montserrat', sans-serif;
+    display: inline-block;
+    text-transform: uppercase;
+    color: #ff005a;
+    text-decoration: none;
+    border: 2px solid;
+    padding: 10px 40px;
+    font-size: 14px;
+    font-weight: 700;
+    -webkit-transition: 0.2s all;
+    transition: 0.2s all;
+    text-decoration: none;
+}
+
+#dealWhiteCard :hover {
+    background-color: transparent;
+    color: #8400ff;
+    outline: 0 none;
+}
