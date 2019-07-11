@@ -1,23 +1,23 @@
 .blackcard-card {
-  height: 200px;
-  position: relative;
-  width: 275px;
-  height: 450px;
-  background-color: transparent;
-  border: none;
-  border-radius: 1em;
-  justify-content: center;
+	height: 200px;
+	position: relative;
+	width: 275px;
+	height: 450px;
+	background-color: transparent;
+	border: none;
+	border-radius: 1em;
+	justify-content: center;
 }
 
 .blackcard-container {
 	min-width: 275px;
 	min-height: 450px;
-	border-radius: 20px;
+	border-radius: 1em;
 	position: relative;
 	-webkit-transition: 1.5s ease-in-out;
 	transition: 1.5s ease-in-out;
 	transform-style: preserve-3d;
-  display: flex;
+  	display: flex;
 }
 
 .blackcard-side {
