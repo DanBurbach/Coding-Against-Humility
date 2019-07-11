@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { compose } from "redux";
 import { connect } from 'react-redux';
 import { firebaseConnect } from 'react-redux-firebase';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+// import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import '../../assets/styles/dealBlackCardButton.css';
 import '../../assets/styles/BlackDeckDisplay.css';
 
@@ -23,7 +23,7 @@ class BlackCardDraw extends Component {
   handleDrawNewBlackCard = (event) => {
     event.preventDefault();
     this.handleDealBlack();
-    // this.handleFlipBlackCard();
+    this.handleFlipBlackCard();
   }
 
   handleDealBlack = () => {
@@ -38,17 +38,21 @@ class BlackCardDraw extends Component {
   }
 
   handleFlipBlackCard = () => {
+      let cards = document.getElementsByClassName('blackcard-content-container');
 
-  }
+      for (var i = 0; i < cards.length; i++) {
+        var card = cards[i];
+        if (card.classList.contains('blackcard-back')) {
+          card.classList.remove('blackcard-back');
+        } else {
+          card.classList.add('blackcard-back');
+        }
+      }
+    }
 
   render() {
-    const { blackCard } = this.state;
   return (
     <div className='item-wrapper'>
-      <ReactCSSTransitionGroup
-        transitionName='flip'
-        transitionEnterTimeout={500}
-        transitionLeaveTimeout={300}>
       <div className='row'>
         <div className='col-4'></div>
         <div className='col-4'>
@@ -62,7 +66,6 @@ class BlackCardDraw extends Component {
               <div className='blackcard-back blackcard-side'>
                 <div className='blackcard-content-back'>
                   {this.state.blackCard}
-                  {blackCard}
                 </div>
               </div>
             </div>
@@ -70,8 +73,7 @@ class BlackCardDraw extends Component {
         </div>
         <div className='col-4'></div>
       </div>
-      </ReactCSSTransitionGroup>
-    <button onClick={this.handleDrawNewBlackCard} id='dealBlackCard'>Deal</button>
+    <button onClick={this.handleDrawNewBlackCard} id='dealBlackCard'>Deal Black Card</button>
     </div>
     )
   }
