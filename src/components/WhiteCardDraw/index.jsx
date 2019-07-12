@@ -23,7 +23,6 @@ class WhiteCardHand extends Component {
       // dealWhiteCard: false
     };
     this.handleShowWhiteCardHand = this.handleShowWhiteCardHand.bind(this);
-    // this.handleRandomNumber = this.handleRandomNumber.bind(this);
     this.handleDealWhiteCards = this.handleDealWhiteCards.bind(this);
   }
   
@@ -31,67 +30,69 @@ class WhiteCardHand extends Component {
   
   handleShowWhiteCardHand = event => {
     event.preventDefault();
-    // this.handleRandomNumber();
     this.handleDealWhiteCards();
   };
   
-  // handleRandomNumber = () => {
-  //   var randomWhiteCardArray = [];
-  //   const whiteDeckSize = 1913;
-  //   for (var count = 0; count <= 9; count++) {
-  //     randomWhiteCardArray.push(Math.floor(Math.random() * whiteDeckSize)
-  //     );
-  //   }
-  //   this.setState({
-  //     randomNumber:randomWhiteCardArray
-  //   })
-  // };
 
   handleDealWhiteCards = () => {
     var randomWhiteCardArray = [];
     const whiteCardData = require('../../../decks/WhiteCards.json');
     const whiteDeckSize = 1913;
-    // const x = Math.floor(Math.random() * whiteDeckSize);
     for (var count = 0; count <= 9; count++) {
       randomWhiteCardArray.push(Math.floor(Math.random() * whiteDeckSize));
     }
     this.setState({
       randomNumber: randomWhiteCardArray
     });
+    const randomGeneratedNumber = randomWhiteCardArray.slice(0);
 
-    console.log(this.state);
-    
-    const randomCardNumber = randomWhiteCardArray.slice(0);
-    let [whiteCardSlice] = whiteCardData.slice(randomCardNumber, randomCardNumber + 1
+    let size = 1;
+    let newWhiteCardNumberArray = [];
+    let y = 0;
+
+    for (var i = 0; i < randomGeneratedNumber.length; i++) {
+      if (i % size === 0) {
+        y++;
+      }
+      if (!newWhiteCardNumberArray[y]) newWhiteCardNumberArray[y] = [];
+      newWhiteCardNumberArray[y].push(randomGeneratedNumber[i]);
+    }
+
+    //breaks here. We have the random numbers in the array broken down into an array of arrays with the 'original' array becoming empty. Below is where those numbers need to be pulled out an used to slice from the whiteCardData
+
+    let [whiteCardSlice] = whiteCardData.slice(
+      newWhiteCardNumberArray,
+      newWhiteCardNumberArray + 1
     );
 
 
-    console.log(randomCardNumber);
+    console.log(randomGeneratedNumber);
+    console.log(newWhiteCardNumberArray);
     console.log(whiteCardSlice);
 
     this.setState({
-      whiteCard0: whiteCardSlice.text,
-      whiteCard1: whiteCardSlice.text,
-      whiteCard2: whiteCardSlice.text,
-      whiteCard3: whiteCardSlice.text,
-      whiteCard4: whiteCardSlice.text,
-      whiteCard5: whiteCardSlice.text,
-      whiteCard6: whiteCardSlice.text,
-      whiteCard7: whiteCardSlice.text,
-      whiteCard8: whiteCardSlice.text,
-      whiteCard9: whiteCardSlice.text
+      whiteCard: [whiteCardSlice]
+    //   whiteCard1: whiteCardSlice.text,
+    //   whiteCard2: whiteCardSlice.text,
+    //   whiteCard3: whiteCardSlice.text,
+    //   whiteCard4: whiteCardSlice.text,
+    //   whiteCard5: whiteCardSlice.text,
+    //   whiteCard6: whiteCardSlice.text,
+    //   whiteCard7: whiteCardSlice.text,
+    //   whiteCard8: whiteCardSlice.text,
+    //   whiteCard9: whiteCardSlice.text
     });
-    console.log('sliced white card 1: ' + this.state.whiteCard0);
-    console.log("sliced white card 2: " + this.state.whiteCard1);
-    console.log("sliced white card 3: " + this.state.whiteCard2);
-    console.log("sliced white card 4: " + this.state.whiteCard3);
-    console.log("sliced white card 5: " + this.state.whiteCard4);
-    console.log("sliced white card 6: " + this.state.whiteCard5);
-    console.log("sliced white card 7: " + this.state.whiteCard6);
-    console.log("sliced white card 8: " + this.state.whiteCard7);
-    console.log("sliced white card 9: " + this.state.whiteCard8);
-    console.log("sliced white card 10: " + this.state.whiteCard9);
-    console.log(this.state);
+    console.log('sliced white card 1: ' + this.state.whiteCard);
+    // console.log("sliced white card 2: " + this.state.whiteCard1);
+    // console.log("sliced white card 3: " + this.state.whiteCard2);
+    // console.log("sliced white card 4: " + this.state.whiteCard3);
+    // console.log("sliced white card 5: " + this.state.whiteCard4);
+    // console.log("sliced white card 6: " + this.state.whiteCard5);
+    // console.log("sliced white card 7: " + this.state.whiteCard6);
+    // console.log("sliced white card 8: " + this.state.whiteCard7);
+    // console.log("sliced white card 9: " + this.state.whiteCard8);
+    // console.log("sliced white card 10: " + this.state.whiteCard9);
+    console.log('this state: ' + this.state);
     
   };
 
