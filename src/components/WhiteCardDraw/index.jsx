@@ -28,7 +28,7 @@ class WhiteCardHand extends Component {
   
   //there are 0-1913 (1914 total) black cards in the json deck
   
-  handleShowWhiteCardHand = event => {
+  handleShowWhiteCardHand = (event) => {
     event.preventDefault();
     this.handleDealWhiteCards();
   };
@@ -37,23 +37,10 @@ class WhiteCardHand extends Component {
     var randomWhiteCardArray = [];
     const whiteCardData = require('../../../decks/WhiteCards.json');
     const whiteDeckSize = 1913;    
-    for (var count = 0; count <= 9; count++) {
-      randomWhiteCardArray.push(Math.floor(Math.random() * whiteDeckSize));
-    }
-    this.setState({
-      randomNumbers: randomWhiteCardArray
-    });
     const randomGeneratedNumber = randomWhiteCardArray.slice(0);
     let size = 1;
     let newWhiteCardNumberArray = [];
     let y = 0;
-    for (var i = 0; i < randomGeneratedNumber.length; i++) {
-      if (i % size === 0) {
-        y++;
-      }
-      if (!newWhiteCardNumberArray[y]) newWhiteCardNumberArray[y] = [];
-      newWhiteCardNumberArray[y].push(randomGeneratedNumber[i]);
-    }
 
     const card0 = this.state.randomNumbers[0];
     const card1 = this.state.randomNumbers[1];
@@ -77,6 +64,19 @@ class WhiteCardHand extends Component {
     let [whiteCardSlice8] = whiteCardData.slice(card8, card8 + 1);
     let [whiteCardSlice9] = whiteCardData.slice(card9, card9 + 1);
 
+    for (var count = 0; count <= 9; count++) {
+      randomWhiteCardArray.push(Math.floor(Math.random() * whiteDeckSize));
+    }
+    this.setState({
+      randomNumbers: randomWhiteCardArray
+    });
+    for (var i = 0; i < randomGeneratedNumber.length; i++) {
+      if (i % size === 0) {
+        y++;
+      }
+      if (!newWhiteCardNumberArray[y]) newWhiteCardNumberArray[y] = [];
+      newWhiteCardNumberArray[y].push(randomGeneratedNumber[i]);
+    }
     this.setState({
       whiteCard0: whiteCardSlice0.text,
       whiteCard1: whiteCardSlice1.text,
