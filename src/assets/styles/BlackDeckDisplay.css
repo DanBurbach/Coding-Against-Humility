@@ -87,25 +87,19 @@
 
 .flip-enter.flip-enter-active {
 	opacity: 1;
-	background-color: #333;
 	transform: rotateY(180deg);
-	z-index: 0;
-	padding-top: 10px;
-	background-image: url(https://userscontent2.emaze.com/images/f9538183-0ff9-478f-b964-c8ab90421e3b/3d28e192fda5c17250f96a2779c84475.jpg);
 }
 
 .flip-leave {
 	opacity: 1;
-	-webkit-transform: rotateY(180deg);
-	transform: rotateY(180deg);
 }
 
 .flip-leave.flip-leave-active {
 	opacity: 1;
-	background-color: #333;
 	transform: rotateY(180deg);
-	z-index: 0;
-	padding-top: 10px;
-	background-image: url(https://userscontent2.emaze.com/images/f9538183-0ff9-478f-b964-c8ab90421e3b/3d28e192fda5c17250f96a2779c84475.jpg);
+}
+
+.flip-leave-done {
+	opacity: 1;
 }
 
