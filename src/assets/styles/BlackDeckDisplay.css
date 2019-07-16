@@ -1,5 +1,4 @@
-.blackcard-card {
-	height: 200px;
+.blackcard-container {
 	position: relative;
 	width: 275px;
 	height: 450px;
@@ -7,17 +6,12 @@
 	border: none;
 	border-radius: 1em;
 	justify-content: center;
-}
-
-.blackcard-container {
 	min-width: 275px;
 	min-height: 450px;
-	border-radius: 1em;
-	position: relative;
 	-webkit-transition: 1.5s ease-in-out;
 	transition: 1.5s ease-in-out;
 	transform-style: preserve-3d;
-  	display: flex;
+	display: flex;
 }
 
 .blackcard-side {
@@ -68,38 +62,19 @@
 	background-size: 100vh;
 	background-size: cover;
 	background-image: url(https://livewallpaperhd.com/wp-content/uploads/2017/07/Dark-Elegant-Wallpaper.jpg);
-}
+  }
+
+
 .blackcard-back {
 	background-color: #333;
 	transform: rotateY(180deg);
 	z-index: 0;
 	padding-top: 10px;
 	background-image: url(https://userscontent2.emaze.com/images/f9538183-0ff9-478f-b964-c8ab90421e3b/3d28e192fda5c17250f96a2779c84475.jpg);
-}
+
+	}
+
 .blackcard-container:hover {
 	-webkit-transform: rotateY(180deg);
 	transform: rotateY(180deg);
 }
-
-.flip-enter {
-	opacity: 1;
-}
-
-.flip-enter.flip-enter-active {
-	opacity: 1;
-	transform: rotateY(180deg);
-}
-
-.flip-leave {
-	opacity: 1;
-}
-
-.flip-leave.flip-leave-active {
-	opacity: 1;
-	transform: rotateY(180deg);
-}
-
-.flip-leave-done {
-	opacity: 1;
-}
-
