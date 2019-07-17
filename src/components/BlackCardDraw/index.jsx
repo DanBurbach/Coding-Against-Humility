@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { compose } from "redux";
 import { connect } from 'react-redux';
 import { firebaseConnect } from 'react-redux-firebase';
-import CSSTransition from "react-addons-css-transition-group";
 import '../../assets/styles/dealBlackCardButton.css';
 import '../../assets/styles/BlackDeckDisplay.css';
 
@@ -16,7 +15,6 @@ class BlackCardDraw extends Component {
     this.handleDrawNewBlackCard = this.handleDrawNewBlackCard.bind(this);
     this.handleDealBlack = this.handleDealBlack.bind(this);
     this.handleFlipBlackCard = this.handleFlipBlackCard.bind(this);
-    this.renderBlackCard = this.renderBlackCard.bind(this);
   }
 
 //there are 0-414 (415 total) black cards in the json deck
@@ -32,34 +30,15 @@ class BlackCardDraw extends Component {
       const blackDeckSize = 414;
       const x = Math.floor(Math.random() * blackDeckSize);
       let [blackCardSlice] = blackCardData.slice(x, x+1);
-
       this.setState({
         blackCard: blackCardSlice.text
       })
   }
 
   handleFlipBlackCard = () => {
-      this.setState({
-        flipBlackCard: !this.state.flipBlackCard
-      })
+       $(".blackcard").toggleClass("flipped");
     }
 
-  renderBlackCard = () => {
-    return (
-        <div className="blackcard-container">
-          <div className="blackcard-front blackcard-side">
-            <div className="blackcard-content">
-              <h1>Coding Against Humility</h1>
-            </div>
-          </div>
-          <div className="blackcard-back blackcard-side">
-            <div className="blackcard-content-back">
-              {this.state.blackCard}
-            </div>
-          </div>
-        </div>
-    );
-  }
 
   render() {
     return (
@@ -67,16 +46,37 @@ class BlackCardDraw extends Component {
         <div className="item-wrapper">
           <div className="row">
             <div className="col-4" />
+
+            <button onClick={this.handleFlipBlackCard}>
+              flip the card
+            </button>
+            <div className="card-container">
+              <div className="blackCard">
+                <div className="front">1</div>
+                <div className="back">2</div>
+              </div>
+            </div>
+
             <div className="col-4">
-              <div className="container">
-                <div className="animation-container">
-                  {this.renderBlackCard()}
+              <div className="animation-container">
+                <div className="blackcard-container">
+                  <div className="blackcard-front">
+                    <div className="blackcard-content-front">
+                      <h1>Coding Against Humility</h1>
+                    </div>
+                  </div>
+                  <div className="blackcard-back">
+                    <div className="blackcard-content-back">
+                      {this.state.blackCard}
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
+
             <div className="col-4" />
           </div>
-          <button onClick={this.handleDrawNewBlackCard} id="dealBlackCard">
+          <button onClick={this.handleFlipBlackCard} id="dealBlackCard">
             Deal Black Card
           </button>
         </div>

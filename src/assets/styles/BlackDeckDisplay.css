@@ -1,46 +1,67 @@
 .blackcard-container {
-	position: relative;
-	width: 275px;
-	height: 450px;
-	background-color: transparent;
-	border: none;
+	perspective: 83em;
+	-webkit-perspective: 83em;
+	transform-style: preserve-3d;
+	border: 1em solid #fff;
+	height: 100%;
+}
+
+.blackcard-container, .blackcard-front, .blackcard-back {
 	border-radius: 1em;
-	justify-content: center;
-	min-width: 275px;
-	min-height: 450px;
+	background-color: transparent;
+	width: 18em;
+	height: 25em;
+	min-width: 18em;
+	min-height: 25em;
+	border-style: solid;
+	border: #fff;
+	border-width: 0.75em;
 	-webkit-transition: 1.5s ease-in-out;
 	transition: 1.5s ease-in-out;
 	transform-style: preserve-3d;
 	display: flex;
 }
 
-.blackcard-side {
+.animation-container {
+	transition: 0.6s;
+	transform-style: preserve-3d;
+	position: relative;
+}
+
+.blackcard-front, .blackcard-back {
+	backface-visibility: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+.blackcard-content-front {
+	transform: translatez(4.167em) scale(0.8);
+	line-height: 1.5em;
 	position: absolute;
 	text-align: center;
 	width: 100%;
 	height: 100%;
-	padding: 20px 50px;
+	padding: 1.667em 4.167em;
 	color: #fff;
 	transform-style: preserve-3d;
 	backface-visibility: hidden;
 	border-radius: 1em;
+	z-index: 2;
 }
 
-.blackcard-content {
-	transform: translatez(50px) scale(0.8);
-	line-height: 1.5em;
-}
-
-.blackcard-content h1 {
+.blackcard-content-front h1 {
 	position: relative;
 }
 
-.blackcard-content p {
+.blackcard-content-front p {
 	margin-top: 2em;
 	line-height: 2em;
 }
 
-.blackcard-content h1:before {
+.blackcard-content-front h1:before {
 	content: "";
 	position: absolute;
 	bottom: -20px;
@@ -54,27 +75,92 @@
 .blackcard-content-back {
 	margin-top: 2em;
 	font: 1.5em sans-serif;
-	transform: translatez(50px) scale(0.8);
+	transform: translatez(4.167em) scale(0.8);
 }
 
 .blackcard-front {
+	background-color: #000;
 	z-index: 2;
-	background-size: 100vh;
 	background-size: cover;
-	background-image: url(https://livewallpaperhd.com/wp-content/uploads/2017/07/Dark-Elegant-Wallpaper.jpg);
+	transform: rotateY(0deg);
   }
 
-
 .blackcard-back {
-	background-color: #333;
-	transform: rotateY(180deg);
-	z-index: 0;
-	padding-top: 10px;
-	background-image: url(https://userscontent2.emaze.com/images/f9538183-0ff9-478f-b964-c8ab90421e3b/3d28e192fda5c17250f96a2779c84475.jpg);
-
-	}
-
-.blackcard-container:hover {
+	z-index: 1;
+	background-color: #000;
+	font: 1em sans-serif;
 	-webkit-transform: rotateY(180deg);
+	-moz-transform: rotateY(180deg);
+	-o-transform: rotateY(180deg);
+	transform: rotateY(180deg);
+}
+
+j.blackcard.flipped {
+	-webkit-transform: rotateY(180deg);
+	-moz-transform: rotateY(180deg);
+	-o-transform: rotateY(180deg);
+	transform: rotateY(180deg);
+}
+
+/* this is a test */
+
+.card-container {
+	width: 200px;
+	height: 260px;
+	position: relative;
+	border: 1px solid #ccc;
+	-webkit-perspective: 800px;
+	-moz-perspective: 800px;
+	-o-perspective: 800px;
+	perspective: 800px;
+}
+
+.blackCard {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	-webkit-transition: -webkit-transform 1s;
+	-moz-transition: -moz-transform 1s;
+	-o-transition: -o-transform 1s;
+	transition: transform 1s;
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	-o-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	-webkit-transform-origin: 50% 50%;
+}
+
+.blackCard div {
+	display: block;
+	height: 100%;
+	width: 100%;
+	line-height: 260px;
+	color: white;
+	text-align: center;
+	font-weight: bold;
+	font-size: 140px;
+	position: absolute;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	-o-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.blackCard .front {
+	background: red;
+}
+
+.blackCard .back {
+	background: blue;
+	-webkit-transform: rotateY(180deg);
+	-moz-transform: rotateY(180deg);
+	-o-transform: rotateY(180deg);
+	transform: rotateY(180deg);
+}
+
+.blackCard.flipped {
+	-webkit-transform: rotateY(180deg);
+	-moz-transform: rotateY(180deg);
+	-o-transform: rotateY(180deg);
 	transform: rotateY(180deg);
 }
