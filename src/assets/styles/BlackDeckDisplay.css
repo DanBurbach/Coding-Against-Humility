@@ -1,36 +1,3 @@
-.blackcard-container {
-	perspective: 83em;
-	-webkit-perspective: 83em;
-	transform-style: preserve-3d;
-	border: 1em solid #fff;
-	height: 100%;
-}
-
-.blackcard-container, .blackcard-front, .blackcard-back {
-	border-radius: 1em;
-	background-color: transparent;
-	width: 18em;
-	height: 25em;
-	min-width: 18em;
-	min-height: 25em;
-	border-style: solid;
-	border: #fff;
-	border-width: 0.75em;
-	-webkit-transition: 1.5s ease-in-out;
-	transition: 1.5s ease-in-out;
-	transform-style: preserve-3d;
-	display: flex;
-}
-
-.blackcard-front, .blackcard-back {
-	backface-visibility: hidden;
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-}
-
 .blackcard-content-front {
 	transform: translatez(4.167em) scale(0.8);
 	line-height: 1.5em;
@@ -44,15 +11,6 @@
 	backface-visibility: hidden;
 	border-radius: 1em;
 	z-index: 2;
-}
-
-.blackcard-content-front h1 {
-	position: relative;
-}
-
-.blackcard-content-front p {
-	margin-top: 2em;
-	line-height: 2em;
 }
 
 .blackcard-content-front h1:before {
@@ -89,13 +47,6 @@
 	transform: rotateY(180deg);
 }
 
-.blackcard.flipped {
-	-webkit-transform: rotateY(180deg);
-	-moz-transform: rotateY(180deg);
-	-o-transform: rotateY(180deg);
-	transform: rotateY(180deg);
-}
-
 /* this is a test */
 
 .card-container {
@@ -109,9 +60,11 @@
 }
 
 .blackCard {
+	font: 1em sans-serif;
 	width: 100%;
 	height: 100%;
 	position: absolute;
+	display: flex;
 	-webkit-transition: -webkit-transform 1s;
 	-moz-transition: -moz-transform 1s;
 	-o-transition: -o-transform 1s;
@@ -127,10 +80,11 @@
 	display: block;
 	height: 100%;
 	width: 100%;
-	color: white;
+	color: #fff;
 	text-align: center;
 	font-weight: bold;
 	position: absolute;
+	transform-style: preserve-3d;
 	-webkit-backface-visibility: hidden;
 	-moz-backface-visibility: hidden;
 	-o-backface-visibility: hidden;
@@ -144,7 +98,7 @@
 	text-align: center;
 	padding: 20px 50px;
 	line-height: 1.5em;
-	transform: translatez(0.25em);
+	transform: translatez(1em) scale(1);
 }
 
 
@@ -157,7 +111,7 @@
 	-webkit-transform: rotateY(180deg);
 	-moz-transform: rotateY(180deg);
 	-o-transform: rotateY(180deg);
-	transform: rotateY(180deg) translatez(0.25em);
+	transform: rotateY(180deg) translatez(1em) scale(1);
 }
 
 .blackCard.flipped {
