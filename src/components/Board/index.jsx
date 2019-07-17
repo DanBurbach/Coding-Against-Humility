@@ -14,6 +14,7 @@ function Board(){
       <br/>
       <br/>
       <BlackCardDraw/>
+      <br/>
       <MainPlayer/>
       <ScoreBoard/>
     </div>
