@@ -44,8 +44,7 @@ class BlackCardDraw extends Component {
       <div>
         <div className="item-wrapper">
           <div className="row">
-            <div className="col-4" />
-            <div className="col-4">
+            <div className="col">
               <div className="card-container">
                 <div className="blackCard">
                   <div className="front">
@@ -55,8 +54,8 @@ class BlackCardDraw extends Component {
                 </div>
               </div>
             </div>
-            <div className="col-4" />
           </div>
+          <br/>
           <button onClick={this.handleDrawNewBlackCard} id="dealBlackCard">
             Deal Black Card
           </button>
