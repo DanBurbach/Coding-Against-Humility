@@ -120,3 +120,30 @@
 	-o-transform: rotateY(180deg);
 	transform: rotateY(180deg);
 }
+
+.blackCard:after {
+	background-color:grey;
+	background-image: -webkit-linear-gradient(-90deg, hsla(0, 0%, 100%, .75), hsla(0, 0%, 0%, .75));
+	bottom: 0;
+	content: '';
+	left: 45px;
+	position: absolute;
+	top: 0;
+	width: 0.125em;
+	z-index: -10;
+	-webkit-transform: rotateY(-90deg);
+	-webkit-transform-origin: 100% 50%;
+}
+
+.blackCard:before {
+	background-color: grey;
+	background-size: 100% 100%;
+	border-radius: 1em;
+	content: '';
+	height: 100px;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100px;
+	-webkit-transform: translateZ(-0.125em);
+}
