@@ -127,11 +127,9 @@
 	display: block;
 	height: 100%;
 	width: 100%;
-	line-height: 260px;
 	color: white;
 	text-align: center;
 	font-weight: bold;
-	font-size: 140px;
 	position: absolute;
 	-webkit-backface-visibility: hidden;
 	-moz-backface-visibility: hidden;
@@ -141,8 +139,8 @@
 
 .blackCard .front {
 	background: #000;
-	border: 0.005em solid #fff;
-	border-radius: 0.125em;
+	border: 0.125em solid #fff;
+	border-radius: 1em;
 	text-align: center;
 	padding: 20px 50px;
 	line-height: 1.5em;
@@ -151,10 +149,11 @@
 
 
 .blackCard .back {
-	border: 0.005em solid #fff;
-	border-radius: 0.125em;
-	font-size: 30px;
 	background: #000;
+	border: 0.125em solid #fff;
+	border-radius: 1em;
+	text-align: center;
+	padding: 50px 50px;
 	-webkit-transform: rotateY(180deg);
 	-moz-transform: rotateY(180deg);
 	-o-transform: rotateY(180deg);
