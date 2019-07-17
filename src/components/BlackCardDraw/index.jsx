@@ -21,8 +21,8 @@ class BlackCardDraw extends Component {
 
   handleDrawNewBlackCard = (event) => {
       event.preventDefault();
-      this.handleDealBlack();
       this.handleFlipBlackCard();
+      this.handleDealBlack();
   }
 
   handleDealBlack = () => {
@@ -39,44 +39,25 @@ class BlackCardDraw extends Component {
        $(".blackCard").toggleClass("flipped");
     }
 
-
   render() {
     return (
       <div>
         <div className="item-wrapper">
           <div className="row">
             <div className="col-4" />
-
-            <button onClick={this.handleFlipBlackCard}>
-              flip the card
-            </button>
-            <div className="card-container">
-              <div className="blackCard">
-                <div className="front">1</div>
-                <div className="back">2</div>
-              </div>
-            </div>
-
             <div className="col-4">
-              <div className="animation-container">
-                <div className="blackcard-container">
-                  <div className="blackcard-front">
-                    <div className="blackcard-content-front">
-                      <h1>Coding Against Humility</h1>
-                    </div>
+              <div className="card-container">
+                <div className="blackCard">
+                  <div className="front">
+                    <h1>Coding Against Humility</h1>
                   </div>
-                  <div className="blackcard-back">
-                    <div className="blackcard-content-back">
-                      {this.state.blackCard}
-                    </div>
-                  </div>
+                  <div className="back">{this.state.blackCard}</div>
                 </div>
               </div>
             </div>
-
             <div className="col-4" />
           </div>
-          <button onClick={this.handleFlipBlackCard} id="dealBlackCard">
+          <button onClick={this.handleDrawNewBlackCard} id="dealBlackCard">
             Deal Black Card
           </button>
         </div>

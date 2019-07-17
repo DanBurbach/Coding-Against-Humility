@@ -22,12 +22,6 @@
 	display: flex;
 }
 
-.animation-container {
-	transition: 0.6s;
-	transform-style: preserve-3d;
-	position: relative;
-}
-
 .blackcard-front, .blackcard-back {
 	backface-visibility: hidden;
 	position: absolute;
@@ -95,7 +89,7 @@
 	transform: rotateY(180deg);
 }
 
-j.blackcard.flipped {
+.blackcard.flipped {
 	-webkit-transform: rotateY(180deg);
 	-moz-transform: rotateY(180deg);
 	-o-transform: rotateY(180deg);
@@ -105,14 +99,13 @@ j.blackcard.flipped {
 /* this is a test */
 
 .card-container {
-	width: 200px;
-	height: 260px;
+	width: 18em;
+	height: 25em;
 	position: relative;
-	border: 1px solid #ccc;
-	-webkit-perspective: 800px;
-	-moz-perspective: 800px;
-	-o-perspective: 800px;
-	perspective: 800px;
+	perspective: 83em;
+	-webkit-perspective: 83em;
+	-moz-perspective: 83em;
+	-o-perspective: 83em;
 }
 
 .blackCard {
@@ -147,15 +140,25 @@ j.blackcard.flipped {
 }
 
 .blackCard .front {
-	background: red;
+	background: #000;
+	border: 0.005em solid #fff;
+	border-radius: 0.125em;
+	text-align: center;
+	padding: 20px 50px;
+	line-height: 1.5em;
+	transform: translatez(0.25em);
 }
 
+
 .blackCard .back {
-	background: blue;
+	border: 0.005em solid #fff;
+	border-radius: 0.125em;
+	font-size: 30px;
+	background: #000;
 	-webkit-transform: rotateY(180deg);
 	-moz-transform: rotateY(180deg);
 	-o-transform: rotateY(180deg);
-	transform: rotateY(180deg);
+	transform: rotateY(180deg) translatez(0.25em);
 }
 
 .blackCard.flipped {
