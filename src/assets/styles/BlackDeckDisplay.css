@@ -1,4 +1,4 @@
-.blackcard-content-front {
+/* .blackcard-content-front {
 	transform: translatez(4.167em) scale(0.8);
 	line-height: 1.5em;
 	position: absolute;
@@ -45,14 +45,16 @@
 	-moz-transform: rotateY(180deg);
 	-o-transform: rotateY(180deg);
 	transform: rotateY(180deg);
-}
+} */
 
 /* this is a test */
 
 .card-container {
 	width: 18em;
 	height: 25em;
-	position: relative;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 	perspective: 83em;
 	-webkit-perspective: 83em;
 	-moz-perspective: 83em;
