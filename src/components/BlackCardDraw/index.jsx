@@ -36,7 +36,7 @@ class BlackCardDraw extends Component {
   }
 
   handleFlipBlackCard = () => {
-       $(".blackcard").toggleClass("flipped");
+       $(".blackCard").toggleClass("flipped");
     }
 
 
