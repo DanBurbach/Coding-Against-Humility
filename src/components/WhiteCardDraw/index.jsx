@@ -19,11 +19,14 @@ class WhiteCardHand extends Component {
       whiteCard6: [],
       whiteCard7: [],
       whiteCard8: [],
-      whiteCard9: []
-      // dealWhiteCard: false
+      whiteCard9: [],
+      draggable: false
     };
     this.handleShowWhiteCardHand = this.handleShowWhiteCardHand.bind(this);
     this.handleDealWhiteCards = this.handleDealWhiteCards.bind(this);
+    this.handleDragWhiteCard = this.handleDragWhiteCard.bind(this);
+    this.handleDropWhiteCard = this.handleDropWhiteCard.bind(this);
+    this.handleAllowDropWhiteCard = this.handleAllowDropWhiteCard.bind(this);
   }
   
   //there are 0-1913 (1914 total) black cards in the json deck
@@ -91,62 +94,131 @@ class WhiteCardHand extends Component {
     });
   };
 
+  handleDragWhiteCard = (event) => {
+    event.dataTransfer.setData('text', event.target.id);
+  }
+
+  handleDropWhiteCard = (event) => {
+    event.preventDefault();
+    var data = event.dataTransfer.getData('text');
+    event.target.appendChild(document.getElementById(data));
+  }
+
+  handleAllowDropWhiteCard = (event) => {
+    event.preventDefault();
+  }
+
   render() {
     return (
       <div>
-        <button onClick={this.handleShowWhiteCardHand} id='dealWhiteCard'>
+        <button onClick={this.handleShowWhiteCardHand} id="dealWhiteCard">
           Deal White Cards
         </button>
-
-        <div className='cards'>
-          <div className='card'>
-            <div className='card-face'>
-              <div className='card-label'>{this.state.whiteCard0}</div>
+        <br/>
+        <div
+          id="div1"
+          onDrop={this.handleDropWhiteCard}
+          onDragOver={this.handleAllowDropWhiteCard}/>
+        <br />
+        <div className="cards">
+          <div className="card">
+            <div
+              className="card-face"
+              id="drag1"
+              draggable="true"
+              onDragStart={this.handleDragWhiteCard.event}
+            >
+              <div className="card-label">{this.state.whiteCard0}</div>
             </div>
           </div>
-          <div className='card'>
-            <div className='card-face'>
-              <div className='card-label'>{this.state.whiteCard1}</div>
+          <div className="card">
+            <div
+              className="card-face"
+              id="drag2"
+              draggable="true"
+              onDragStart={this.handleDragWhiteCard}
+            >
+              <div className="card-label">{this.state.whiteCard1}</div>
             </div>
           </div>
-          <div className='card'>
-            <div className='card-face'>
-              <div className='card-label'>{this.state.whiteCard2}</div>
+          <div className="card">
+            <div
+              className="card-face"
+              id="drag3"
+              draggable="true"
+              onDragStart={this.handleDragWhiteCard}
+            >
+              <div className="card-label">{this.state.whiteCard2}</div>
             </div>
           </div>
-          <div className='card'>
-            <div className='card-face'>
-              <div className='card-label'>{this.state.whiteCard3}</div>
+          <div className="card">
+            <div
+              className="card-face"
+              id="drag4"
+              draggable="true"
+              onDragStart={this.handleDragWhiteCard}
+            >
+              <div className="card-label">{this.state.whiteCard3}</div>
             </div>
           </div>
-          <div className='card'>
-            <div className='card-face'>
-              <div className='card-label'>{this.state.whiteCard4}</div>
+          <div className="card">
+            <div
+              className="card-face"
+              id="drag5"
+              draggable="true"
+              onDragStart={this.handleDragWhiteCard}
+            >
+              <div className="card-label">{this.state.whiteCard4}</div>
             </div>
           </div>
-          <div className='card'>
-            <div className='card-face'>
-              <div className='card-label'>{this.state.whiteCard5}</div>
+          <div className="card">
+            <div
+              className="card-face"
+              id="drag6"
+              draggable="true"
+              onDragStart={this.handleDragWhiteCard}
+            >
+              <div className="card-label">{this.state.whiteCard5}</div>
             </div>
           </div>
-          <div className='card'>
-            <div className='card-face'>
-              <div className='card-label'>{this.state.whiteCard6}</div>
+          <div className="card">
+            <div
+              className="card-face"
+              id="drag7"
+              draggable="true"
+              onDragStart={this.handleDragWhiteCard}
+            >
+              <div className="card-label">{this.state.whiteCard6}</div>
             </div>
           </div>
-          <div className='card'>
-            <div className='card-face'>
-              <div className='card-label'>{this.state.whiteCard7}</div>
+          <div className="card">
+            <div
+              className="card-face"
+              id="drag8"
+              draggable="true"
+              onDragStart={this.handleDragWhiteCard}
+            >
+              <div className="card-label">{this.state.whiteCard7}</div>
             </div>
           </div>
-          <div className='card'>
-            <div className='card-face'>
-              <div className='card-label'>{this.state.whiteCard8}</div>
+          <div className="card">
+            <div
+              className="card-face"
+              id="drag9"
+              draggable="true"
+              onDragStart={this.handleDragWhiteCard}
+            >
+              <div className="card-label">{this.state.whiteCard8}</div>
             </div>
           </div>
-          <div className='card'>
-            <div className='card-face'>
-              <div className='card-label'>{this.state.whiteCard9}</div>
+          <div className="card">
+            <div
+              className="card-face"
+              id="drag0"
+              draggable="true"
+              onDragStart={this.handleDragWhiteCard}
+            >
+              <div className="card-label">{this.state.whiteCard9}</div>
             </div>
           </div>
         </div>
