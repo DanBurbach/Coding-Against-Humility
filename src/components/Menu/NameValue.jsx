@@ -7,22 +7,15 @@ class NameValue extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // userName: ''
+      displayName: this.props.auth.displayName
     };
   }
-
-  // componentDidMount() {
-  //   this.props.dispatch(getNameFromFb(this.state));
-  //     }
-
 
   render() {
     return (
       <div>
-        <br />
-        Your name is:
-        {/* {this.props.profile.userName} */}
-        <br />
+        <p/>
+          {this.props.auth.displayName}
       </div>
     );
   }

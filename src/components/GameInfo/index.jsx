@@ -8,7 +8,6 @@ class GameInfo extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      displayName: this.props.auth.displayName
     }
   }
 
@@ -19,7 +18,6 @@ class GameInfo extends Component {
           <li>Who's turn it is.</li>
           <li>Your score.</li>
           <li>Number of players.</li>
-          {this.props.auth.displayName}
         </ul>
       </div>
     );
