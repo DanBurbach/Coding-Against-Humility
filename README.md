@@ -76,14 +76,7 @@ Knowledge of cellphone GPS and Bluetooth login and local device routing/connecti
 
 ## __Future Development__
 
-  * Google Authentication via Firebase
-
   * Game number given to allow others to join
-
-  * Side-flip: https://3dtransforms.desandro.com/card-flip
-  
-  * Click to flip: https://codepen.io/MrAndrewMcG/pen/dzmyeb
-  (to be used with the black cards, when the judge turn is loaded a new black card will be loaded)
 
 ## __Setup/Installation Requirements__
 
@@ -124,8 +117,8 @@ Knowledge of cellphone GPS and Bluetooth login and local device routing/connecti
   [Codepen](https://codepen.io/)
   UI and CSS ideas
 
-  [React-Flippy](https://reactjsexample.com/flipping-cards-for-your-react-projects/)
-  UI effects and ease of flipping card
+  [React DnD](http://react-dnd.github.io/react-dnd/about)
+  React DnD is a set of React utilities to help you build complex drag and drop interfaces while keeping your components decoupled.
 
 
 ### __Version__
