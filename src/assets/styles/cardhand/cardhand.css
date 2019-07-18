@@ -6,10 +6,18 @@ body {
   overflow: hidden;
   color: white;
 }
+
+#div1 {
+  width: 12em;
+  height: 20em;
+  padding: 2em;
+  border: 3px solid #aaaaaa;
+}
+
 .cards {
-  bottom: 0;
+  bottom: 0.65em;
   display: flex;
-  height: 150px;
+  height: 12em;
   padding: 0 50px;
   justify-content: center;
   position: fixed;
@@ -17,20 +25,20 @@ body {
   right: 0;
 }
 .card {
-  height: 200px;
-  margin: 0 -25px;
+	width: 10em;
+	height: 20em;
+  margin: 0 -3em;
   position: relative;
-  width: 115px;
   background-color: transparent;
   border: none;
-  border-radius: 20px;
+  border-radius: 1em;
 }
 .card:after {
   bottom: 0;
   content: '';
-  left: -60px;
+  left: -3em;
   position: absolute;
-  right: -60px;
+  right: -3em;
   top: 0px;
   z-index: 10;
 }
@@ -55,14 +63,14 @@ body {
   position: absolute;
   right: 0;
   top: 0;
-  border-radius: 10px
+  border-radius: 1em;
 }
 .card-label {
   font-family: 'helvetica neue', helvetica, arial, sans-serif;
-  font-size: 1em;
+  font-size: 1.125em;
   font-weight: bold;
   letter-spacing: -0.025em;
-  padding: 15px 0 0 15px;
+  padding: 1em 1em 0 1em;
 }
 
 /* card 1 */
