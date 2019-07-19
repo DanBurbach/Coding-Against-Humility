@@ -7,13 +7,6 @@ body {
   color: white;
 }
 
-#div1 {
-  width: 12em;
-  height: 20em;
-  padding: 2em;
-  border: 3px solid #aaaaaa;
-}
-
 .cards {
   bottom: 0.65em;
   display: flex;
