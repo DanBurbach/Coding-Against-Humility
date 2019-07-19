@@ -22,7 +22,7 @@ handleJoinGame = () => {
 
 }
 
-handleDisplayConnect = gameCode => {
+handleDisplayConnect = () => {
 
 }
 

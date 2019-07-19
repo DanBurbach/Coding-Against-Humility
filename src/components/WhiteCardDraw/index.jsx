@@ -9,6 +9,7 @@ class WhiteCardHand extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      selectedCard: [],
       randomNumbers: [],
       whiteCard0: [],
       whiteCard1: [],
@@ -19,14 +20,11 @@ class WhiteCardHand extends Component {
       whiteCard6: [],
       whiteCard7: [],
       whiteCard8: [],
-      whiteCard9: [],
-      draggable: false
+      whiteCard9: []
     };
     this.handleShowWhiteCardHand = this.handleShowWhiteCardHand.bind(this);
     this.handleDealWhiteCards = this.handleDealWhiteCards.bind(this);
-    this.handleDragWhiteCard = this.handleDragWhiteCard.bind(this);
-    this.handleDropWhiteCard = this.handleDropWhiteCard.bind(this);
-    this.handleAllowDropWhiteCard = this.handleAllowDropWhiteCard.bind(this);
+    this.handleSelectCard = this.handleSelectCard.bind(this);
   }
   
   //there are 0-1913 (1914 total) black cards in the json deck
@@ -94,19 +92,33 @@ class WhiteCardHand extends Component {
     });
   };
 
-  handleDragWhiteCard = (event) => {
-    event.dataTransfer.setData('text', event.target.id);
+  handleSelectCard = () => {
+    this.setState({
+      selectedCard:
+        whiteCard0 || whiteCard1 || whiteCard2 || whiteCard3 || whiteCard4 || whiteCard5 || whiteCard6 || whiteCard7 || whiteCard8 || whiteCard9
+    });
+    console.log('test selected card state: ' + this.state);
   }
 
-  handleDropWhiteCard = (event) => {
-    event.preventDefault();
-    var data = event.dataTransfer.getData('text');
-    event.target.appendChild(document.getElementById(data));
-  }
+  // handleDragWhiteCard = (event) => {
+  //   let draggedCard;
+  //   let target = event.target;
+  //   if (target && target.nodeName === '.card'){
+  //   draggedCard = target;
+  //   event.dataTransfer.setData('text', event.target.id);
+  //   event.dataTransfer.dropEffect = 'move';
+  //   }
+  // }
 
-  handleAllowDropWhiteCard = (event) => {
-    event.preventDefault();
-  }
+  // handleDropWhiteCard = (event) => {
+  //   if(event.target && event.target.nodeName === '.card'){
+  //     dragged = null;
+  //   }
+  // }
+
+  // handleAllowDropWhiteCard = (event) => {
+  //   event.preventDefault();
+  // }
 
   render() {
     return (
@@ -121,17 +133,17 @@ class WhiteCardHand extends Component {
           onDragOver={this.handleAllowDropWhiteCard}/>
         <br />
         <div className="cards">
-          <div className="card">
+          <div className="card" onClick={this.handleSelectCard}>
             <div
               className="card-face"
               id="drag1"
               draggable="true"
-              onDragStart={this.handleDragWhiteCard.event}
+              onDragStart={this.handleDragWhiteCard}
             >
               <div className="card-label">{this.state.whiteCard0}</div>
             </div>
           </div>
-          <div className="card">
+          <div className="card" onClick={this.handleSelectCard}>
             <div
               className="card-face"
               id="drag2"
@@ -141,7 +153,7 @@ class WhiteCardHand extends Component {
               <div className="card-label">{this.state.whiteCard1}</div>
             </div>
           </div>
-          <div className="card">
+          <div className="card" onClick={this.handleSelectCard}>
             <div
               className="card-face"
               id="drag3"
@@ -151,7 +163,7 @@ class WhiteCardHand extends Component {
               <div className="card-label">{this.state.whiteCard2}</div>
             </div>
           </div>
-          <div className="card">
+          <div className="card" onClick={this.handleSelectCard}>
             <div
               className="card-face"
               id="drag4"
@@ -161,7 +173,7 @@ class WhiteCardHand extends Component {
               <div className="card-label">{this.state.whiteCard3}</div>
             </div>
           </div>
-          <div className="card">
+          <div className="card" onClick={this.handleSelectCard}>
             <div
               className="card-face"
               id="drag5"
@@ -171,7 +183,7 @@ class WhiteCardHand extends Component {
               <div className="card-label">{this.state.whiteCard4}</div>
             </div>
           </div>
-          <div className="card">
+          <div className="card" onClick={this.handleSelectCard}>
             <div
               className="card-face"
               id="drag6"
@@ -181,7 +193,7 @@ class WhiteCardHand extends Component {
               <div className="card-label">{this.state.whiteCard5}</div>
             </div>
           </div>
-          <div className="card">
+          <div className="card" onClick={this.handleSelectCard}>
             <div
               className="card-face"
               id="drag7"
@@ -191,7 +203,7 @@ class WhiteCardHand extends Component {
               <div className="card-label">{this.state.whiteCard6}</div>
             </div>
           </div>
-          <div className="card">
+          <div className="card" onClick={this.handleSelectCard}>
             <div
               className="card-face"
               id="drag8"
@@ -201,7 +213,7 @@ class WhiteCardHand extends Component {
               <div className="card-label">{this.state.whiteCard7}</div>
             </div>
           </div>
-          <div className="card">
+          <div className="card" onClick={this.handleSelectCard}>
             <div
               className="card-face"
               id="drag9"
@@ -211,7 +223,7 @@ class WhiteCardHand extends Component {
               <div className="card-label">{this.state.whiteCard8}</div>
             </div>
           </div>
-          <div className="card">
+          <div className="card" onClick={this.handleSelectCard}>
             <div
               className="card-face"
               id="drag0"
