@@ -40,18 +40,33 @@ class Main extends Component {
             <br />
 
             <button id="newGameButtonModal" onClick={this.handleOpenModal}>
-              NEW Modal Game
+              New Game
             </button>
             <Modal
               isOpen={this.state.showModal}
               onRequestClose={this.handleCloseModal}
-              contentLabel="Start New Game">
-                <h2>Hey!</h2>
-                <SignInPage />
-              <button onClick={this.handleCloseModal} id='closeModal'>Cancel</button>
+              ariaHideApp={false}
+              contentLabel="Modal"
+              className={{
+                base: "modal-base",
+                afterOpen: "modal-base_after-open",
+                beforeClose: "modal-base_before-close"
+              }}
+              overlayClassName={{
+                base: "overlay-base",
+                afterOpen: "overlay-base_after-open",
+                beforeClose: "overlay-base_before-close"
+              }}
+              shouldCloseOnOverlayClick={true}
+              closeTimeoutMS={500}
+            >
+              <SignInPage />
+              <button onClick={this.handleCloseModal} id="closeModal">
+                Cancel
+              </button>
             </Modal>
 
-            <Link to={ROUTES.LOG_IN}>New Game</Link>
+            <Link to={ROUTES.LOG_IN}>Join Game</Link>
             <Link to={ROUTES.GAME_INFO}>Info</Link>
             <Link to={ROUTES.GAME_FINEPRINT}>Fine Print</Link>
           </div>

@@ -9,9 +9,14 @@ import { PasswordForgetLink } from '../PasswordForget';
 import { withFirebase } from '../../Firebase/context';
 import * as ROUTES from '../../constants/routes';
 
+import '../../assets/styles/MainStyles.css';
+import '../../assets/styles/Modal.css';
+import '../../assets/styles/NewGameModal.css';
+
+
 const SignInPage = () => (
   <div>
-    <h1>SignIn</h1>
+    <h1>Sign In</h1>
     <SignInForm />
     <PasswordForgetLink />
     <SignUpLink />
@@ -64,6 +69,7 @@ class SignInFormBase extends Component {
           type="text"
           placeholder="Email Address"
         />
+        <br/>
         <input
           name="password"
           value={password}
@@ -71,7 +77,8 @@ class SignInFormBase extends Component {
           type="password"
           placeholder="Password"
         />
-        <button disabled={isInvalid} type="submit">
+        <br/>
+        <button disabled={isInvalid} type="submit" id="newGameModal">
           Sign In
         </button>
 

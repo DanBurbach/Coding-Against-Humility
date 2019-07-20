@@ -1,0 +1,27 @@
+button {
+    text-align: center;
+}
+
+#modalButton {
+    outline: 0 none;
+    font-family: 'Montserrat', sans-serif;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-transform: uppercase;
+    color: #ff005a;
+    text-decoration: none;
+    border: 2px solid;
+    padding: 10px 40px;
+    font-size: 14px;
+    font-weight: 700;
+    -webkit-transition: 0.2s all;
+    transition: 0.2s all;
+    text-decoration: none;
+}
+
+#modalButton :hover {
+    background-color: transparent;
+    color: #8400ff;
+    outline: 0 none;
+}
