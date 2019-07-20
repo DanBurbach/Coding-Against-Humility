@@ -92,12 +92,22 @@ class WhiteCardHand extends Component {
     });
   };
 
-  handleSelectCard = () => {
+  handleSelectCard = (event) => {
+    event.preventDefault();
     this.setState({
       selectedCard:
-        whiteCard0 || whiteCard1 || whiteCard2 || whiteCard3 || whiteCard4 || whiteCard5 || whiteCard6 || whiteCard7 || whiteCard8 || whiteCard9
+        this.state.whiteCard0[0].text ||
+        this.state.whiteCard1[0].text ||
+        this.state.whiteCard2[0].text ||
+        this.state.whiteCard3[0].text ||
+        this.state.whiteCard4[0].text ||
+        this.state.whiteCard5[0].text ||
+        this.state.whiteCard6[0].text ||
+        this.state.whiteCard7[0].text ||
+        this.state.whiteCard8[0].text ||
+        this.state.whiteCard9[0].text
     });
-    console.log('test selected card state: ' + this.state);
+    console.log('test selected card state: ' + this.state.selectedCard);
   }
 
   // handleDragWhiteCard = (event) => {
