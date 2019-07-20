@@ -30,11 +30,7 @@ class NewGameForm extends Component {
   }
 
   handleChange(event, target) {
-    console.log(event);
     this.setState({ [target]: event });
-    console.log(this.state);
-    console.log(firebase.auth().currentUser);
-    console.log(firebase.auth().currentUser.uid);
   }
 
   render() {

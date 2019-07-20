@@ -50,9 +50,6 @@ class SignInFormBase extends Component {
 
   handleSignInUpdate = event => {
     this.setState({ [event.target.name]: event.target.value });
-    console.log(event);
-    console.log(this.state);
-    console.log(firebase.auth().currentUser);
   };
 
   render() {

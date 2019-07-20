@@ -16,7 +16,6 @@ class SignOutButton extends Component {
 handleLogOut = (event) => {
     event.preventDefault();
     firebase.doSignOut;
-    console.log(firebase.auth().currentUser);
     this.props.history.push('/');
   };
 
