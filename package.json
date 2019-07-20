@@ -24,6 +24,7 @@
     "react-dnd": "^9.3.2",
     "react-dnd-html5-backend": "^9.3.2",
     "react-dom": "^16.8.4",
+    "react-modal": "^3.9.1",
     "react-pure-grid": "^2.1.1",
     "react-redux": "^6.0.1",
     "react-redux-firebase": "^3.0.0-alpha.11",

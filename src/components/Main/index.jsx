@@ -3,12 +3,13 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { firebaseConnect } from 'react-redux-firebase';
 
-import { Modal } from 'react-bootstrap';
+import Modal from "react-modal";
 import SignInPage from '../Login';
 
 import * as ROUTES from '../../constants/routes';
 
 import '../../assets/styles/MainStyles.css';
+import '../../assets/styles/Modal.css'
 
 class Main extends Component {
   constructor(props) {
@@ -37,25 +38,17 @@ class Main extends Component {
               <h2>A game that makes you a bad person</h2>
             </div>
             <br />
-            
+
             <button id="newGameButtonModal" onClick={this.handleOpenModal}>
               NEW Modal Game
             </button>
-            <Modal show={this.state.show} onHide={this.handleClose}>
-              <Modal.Header closeButton>
-                <Modal.Title>New Game Log In</Modal.Title>
-              </Modal.Header>
-              <Modal.Body>
+            <Modal
+              isOpen={this.state.showModal}
+              onRequestClose={this.handleCloseModal}
+              contentLabel="Start New Game">
+                <h2>Hey!</h2>
                 <SignInPage />
-              </Modal.Body>
-              <Modal.Footer>
-                <button variant="secondary" onClick={this.handleClose}>
-                  Close
-                </button>
-                <button variant="primary" onClick={this.handleClose}>
-                  Save Changes
-                </button>
-              </Modal.Footer>
+              <button onClick={this.handleCloseModal} id='closeModal'>Cancel</button>
             </Modal>
 
             <Link to={ROUTES.LOG_IN}>New Game</Link>
