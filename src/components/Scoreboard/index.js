@@ -3,13 +3,16 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { firebaseConnect } from 'react-redux-firebase';
 
+import "../../assets/styles/ScoreBoard.css";
+
 class Counter extends Component {
     render() {
         const { onIncrement } = this.props;
         return ( 
             <div>
                 <span> {this.formatCount()} </span> 
-                <button onClick = {() => onIncrement(this.props.counter)}>Add </button>
+                <br/>
+                <button id='scoreBoardButtonPoint' onClick = {() => onIncrement(this.props.counter)}>Add </button>
             </div>
         );
     }
@@ -75,18 +78,20 @@ class ScoreBoard extends Component {
     render() {
         return ( 
             <div >
-            <button onClick = {this.handleReset.bind(this)}> Reset </button> {
-                this.state.counters.map(counter => ( 
-                    <Counter 
-                        key = {counter.id}
-                        onIncrement = {this.handleIncrement.bind(this)}
-                        onDecrement = {this.handleDecrement.bind(this)}
-                        counter = { counter }
-                    />
+                <div className='scoreBoardLayout'>
+                    {this.state.counters.map(counter => ( 
+                        <Counter 
+                            key = {counter.id}
+                            onIncrement = {this.handleIncrement.bind(this)}
+                            onDecrement = {this.handleDecrement.bind(this)}
+                            counter = { counter }
+                        />
                 ))
             } <div> Total: {
                 this.state.total
-            } </div> 
+            }             <button id='scoreBoardButton' onClick = {this.handleReset.bind(this)}> Reset </button> 
+                    </div> 
+                </div>
             </div>
         );
     }

@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { firebaseConnect } from 'react-redux-firebase';
+
 import '../../assets/styles/cardhand/cardhand.css';
 import '../../assets/styles/dealWhiteCardButton.css';
 
@@ -9,7 +10,6 @@ class WhiteCardHand extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedCard: [],
       randomNumbers: [],
       whiteCard0: [],
       whiteCard1: [],
@@ -24,7 +24,6 @@ class WhiteCardHand extends Component {
     };
     this.handleShowWhiteCardHand = this.handleShowWhiteCardHand.bind(this);
     this.handleDealWhiteCards = this.handleDealWhiteCards.bind(this);
-    this.handleSelectCard = this.handleSelectCard.bind(this);
   }
   
   //there are 0-1913 (1914 total) black cards in the json deck
@@ -92,158 +91,127 @@ class WhiteCardHand extends Component {
     });
   };
 
-  handleSelectCard = (event) => {
-    event.preventDefault();
-    this.setState({
-      selectedCard:
-        this.state.whiteCard0[0].text ||
-        this.state.whiteCard1[0].text ||
-        this.state.whiteCard2[0].text ||
-        this.state.whiteCard3[0].text ||
-        this.state.whiteCard4[0].text ||
-        this.state.whiteCard5[0].text ||
-        this.state.whiteCard6[0].text ||
-        this.state.whiteCard7[0].text ||
-        this.state.whiteCard8[0].text ||
-        this.state.whiteCard9[0].text
-    });
-    console.log('test selected card state: ' + this.state.selectedCard);
-  }
-
-  // handleDragWhiteCard = (event) => {
-  //   let draggedCard;
-  //   let target = event.target;
-  //   if (target && target.nodeName === '.card'){
-  //   draggedCard = target;
-  //   event.dataTransfer.setData('text', event.target.id);
-  //   event.dataTransfer.dropEffect = 'move';
-  //   }
-  // }
-
-  // handleDropWhiteCard = (event) => {
-  //   if(event.target && event.target.nodeName === '.card'){
-  //     dragged = null;
-  //   }
-  // }
-
-  // handleAllowDropWhiteCard = (event) => {
-  //   event.preventDefault();
-  // }
-
+  
   render() {
     return (
       <div>
-        <button onClick={this.handleShowWhiteCardHand} id="dealWhiteCard">
-          Deal White Cards
-        </button>
-        <br/>
-        <div
-          id="div1"
-          onDrop={this.handleDropWhiteCard}
-          onDragOver={this.handleAllowDropWhiteCard}/>
-        <br />
-        <div className="cards">
-          <div className="card" onClick={this.handleSelectCard}>
-            <div
-              className="card-face"
-              id="drag1"
-              draggable="true"
-              onDragStart={this.handleDragWhiteCard}
-            >
-              <div className="card-label">{this.state.whiteCard0}</div>
+          <button onClick={this.handleShowWhiteCardHand} id='dealWhiteCard'>
+            Deal White Cards
+          </button>
+          <br />
+
+          <div className='cards'>
+            <div className='card' >
+              <div
+                className='card-face'
+                id='1'
+                draggable='true'
+                onBeginDrag={handleBeginDrag}
+                onEndDrag={handleEndDrag}
+              >
+                <div className='card-label'>{this.state.whiteCard0}</div>
+              </div>
+            </div>
+            <div className='card' >
+              <div
+                className='card-face'
+                id='2'
+                draggable='true'
+                onBeginDrag={handleBeginDrag}
+                onEndDrag={handleEndDrag}
+              >
+                <div className='card-label'>{this.state.whiteCard1}</div>
+              </div>
+            </div>
+            <div className='card' >
+              <div
+                className='card-face'
+                id='3'
+                draggable='true'
+                onBeginDrag={handleBeginDrag}
+                onEndDrag={handleEndDrag}
+              >
+                <div className='card-label'>{this.state.whiteCard2}</div>
+              </div>
+            </div>
+            <div className='card' >
+              <div
+                className='card-face'
+                id='4'
+                draggable='true'
+                onBeginDrag={handleBeginDrag}
+                onEndDrag={handleEndDrag}
+              >
+                <div className='card-label'>{this.state.whiteCard3}</div>
+              </div>
+            </div>
+            <div className='card' >
+              <div
+                className='card-face'
+                id='5'
+                draggable='true'
+                onBeginDrag={handleBeginDrag}
+                onEndDrag={handleEndDrag}
+              >
+                <div className='card-label'>{this.state.whiteCard4}</div>
+              </div>
+            </div>
+            <div className='card' >
+              <div
+                className='card-face'
+                id='6'
+                draggable='true'
+                onBeginDrag={handleBeginDrag}
+                onEndDrag={handleEndDrag}
+              >
+                <div className='card-label'>{this.state.whiteCard5}</div>
+              </div>
+            </div>
+            <div className='card' >
+              <div
+                className='card-face'
+                id='7'
+                draggable='true'
+                onBeginDrag={handleBeginDrag}
+                onEndDrag={handleEndDrag}
+              >
+                <div className='card-label'>{this.state.whiteCard6}</div>
+              </div>
+            </div>
+            <div className='card' >
+              <div
+                className='card-face'
+                id='8'
+                draggable='true'
+                onBeginDrag={handleBeginDrag}
+                onEndDrag={handleEndDrag}
+              >
+                <div className='card-label'>{this.state.whiteCard7}</div>
+              </div>
+            </div>
+            <div className='card' >
+              <div
+                className='card-face'
+                id='9'
+                draggable='true'
+                onBeginDrag={handleBeginDrag}
+                onEndDrag={handleEndDrag}
+              >
+                <div className='card-label'>{this.state.whiteCard8}</div>
+              </div>
+            </div>
+            <div className='card' >
+              <div
+                className='card-face'
+                id='0'
+                draggable='true'
+                onBeginDrag={handleBeginDrag}
+                onEndDrag={handleEndDrag}
+              >
+                <div className='card-label'>{this.state.whiteCard9}</div>
+              </div>
             </div>
           </div>
-          <div className="card" onClick={this.handleSelectCard}>
-            <div
-              className="card-face"
-              id="drag2"
-              draggable="true"
-              onDragStart={this.handleDragWhiteCard}
-            >
-              <div className="card-label">{this.state.whiteCard1}</div>
-            </div>
-          </div>
-          <div className="card" onClick={this.handleSelectCard}>
-            <div
-              className="card-face"
-              id="drag3"
-              draggable="true"
-              onDragStart={this.handleDragWhiteCard}
-            >
-              <div className="card-label">{this.state.whiteCard2}</div>
-            </div>
-          </div>
-          <div className="card" onClick={this.handleSelectCard}>
-            <div
-              className="card-face"
-              id="drag4"
-              draggable="true"
-              onDragStart={this.handleDragWhiteCard}
-            >
-              <div className="card-label">{this.state.whiteCard3}</div>
-            </div>
-          </div>
-          <div className="card" onClick={this.handleSelectCard}>
-            <div
-              className="card-face"
-              id="drag5"
-              draggable="true"
-              onDragStart={this.handleDragWhiteCard}
-            >
-              <div className="card-label">{this.state.whiteCard4}</div>
-            </div>
-          </div>
-          <div className="card" onClick={this.handleSelectCard}>
-            <div
-              className="card-face"
-              id="drag6"
-              draggable="true"
-              onDragStart={this.handleDragWhiteCard}
-            >
-              <div className="card-label">{this.state.whiteCard5}</div>
-            </div>
-          </div>
-          <div className="card" onClick={this.handleSelectCard}>
-            <div
-              className="card-face"
-              id="drag7"
-              draggable="true"
-              onDragStart={this.handleDragWhiteCard}
-            >
-              <div className="card-label">{this.state.whiteCard6}</div>
-            </div>
-          </div>
-          <div className="card" onClick={this.handleSelectCard}>
-            <div
-              className="card-face"
-              id="drag8"
-              draggable="true"
-              onDragStart={this.handleDragWhiteCard}
-            >
-              <div className="card-label">{this.state.whiteCard7}</div>
-            </div>
-          </div>
-          <div className="card" onClick={this.handleSelectCard}>
-            <div
-              className="card-face"
-              id="drag9"
-              draggable="true"
-              onDragStart={this.handleDragWhiteCard}
-            >
-              <div className="card-label">{this.state.whiteCard8}</div>
-            </div>
-          </div>
-          <div className="card" onClick={this.handleSelectCard}>
-            <div
-              className="card-face"
-              id="drag0"
-              draggable="true"
-              onDragStart={this.handleDragWhiteCard}
-            >
-              <div className="card-label">{this.state.whiteCard9}</div>
-            </div>
-          </div>
-        </div>
       </div>
     );
   }

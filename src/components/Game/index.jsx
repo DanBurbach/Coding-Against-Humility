@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from "react-redux";
 import { firebaseConnect } from "react-redux-firebase";
 import Board from '../Board';
+import { DndProvider } from "react-dnd";
+import HTML5Backend from "react-dnd-html5-backend";
 
 class Game extends React.Component {
 
@@ -13,7 +15,9 @@ class Game extends React.Component {
   render() {
     return (
       <div>
-        <Board/>
+        <DndProvider backend={HTML5Backend}>
+          <Board />
+        </DndProvider>
       </div>
     );
   }
