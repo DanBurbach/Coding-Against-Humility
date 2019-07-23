@@ -11,7 +11,7 @@
 }
 
 .blackCard {
-	font: 1.75em sans-serif;
+	font: 1.5em sans-serif;
 	width: 100%;
 	height: 100%;
 	position: absolute;
@@ -33,7 +33,6 @@
 	width: 100%;
 	color: #fff;
 	text-align: center;
-	font-weight: bold;
 	position: absolute;
 	transform-style: preserve-3d;
 	-webkit-backface-visibility: hidden;
@@ -45,10 +44,11 @@
 .blackCard .front {
 	background: #000;
 	border: 0.125em solid #fff;
-	border-radius: 1em;
+	border-radius: 0.8em;
 	text-align: center;
-	padding: 20px 50px;
-	line-height: 1.5em;
+	font-weight: bold;
+	font-family: 'Montserrat', sans-serif;
+	padding: 1.5em 1em;
 	transform: translatez(1em) scale(1);
 }
 
@@ -56,9 +56,11 @@
 .blackCard .back {
 	background: #000;
 	border: 0.125em solid #fff;
-	border-radius: 1em;
+	border-radius: 0.8em;
 	text-align: center;
-	padding: 50px 50px;
+	font-weight: bold;
+	font-family: 'Montserrat', sans-serif;
+	padding: 1.5em 1em;
 	-webkit-transform: rotateY(180deg);
 	-moz-transform: rotateY(180deg);
 	-o-transform: rotateY(180deg);

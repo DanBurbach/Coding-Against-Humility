@@ -1,5 +1,6 @@
 button {
     text-align: center;
+    padding-bottom: 3em;
 }
 
 #dealWhiteCard {
@@ -20,7 +21,7 @@ button {
     text-decoration: none;
     }
 
-#dealWhiteCard :hover {
+#dealWhiteCard:hover {
     background-color: transparent;
     color: #8400ff;
     outline: 0 none;

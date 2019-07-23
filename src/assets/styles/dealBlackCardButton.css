@@ -20,7 +20,7 @@ button {
     text-decoration: none;
 }
 
-#dealBlackCard :hover {
+#dealBlackCard:hover {
     background-color: transparent;
     color: #8400ff;
     outline: 0 none;

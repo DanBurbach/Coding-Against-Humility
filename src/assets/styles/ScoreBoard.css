@@ -24,7 +24,7 @@ button {
     text-decoration: none;
 }
 
-#scoreBoardButton :hover {
+#scoreBoardButton:hover {
     background-color: transparent;
     color: #8400ff;
     outline: 0 none;
@@ -48,7 +48,7 @@ button {
     text-decoration: none;
 }
 
-#scoreBoardButtonPoint :hover {
+#scoreBoardButtonPoint:hover {
     background-color: transparent;
     color: #8400ff;
     outline: 0 none;
