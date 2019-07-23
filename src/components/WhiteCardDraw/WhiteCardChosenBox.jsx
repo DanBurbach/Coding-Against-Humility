@@ -4,6 +4,7 @@ import ItemTypes from "./ItemTypes";
 import '../../assets/styles/WhiteCardChosenBox.css';
 
 const WhiteCardChosenBox = ({ canDrop, isOver, connectDropTarget }) => {
+  
   const isActive = canDrop && isOver;
 
   return (
@@ -12,11 +13,10 @@ const WhiteCardChosenBox = ({ canDrop, isOver, connectDropTarget }) => {
     </div>
   );
 };
+
 export default DropTarget(
   ItemTypes.CARD,
-  {
-    drop: () => ({ name: "Dustbin" })
-  },
+  { drop: () => ({ name: "WhiteCard Play Area" })},
   (connect, monitor) => ({
     connectDropTarget: connect.dropTarget(),
     isOver: monitor.isOver(),

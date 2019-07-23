@@ -5,7 +5,7 @@ import { firebaseConnect } from 'react-redux-firebase';
 import WhiteCardSourceBox from './WhiteCardSourceBox';
 
 import '../../assets/styles/cardhand/cardhand.css';
-// import "../../assets/styles/WhiteCardSourceBox.css";
+import "../../assets/styles/WhiteCardSourceBox.css";
 import '../../assets/styles/dealWhiteCardButton.css';
 
 class WhiteCardHand extends Component {
