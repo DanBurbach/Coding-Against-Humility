@@ -7,10 +7,7 @@ import '../../assets/styles/WhiteCardSourceBox.css';
 const getStyle = isDragging => ({
 	width: '10em',
   height: '16em',
-  borderRadius: '0.8em',
-  marginBottom: "1.5rem",
-  border: "1px dashed gray",
-  zIndex: '11',
+  marginBottom: '1.5rem',
 });
 
 const WhiteCardSourceBox = ({ name, isDragging, connectDragSource }) => {
