@@ -5,16 +5,18 @@ import ItemTypes from './ItemTypes';
 import '../../assets/styles/WhiteCardSourceBox.css';
 
 const getStyle = isDragging => ({
-  opacity: isDragging ? 0.4 : 1,
-  display: "block",
-  padding: "0.5rem 1rem",
-  cursor: "pointer",
-  border: "1px dashed gray"
+	width: '10em',
+  height: '16em',
+  borderRadius: '0.8em',
+  marginBottom: "1.5rem",
+  border: "1px dashed gray",
+  zIndex: '11',
 });
 
 const WhiteCardSourceBox = ({ name, isDragging, connectDragSource }) => {
+  const opacity= isDragging ? 0.4 : 1;
   return connectDragSource(
-  <div style={getStyle(isDragging)}>
+  <div style={getStyle(isDragging, opacity)}>
     <div className='white-card-label-source'>
         {name}
       </div>

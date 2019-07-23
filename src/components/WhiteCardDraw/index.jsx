@@ -2,8 +2,10 @@ import React, { Component } from "react";
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { firebaseConnect } from 'react-redux-firebase';
+import WhiteCardSourceBox from './WhiteCardSourceBox';
 
 import '../../assets/styles/cardhand/cardhand.css';
+// import "../../assets/styles/WhiteCardSourceBox.css";
 import '../../assets/styles/dealWhiteCardButton.css';
 
 class WhiteCardHand extends Component {
@@ -91,128 +93,66 @@ class WhiteCardHand extends Component {
     });
   };
 
-  
   render() {
     return (
       <div>
-          <button onClick={this.handleShowWhiteCardHand} id='dealWhiteCard'>
-            Deal White Cards
-          </button>
-          <br />
-
-          <div className='cards'>
-            <div className='card' >
-              <div
-                className='card-face'
-                id='1'
-                draggable='true'
-                onBeginDrag={handleBeginDrag}
-                onEndDrag={handleEndDrag}
-              >
-                <div className='card-label'>{this.state.whiteCard0}</div>
+        <button onClick={this.handleShowWhiteCardHand} id="dealWhiteCard">
+          Deal White Cards
+        </button>
+        <br />
+          <div className="cards">
+            <div className="card">
+              <div className="card-face">
+                <WhiteCardSourceBox id="1" name={this.state.whiteCard0} />
               </div>
             </div>
-            <div className='card' >
-              <div
-                className='card-face'
-                id='2'
-                draggable='true'
-                onBeginDrag={handleBeginDrag}
-                onEndDrag={handleEndDrag}
-              >
-                <div className='card-label'>{this.state.whiteCard1}</div>
+            <div className="card">
+              <div className="card-face">
+                <WhiteCardSourceBox id="2" name={this.state.whiteCard1} />
               </div>
             </div>
-            <div className='card' >
-              <div
-                className='card-face'
-                id='3'
-                draggable='true'
-                onBeginDrag={handleBeginDrag}
-                onEndDrag={handleEndDrag}
-              >
-                <div className='card-label'>{this.state.whiteCard2}</div>
+            <div className="card">
+              <div className="card-face">
+                <WhiteCardSourceBox id="3" name={this.state.whiteCard2} />
               </div>
             </div>
-            <div className='card' >
-              <div
-                className='card-face'
-                id='4'
-                draggable='true'
-                onBeginDrag={handleBeginDrag}
-                onEndDrag={handleEndDrag}
-              >
-                <div className='card-label'>{this.state.whiteCard3}</div>
+            <div className="card">
+              <div className="card-face">
+                <WhiteCardSourceBox id="4" name={this.state.whiteCard3} />
               </div>
             </div>
-            <div className='card' >
-              <div
-                className='card-face'
-                id='5'
-                draggable='true'
-                onBeginDrag={handleBeginDrag}
-                onEndDrag={handleEndDrag}
-              >
-                <div className='card-label'>{this.state.whiteCard4}</div>
+            <div className="card">
+              <div className="card-face">
+                <WhiteCardSourceBox id="5" name={this.state.whiteCard4} />
               </div>
             </div>
-            <div className='card' >
-              <div
-                className='card-face'
-                id='6'
-                draggable='true'
-                onBeginDrag={handleBeginDrag}
-                onEndDrag={handleEndDrag}
-              >
-                <div className='card-label'>{this.state.whiteCard5}</div>
+            <div className="card">
+              <div className="card-face">
+                <WhiteCardSourceBox id="6" name={this.state.whiteCard5} />
               </div>
             </div>
-            <div className='card' >
-              <div
-                className='card-face'
-                id='7'
-                draggable='true'
-                onBeginDrag={handleBeginDrag}
-                onEndDrag={handleEndDrag}
-              >
-                <div className='card-label'>{this.state.whiteCard6}</div>
+            <div className="card">
+              <div className="card-face">
+                <WhiteCardSourceBox id="7" name={this.state.whiteCard6} />
               </div>
             </div>
-            <div className='card' >
-              <div
-                className='card-face'
-                id='8'
-                draggable='true'
-                onBeginDrag={handleBeginDrag}
-                onEndDrag={handleEndDrag}
-              >
-                <div className='card-label'>{this.state.whiteCard7}</div>
+            <div className="card">
+              <div className="card-face">
+                <WhiteCardSourceBox id="8" name={this.state.whiteCard7} />
               </div>
             </div>
-            <div className='card' >
-              <div
-                className='card-face'
-                id='9'
-                draggable='true'
-                onBeginDrag={handleBeginDrag}
-                onEndDrag={handleEndDrag}
-              >
-                <div className='card-label'>{this.state.whiteCard8}</div>
+            <div className="card">
+              <div className="card-face">
+                <WhiteCardSourceBox id="9" name={this.state.whiteCard8} />
               </div>
             </div>
-            <div className='card' >
-              <div
-                className='card-face'
-                id='0'
-                draggable='true'
-                onBeginDrag={handleBeginDrag}
-                onEndDrag={handleEndDrag}
-              >
-                <div className='card-label'>{this.state.whiteCard9}</div>
+            <div className="card">
+              <div className="card-face">
+                <WhiteCardSourceBox id="10" name={this.state.whiteCard9} />
               </div>
             </div>
           </div>
-      </div>
+        </div>
     );
   }
 }
