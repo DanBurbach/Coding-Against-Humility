@@ -2,26 +2,11 @@ import React, { Component } from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { firebaseConnect } from 'react-redux-firebase';
+import firebase from '../../Firebase';
+
+import Counter from './Counter';
 
 import "../../assets/styles/ScoreBoard.css";
-
-class Counter extends Component {
-    render() {
-        const { onIncrement } = this.props;
-        return ( 
-            <div>
-                <span> {this.formatCount()} </span> 
-                <br/>
-                <button id='scoreBoardButtonPoint' onClick = {() => onIncrement(this.props.counter)}>Add </button>
-            </div>
-        );
-    }
-
-    formatCount() {
-        const { value } = this.props.counter;
-        return value;
-    }
-}
 
 class ScoreBoard extends Component {
     constructor() {
@@ -34,10 +19,24 @@ class ScoreBoard extends Component {
                 { id: 4, value: 0 },
                 { id: 5, value: 0 }
             ],
-            total: 0
+            total: 0,
+            gameLength: [],
         };
+        this.handleIncrement = this.handleIncrement.bind(this);
+        this.handleReset = this.handleReset.bind(this);
+        this.handleGameOver = this.handleGameOver.bind(this);
     }
-    handleIncrement(counter) {
+
+    componentDidMount(){
+            let fbGameLength = firebase.database().ref().child('gameLength')
+            // .then(gameLength => {
+            //     dispatch(pushToState(ref, gameLength.val()))
+            // })
+            console.log(fbGameLength);
+            console.log(this.state);
+        }
+
+    handleIncrement = (counter) => {
         const total = this.state.total + 1;
         const counters = [...this.state.counters];
         const index = counters.indexOf(counter);
@@ -49,21 +48,8 @@ class ScoreBoard extends Component {
         });
     }
 
-    handleDecrement(counter) {
-        const total = this.state.total - 1;
-        const counters = [...this.state.counters];
-        const index = counters.indexOf(counter);
-        counters[index] = {
-            ...counter
-        };
-        counters[index].value--;
-        this.setState({
-            counters: counters,
-            total: total
-        });
-    }
 
-    handleReset() {
+    handleReset = () => {
         const total = 0;
         const counters = this.state.counters.map(c => {
             c.value = 0;
@@ -75,6 +61,13 @@ class ScoreBoard extends Component {
         });
     }
 
+
+    handleGameOver = () => {
+        if (this.state.counters >= this.state.gameLength) {
+            alert('Game Over!')
+        }
+    }
+
     render() {
         return ( 
             <div >
@@ -83,7 +76,6 @@ class ScoreBoard extends Component {
                         <Counter 
                             key = {counter.id}
                             onIncrement = {this.handleIncrement.bind(this)}
-                            onDecrement = {this.handleDecrement.bind(this)}
                             counter = { counter }
                         />
                 ))
