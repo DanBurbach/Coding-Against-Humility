@@ -20,21 +20,23 @@ class ScoreBoard extends Component {
                 { id: 5, value: 0 }
             ],
             total: 0,
-            gameLength: [],
+            gameLength: '',
         };
         this.handleIncrement = this.handleIncrement.bind(this);
         this.handleReset = this.handleReset.bind(this);
-        this.handleGameOver = this.handleGameOver.bind(this);
     }
 
-    componentDidMount(){
-            let fbGameLength = firebase.database().ref().child('gameLength')
-            // .then(gameLength => {
-            //     dispatch(pushToState(ref, gameLength.val()))
-            // })
-            console.log(fbGameLength);
-            console.log(this.state);
-        }
+    async componentDidMount(){
+        let that = this;
+        let userId = firebase.auth().currentUser.uid;
+        await firebase.database().ref(`gameInfo/ + ${userId}`).child('gameLength').once('value') .then(function(snapshot) {
+            that.setState({
+                gameLength: (snapshot.val())
+            });
+        });
+        console.log('on loading: ' + this.state);
+    }
+
 
     handleIncrement = (counter) => {
         const total = this.state.total + 1;
@@ -46,6 +48,11 @@ class ScoreBoard extends Component {
             counters: counters,
             total: total
         });
+        if ((
+            this.state.counters[0].value || this.state.counters[1].value || this.state.counters[2].value || this.state.counters[3].value || this.state.counters[4].value) >= this.state.gameLength) 
+            {
+            alert('Game Over!')
+        }
     }
 
 
@@ -61,12 +68,6 @@ class ScoreBoard extends Component {
         });
     }
 
-
-    handleGameOver = () => {
-        if (this.state.counters >= this.state.gameLength) {
-            alert('Game Over!')
-        }
-    }
 
     render() {
         return ( 
