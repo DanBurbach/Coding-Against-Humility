@@ -3,7 +3,6 @@ import { compose } from 'redux';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { firebaseConnect } from 'react-redux-firebase';
-import firebase from 'firebase/app';
 
 import '../../assets/styles/NewGameForm.css';
 import { newGame } from '../../actions';
@@ -31,6 +30,7 @@ class NewGameForm extends Component {
 
   handleChange(event, target) {
     this.setState({ [target]: event });
+        console.log(this.state);
   }
 
   render() {

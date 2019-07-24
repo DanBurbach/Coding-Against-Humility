@@ -40,7 +40,7 @@ class Main extends Component {
             <br />
 
             <button id="newGameButtonModal" onClick={this.handleOpenModal}>
-              New Game
+              Play
             </button>
             <Modal
               isOpen={this.state.showModal}
@@ -66,7 +66,6 @@ class Main extends Component {
               </button>
             </Modal>
 
-            <Link to={ROUTES.LOG_IN}>Join Game</Link>
             <Link to={ROUTES.GAME_INFO}>Info</Link>
             <Link to={ROUTES.GAME_FINEPRINT}>Fine Print</Link>
           </div>
