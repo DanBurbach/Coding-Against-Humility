@@ -75,7 +75,7 @@ class SignInFormBase extends Component {
           placeholder="Password"
         />
         <br/>
-        <button disabled={isInvalid} type="submit" id="newGameModal">
+        <button disabled={isInvalid} type="submit" id="newgamebutton">
           Sign In
         </button>
 
