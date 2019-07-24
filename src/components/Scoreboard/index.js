@@ -3,6 +3,7 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { firebaseConnect } from 'react-redux-firebase';
 import firebase from '../../Firebase';
+import { withRouter } from 'react-router-dom';
 
 import Counter from './Counter';
 
@@ -37,8 +38,7 @@ class ScoreBoard extends Component {
         console.log('on loading: ' + this.state);
     }
 
-
-    handleIncrement = (counter) => {
+    handleIncrement = (counter, event) => {
         const total = this.state.total + 1;
         const counters = [...this.state.counters];
         const index = counters.indexOf(counter);
@@ -51,7 +51,9 @@ class ScoreBoard extends Component {
         if ((
             this.state.counters[0].value || this.state.counters[1].value || this.state.counters[2].value || this.state.counters[3].value || this.state.counters[4].value) >= this.state.gameLength) 
             {
-            alert('Game Over!')
+                alert('Game Over!')
+                this.props.firebase.logout()
+                this.props.history.push('/');
         }
     }
 
@@ -90,7 +92,8 @@ class ScoreBoard extends Component {
     }
 }
 const enhance = compose(
-    connect(({firebase: {auth, profile}}) => ({auth, profile}))
+  withRouter,
+  connect(({ firebase: { auth, profile } }) => ({ auth, profile }))
 );
 
 export default firebaseConnect()(enhance(ScoreBoard));
