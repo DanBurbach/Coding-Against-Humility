@@ -10,7 +10,7 @@ class BlackCardDraw extends Component {
     super(props);
     this.state = {
       blackCard: [],
-      flipBlackCard: false,
+      flipBlackCard: true,
     };
     this.handleDrawNewBlackCard = this.handleDrawNewBlackCard.bind(this);
     this.handleDealBlack = this.handleDealBlack.bind(this);
@@ -30,12 +30,17 @@ class BlackCardDraw extends Component {
       const blackDeckSize = 414;
       const x = Math.floor(Math.random() * blackDeckSize);
       let [blackCardSlice] = blackCardData.slice(x, x+1);
+      if (this.state.flipBlackCard === true) {
       this.setState({
         blackCard: blackCardSlice.text
       })
+    }
   }
 
   handleFlipBlackCard = () => {
+      this.setState(prevState => ({
+        flipBlackCard: !prevState.flipBlackCard
+      }));
        $(".blackCard").toggleClass("flipped");
     }
 
