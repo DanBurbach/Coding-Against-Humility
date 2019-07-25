@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Header from '../Header';
 import ScoreBoard from '../Scoreboard';
 import MainPlayer from '../MainPlayer/MainPlayer';
@@ -7,10 +7,16 @@ import { connect } from 'react-redux';
 import { firebaseConnect } from "react-redux-firebase";
 
 import "../../assets/styles/Board.css";
-import WhiteCardChosenBox from '../WhiteCardDraw/WhiteCardChosenBox';
-import WhiteCardSourceBox from "../WhiteCardDraw/WhiteCardSourceBox";
+import DropBoxWhiteCard from "../WhiteCardDraw/DropBoxWhiteCard";
 
-function Board(){
+
+class Board extends Component{
+  constructor(props) {
+    super(props);
+    this.state = {}
+  };
+
+  render () {
   return (
     <div>
       <div>
@@ -25,9 +31,12 @@ function Board(){
         <BlackCardDraw />
       </div>
       <div className="Board-Play-Area">
-        <WhiteCardChosenBox>
-          <WhiteCardSourceBox />
-        </WhiteCardChosenBox>
+        <DropBoxWhiteCard
+          id={this.state.id}
+          cards={this.state.text}
+          isDropDisabled={isDropDisabled}
+        />
+        />
       </div>
       <br />
       <div>
@@ -35,6 +44,7 @@ function Board(){
       </div>
     </div>
   );
+}
 }
 
 const enhance = connect(({ firebase: { auth, profile } }) => ({

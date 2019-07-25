@@ -2,16 +2,22 @@ import React, { Component } from "react";
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { firebaseConnect } from 'react-redux-firebase';
-import WhiteCardSourceBox from './WhiteCardSourceBox';
+import DraggableWhiteCard from './DraggableWhiteCard';
 
 import '../../assets/styles/cardhand/cardhand.css';
-import "../../assets/styles/WhiteCardSourceBox.css";
+import '../../assets/styles/DraggableWhiteCard.css';
 import '../../assets/styles/dealWhiteCardButton.css';
+
+//there are 0-1913 (1914 total) black cards in the json deck
+const whiteCardData = require('../../../decks/WhiteCards.json');
+const whiteDeckSize = 1913;    
 
 class WhiteCardHand extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      data: whiteCardData,
+      droppedWhiteCard: [],
       randomNumbers: [],
       whiteCard0: [],
       whiteCard1: [],
@@ -22,23 +28,42 @@ class WhiteCardHand extends Component {
       whiteCard6: [],
       whiteCard7: [],
       whiteCard8: [],
-      whiteCard9: []
+      whiteCard9: [],
+      isDropDisabled: false
     };
     this.handleShowWhiteCardHand = this.handleShowWhiteCardHand.bind(this);
     this.handleDealWhiteCards = this.handleDealWhiteCards.bind(this);
   }
-  
-  //there are 0-1913 (1914 total) black cards in the json deck
-  
-  handleShowWhiteCardHand = (event) => {
+
+  handleElementDrop = id => {
+    this.deleteElement(id);
+  };
+
+  deleteElement = id => {
+    const data = this.state.data;
+    const newData = data.filter(data => data.id !== id);
+    this.setState({ data: newData });
+  };
+
+  moveItem = (dragIndex, hoverIndex) => {
+    const { data } = this.state;
+    const dragItem = data[dragIndex];
+    this.setState(
+      update(this.state, {
+        data: {
+          $splice: [[dragIndex, 1], [hoverIndex, 0, dragItem]]
+        }
+      })
+    );
+  };
+
+  handleShowWhiteCardHand = event => {
     event.preventDefault();
     this.handleDealWhiteCards();
   };
-  
+
   handleDealWhiteCards = () => {
     var randomWhiteCardArray = [];
-    const whiteCardData = require('../../../decks/WhiteCards.json');
-    const whiteDeckSize = 1913;    
     const randomGeneratedNumber = randomWhiteCardArray.slice(0);
     let size = 1;
     let newWhiteCardNumberArray = [];
@@ -100,59 +125,99 @@ class WhiteCardHand extends Component {
           Deal White Cards
         </button>
         <br />
-          <div className="cards">
-            <div className="card">
-              <div className="card-face">
-                <WhiteCardSourceBox id="1" name={this.state.whiteCard0} />
-              </div>
+        <div className="cards">
+          <div className="card">
+            <div className="card-face">
+              <DraggableWhiteCard
+                id="1"
+                moveCard={this.moveCard}
+                name={this.state.whiteCard0}
+              />
             </div>
-            <div className="card">
-              <div className="card-face">
-                <WhiteCardSourceBox id="2" name={this.state.whiteCard1} />
-              </div>
+          </div>
+          <div className="card">
+            <div className="card-face">
+              <DraggableWhiteCard
+                id="2"
+                moveCard={this.moveCard}
+                name={this.state.whiteCard1}
+              />
             </div>
-            <div className="card">
-              <div className="card-face">
-                <WhiteCardSourceBox id="3" name={this.state.whiteCard2} />
-              </div>
+          </div>
+          <div className="card">
+            <div className="card-face">
+              <DraggableWhiteCard
+                id="3"
+                moveCard={this.moveCard}
+                name={this.state.whiteCard2}
+              />
             </div>
-            <div className="card">
-              <div className="card-face">
-                <WhiteCardSourceBox id="4" name={this.state.whiteCard3} />
-              </div>
+          </div>
+          <div className="card">
+            <div className="card-face">
+              <DraggableWhiteCard
+                id="4"
+                moveCard={this.moveCard}
+                name={this.state.whiteCard3}
+              />
             </div>
-            <div className="card">
-              <div className="card-face">
-                <WhiteCardSourceBox id="5" name={this.state.whiteCard4} />
-              </div>
+          </div>
+          <div className="card">
+            <div className="card-face">
+              <DraggableWhiteCard
+                id="5"
+                moveCard={this.moveCard}
+                name={this.state.whiteCard4}
+              />
             </div>
-            <div className="card">
-              <div className="card-face">
-                <WhiteCardSourceBox id="6" name={this.state.whiteCard5} />
-              </div>
+          </div>
+          <div className="card">
+            <div className="card-face">
+              <DraggableWhiteCard
+                id="6"
+                moveCard={this.moveCard}
+                name={this.state.whiteCard5}
+              />
             </div>
-            <div className="card">
-              <div className="card-face">
-                <WhiteCardSourceBox id="7" name={this.state.whiteCard6} />
-              </div>
+          </div>
+          <div className="card">
+            <div className="card-face">
+              <DraggableWhiteCard
+                id="7"
+                moveCard={this.moveCard}
+                name={this.state.whiteCard6}
+              />
             </div>
-            <div className="card">
-              <div className="card-face">
-                <WhiteCardSourceBox id="8" name={this.state.whiteCard7} />
-              </div>
+          </div>
+          <div className="card">
+            <div className="card-face">
+              <DraggableWhiteCard
+                id="8"
+                moveCard={this.moveCard}
+                name={this.state.whiteCard7}
+              />
             </div>
-            <div className="card">
-              <div className="card-face">
-                <WhiteCardSourceBox id="9" name={this.state.whiteCard8} />
-              </div>
+          </div>
+          <div className="card">
+            <div className="card-face">
+              <DraggableWhiteCard
+                id="9"
+                moveCard={this.moveCard}
+                name={this.state.whiteCard8}
+              />
             </div>
-            <div className="card">
-              <div className="card-face">
-                <WhiteCardSourceBox id="10" name={this.state.whiteCard9} />
-              </div>
+          </div>
+          <div className="card">
+            <div className="card-face">
+              <DraggableWhiteCard
+                id="10"
+                moveCard={this.moveCard}
+                name={this.state.whiteCard9}
+              />
             </div>
           </div>
         </div>
+      </div>
     );
   }
 }

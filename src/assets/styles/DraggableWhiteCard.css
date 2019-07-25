@@ -1,9 +1,9 @@
 .card-drop-area {
-	width: 20em;
-    height: 28em;
+	width: 22em;
+    height: 30em;
     border-radius: 0.8em;
 	margin-right: 1.5rem;
-	margin-bottom: 1.5rem;
+	margin-bottom: 0.75rem;
     color: white;
     background: radial-gradient(#333, #111);
 	padding: 1rem;
