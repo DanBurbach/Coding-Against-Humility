@@ -57,7 +57,6 @@ class ScoreBoard extends Component {
         }
     }
 
-
     handleReset = () => {
         const total = 0;
         const counters = this.state.counters.map(c => {

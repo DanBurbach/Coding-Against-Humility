@@ -3,13 +3,13 @@ import { DropTarget } from "react-dnd";
 import ItemTypes from "./ItemTypes";
 import '../../assets/styles/WhiteCardChosenBox.css';
 
-const WhiteCardChosenBox = ({ canDrop, isOver, connectDropTarget }) => {
+const WhiteCardChosenBox = ({ canDrop, isOver, connectDropTarget, children }) => {
   
   const isActive = canDrop && isOver;
 
-  return (
-    <div className="card-drop-area" ref={connectDropTarget}>
-      {isActive ? "Release to drop" : "Drag a card here"}
+  return connectDropTarget(
+    <div className="card-drop-area">
+      {isActive ? "Release to drop" : "Drag a card here"}{children}
     </div>
   );
 };

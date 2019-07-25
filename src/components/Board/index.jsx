@@ -8,6 +8,7 @@ import { firebaseConnect } from "react-redux-firebase";
 
 import "../../assets/styles/Board.css";
 import WhiteCardChosenBox from '../WhiteCardDraw/WhiteCardChosenBox';
+import WhiteCardSourceBox from "../WhiteCardDraw/WhiteCardSourceBox";
 
 function Board(){
   return (
@@ -24,7 +25,9 @@ function Board(){
         <BlackCardDraw />
       </div>
       <div className="Board-Play-Area">
-        <WhiteCardChosenBox />
+        <WhiteCardChosenBox>
+          <WhiteCardSourceBox />
+        </WhiteCardChosenBox>
       </div>
       <br />
       <div>
