@@ -22,9 +22,6 @@ class Game extends React.Component {
     );
   }
 }
-const enhance = connect(({ firebase: { auth, profile } }) => ({
-  auth,
-  profile
-}));
+const enhance = connect(({ firebase: { auth, profile } }) => ({ auth, profile }));
 
 export default firebaseConnect()(enhance(Game));

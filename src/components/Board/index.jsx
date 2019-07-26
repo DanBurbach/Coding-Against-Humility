@@ -10,41 +10,48 @@ import "../../assets/styles/Board.css";
 import DropBoxWhiteCard from "../WhiteCardDraw/DropBoxWhiteCard";
 
 
-class Board extends Component{
+class Board extends Component {
   constructor(props) {
     super(props);
-    this.state = {}
-  };
+    this.state = {
+      whiteCardSelected: []
+    };
+    this.onDrop = this.onDrop.bind(this);
+  }
 
-  render () {
-  return (
-    <div>
+  onDrop(component) {
+    const { whiteCardSelected } = this.state;
+    console.log(component);
+    const newwhiteCardSelectedList = _.concat([], whiteCardSelected, component);
+    this.setState({
+      whiteCardSelected: newwhiteCardSelectedList
+    });
+  }
+
+  render() {
+    const { whiteCardSelected } = this.state;
+    return (
       <div>
-        <Header />
+        <div>
+          <Header />
+        </div>
+        <br />
+        <div className="Board-Play-Area">
+          <ScoreBoard />
+        </div>
+        <div className="Board-Play-Area">
+          <BlackCardDraw />
+        </div>
+        <div className="Board-Play-Area">
+          <DropBoxWhiteCard onDrop={this.onDrop} whiteCardSelected={whiteCardSelected} />
+        </div>
+        <br />
+        <div>
+          <MainPlayer />
+        </div>
       </div>
-      <br />
-      <br />
-      <div className="Board-Play-Area">
-        <ScoreBoard />
-      </div>
-      <div className="Board-Play-Area">
-        <BlackCardDraw />
-      </div>
-      <div className="Board-Play-Area">
-        <DropBoxWhiteCard
-          id={this.state.id}
-          cards={this.state.text}
-          isDropDisabled={isDropDisabled}
-        />
-        />
-      </div>
-      <br />
-      <div>
-        <MainPlayer />
-      </div>
-    </div>
-  );
-}
+    );
+  }
 }
 
 const enhance = connect(({ firebase: { auth, profile } }) => ({

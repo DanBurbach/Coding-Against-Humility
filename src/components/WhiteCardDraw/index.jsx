@@ -35,28 +35,6 @@ class WhiteCardHand extends Component {
     this.handleDealWhiteCards = this.handleDealWhiteCards.bind(this);
   }
 
-  handleElementDrop = id => {
-    this.deleteElement(id);
-  };
-
-  deleteElement = id => {
-    const data = this.state.data;
-    const newData = data.filter(data => data.id !== id);
-    this.setState({ data: newData });
-  };
-
-  moveItem = (dragIndex, hoverIndex) => {
-    const { data } = this.state;
-    const dragItem = data[dragIndex];
-    this.setState(
-      update(this.state, {
-        data: {
-          $splice: [[dragIndex, 1], [hoverIndex, 0, dragItem]]
-        }
-      })
-    );
-  };
-
   handleShowWhiteCardHand = event => {
     event.preventDefault();
     this.handleDealWhiteCards();
@@ -130,7 +108,7 @@ class WhiteCardHand extends Component {
             <div className="card-face">
               <DraggableWhiteCard
                 id="1"
-                moveCard={this.moveCard}
+                onDrop={this.onDrop}
                 name={this.state.whiteCard0}
               />
             </div>
@@ -139,7 +117,7 @@ class WhiteCardHand extends Component {
             <div className="card-face">
               <DraggableWhiteCard
                 id="2"
-                moveCard={this.moveCard}
+                onDrop={this.onDrop}
                 name={this.state.whiteCard1}
               />
             </div>
@@ -148,7 +126,7 @@ class WhiteCardHand extends Component {
             <div className="card-face">
               <DraggableWhiteCard
                 id="3"
-                moveCard={this.moveCard}
+                onDrop={this.onDrop}
                 name={this.state.whiteCard2}
               />
             </div>
@@ -157,7 +135,7 @@ class WhiteCardHand extends Component {
             <div className="card-face">
               <DraggableWhiteCard
                 id="4"
-                moveCard={this.moveCard}
+                onDrop={this.onDrop}
                 name={this.state.whiteCard3}
               />
             </div>
@@ -166,7 +144,7 @@ class WhiteCardHand extends Component {
             <div className="card-face">
               <DraggableWhiteCard
                 id="5"
-                moveCard={this.moveCard}
+                onDrop={this.onDrop}
                 name={this.state.whiteCard4}
               />
             </div>
@@ -175,7 +153,7 @@ class WhiteCardHand extends Component {
             <div className="card-face">
               <DraggableWhiteCard
                 id="6"
-                moveCard={this.moveCard}
+                onDrop={this.onDrop}
                 name={this.state.whiteCard5}
               />
             </div>
@@ -184,7 +162,7 @@ class WhiteCardHand extends Component {
             <div className="card-face">
               <DraggableWhiteCard
                 id="7"
-                moveCard={this.moveCard}
+                onDrop={this.onDrop}
                 name={this.state.whiteCard6}
               />
             </div>
@@ -193,7 +171,7 @@ class WhiteCardHand extends Component {
             <div className="card-face">
               <DraggableWhiteCard
                 id="8"
-                moveCard={this.moveCard}
+                onDrop={this.onDrop}
                 name={this.state.whiteCard7}
               />
             </div>
@@ -202,7 +180,7 @@ class WhiteCardHand extends Component {
             <div className="card-face">
               <DraggableWhiteCard
                 id="9"
-                moveCard={this.moveCard}
+                onDrop={this.onDrop}
                 name={this.state.whiteCard8}
               />
             </div>
@@ -211,7 +189,7 @@ class WhiteCardHand extends Component {
             <div className="card-face">
               <DraggableWhiteCard
                 id="10"
-                moveCard={this.moveCard}
+                onDrop={this.onDrop}
                 name={this.state.whiteCard9}
               />
             </div>
