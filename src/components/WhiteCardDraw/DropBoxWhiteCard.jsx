@@ -16,11 +16,10 @@ class DropBoxWhiteCard extends Component {
     const { name, connectDropTarget, canDrop, isOver } = this.props;
 
     const isActive = canDrop && isOver;
-    return (
-        connectDropTarget(
+    return (connectDropTarget(
           <div className="card-drop-area">
-            {name}
             {isActive ? "Release to drop" : "Drag a card here"}
+            {name}
           </div>
         )
     );
