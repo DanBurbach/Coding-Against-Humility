@@ -12,9 +12,8 @@ class Counter extends Component {
         <br />
         <button
           id="scoreBoardButtonPoint"
-          onClick={() => onIncrement(this.props.counter)}
-        >
-          Add{" "}
+          onClick={() => onIncrement(this.props.counter)}>
+          Add
         </button>
       </div>
     );
