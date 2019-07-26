@@ -14,8 +14,8 @@ class NewGameForm extends Component {
     this.state = {
       displayName: this.props.auth.displayName,
       userName: '',
-      gameLength: '',
-      numberOfPlayers: '',
+      gameLength: 8,
+      numberOfPlayers: 6,
       gameWins: ''
     };
     this.handleNewGameSubmission = this.handleNewGameSubmission.bind(this);
