@@ -8,15 +8,10 @@ import '../../assets/styles/cardhand/cardhand.css';
 import '../../assets/styles/DraggableWhiteCard.css';
 import '../../assets/styles/dealWhiteCardButton.css';
 
-//there are 0-1913 (1914 total) black cards in the json deck
-const whiteCardData = require('../../../decks/WhiteCards.json');
-const whiteDeckSize = 1913;    
-
 class WhiteCardHand extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: whiteCardData,
       droppedWhiteCard: [],
       randomNumbers: [],
       whiteCard0: [],
@@ -41,7 +36,10 @@ class WhiteCardHand extends Component {
   };
 
   handleDealWhiteCards = () => {
-    var randomWhiteCardArray = [];
+    //there are 0-1913 (1914 total) black cards in the json deck
+    const whiteCardData = require('../../../decks/WhiteCards.json');
+    const whiteDeckSize = 1913;    
+    let randomWhiteCardArray = [];
     const randomGeneratedNumber = randomWhiteCardArray.slice(0);
     let size = 1;
     let newWhiteCardNumberArray = [];
@@ -68,6 +66,7 @@ class WhiteCardHand extends Component {
     let [whiteCardSlice7] = whiteCardData.slice(card7, card7 + 1);
     let [whiteCardSlice8] = whiteCardData.slice(card8, card8 + 1);
     let [whiteCardSlice9] = whiteCardData.slice(card9, card9 + 1);
+    
 
     for (var count = 0; count <= 9; count++) {
       randomWhiteCardArray.push(Math.floor(Math.random() * whiteDeckSize));
@@ -94,6 +93,7 @@ class WhiteCardHand extends Component {
       whiteCard8: whiteCardSlice8.text,
       whiteCard9: whiteCardSlice9.text
     });
+    console.log(this.state);
   };
 
   render() {
@@ -108,7 +108,6 @@ class WhiteCardHand extends Component {
             <div className="card-face">
               <DraggableWhiteCard
                 id="1"
-                onDrop={this.onDrop}
                 name={this.state.whiteCard0}
               />
             </div>
@@ -117,7 +116,6 @@ class WhiteCardHand extends Component {
             <div className="card-face">
               <DraggableWhiteCard
                 id="2"
-                onDrop={this.onDrop}
                 name={this.state.whiteCard1}
               />
             </div>
@@ -126,7 +124,6 @@ class WhiteCardHand extends Component {
             <div className="card-face">
               <DraggableWhiteCard
                 id="3"
-                onDrop={this.onDrop}
                 name={this.state.whiteCard2}
               />
             </div>
@@ -135,7 +132,6 @@ class WhiteCardHand extends Component {
             <div className="card-face">
               <DraggableWhiteCard
                 id="4"
-                onDrop={this.onDrop}
                 name={this.state.whiteCard3}
               />
             </div>
@@ -144,7 +140,6 @@ class WhiteCardHand extends Component {
             <div className="card-face">
               <DraggableWhiteCard
                 id="5"
-                onDrop={this.onDrop}
                 name={this.state.whiteCard4}
               />
             </div>
@@ -153,7 +148,6 @@ class WhiteCardHand extends Component {
             <div className="card-face">
               <DraggableWhiteCard
                 id="6"
-                onDrop={this.onDrop}
                 name={this.state.whiteCard5}
               />
             </div>
@@ -162,7 +156,6 @@ class WhiteCardHand extends Component {
             <div className="card-face">
               <DraggableWhiteCard
                 id="7"
-                onDrop={this.onDrop}
                 name={this.state.whiteCard6}
               />
             </div>
@@ -171,7 +164,6 @@ class WhiteCardHand extends Component {
             <div className="card-face">
               <DraggableWhiteCard
                 id="8"
-                onDrop={this.onDrop}
                 name={this.state.whiteCard7}
               />
             </div>
@@ -180,7 +172,6 @@ class WhiteCardHand extends Component {
             <div className="card-face">
               <DraggableWhiteCard
                 id="9"
-                onDrop={this.onDrop}
                 name={this.state.whiteCard8}
               />
             </div>
@@ -189,7 +180,6 @@ class WhiteCardHand extends Component {
             <div className="card-face">
               <DraggableWhiteCard
                 id="10"
-                onDrop={this.onDrop}
                 name={this.state.whiteCard9}
               />
             </div>

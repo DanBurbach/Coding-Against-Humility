@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { DragSource } from 'react-dnd';
 import '../../assets/styles/DraggableWhiteCard.css';
-import { timeout } from 'q';
 
 class DraggableWhiteCard extends Component {
   render() {
@@ -17,9 +16,9 @@ class DraggableWhiteCard extends Component {
 const whiteCardMovement = {
   beginDrag(props) {
     const item = { ...props };
-    return {
-      name: item.name
-    }
+    let whiteCard = jQuery.parseJSON(JSON.stringify(item.name));
+    console.log(whiteCard);
+    return <div>{whiteCard}</div>;
   },
   endDrag(props, monitor, component) {
     const item = monitor.getItem()

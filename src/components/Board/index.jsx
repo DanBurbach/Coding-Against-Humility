@@ -47,7 +47,7 @@ class Board extends Component {
         </div>
         <br />
         <div>
-          <MainPlayer />
+            <MainPlayer />
         </div>
       </div>
     );

@@ -3,7 +3,7 @@ import { compose } from "redux";
 import { connect } from "react-redux";
 import { firebaseConnect } from "react-redux-firebase";
 import { withRouter } from "react-router-dom";
-import firebase from "firebase/app";
+import firebase from "../../Firebase";
 
 import "../../assets/styles/LogOutButton.css";
 

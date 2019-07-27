@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { firebaseConnect } from 'react-redux-firebase';
-import firebase from "firebase/app";
+import firebase from '../../Firebase';
 
 import { SignUpLink } from '../SignUp';
 import { PasswordForgetLink } from '../PasswordForget';
