@@ -1,8 +1,40 @@
 import React, { Component } from "react";
 import { DropTarget } from "react-dnd";
 import '../../assets/styles/DropBoxWhiteCard.css';
+import "../../assets/styles/DraggableWhiteCard.css";
 
-function collect(connect, monitor) {
+
+class DropBoxWhiteCard extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
+  render() {
+    const { name, connectDropTarget, canDrop, isOver } = this.props;
+
+    const isActive = canDrop && isOver;
+    return connectDropTarget(
+      <div className="card-drop-area">
+        {isActive ? "Release to drop" : "Drag a card here"}
+        <div className="white-card-label-source">
+          <div>{name}</div>
+        </div>
+      </div>
+    );
+  }
+}
+
+const spec = {
+  drop(props, monitor, component) {
+    const item = monitor.getItem();
+    console.log(monitor.getDropResult());
+    props.onDrop(item);
+    return item;
+  }
+};
+
+const collect = (connect, monitor) => {
   return {
     connectDropTarget: connect.dropTarget(),
     name: monitor.getItem(),
@@ -11,18 +43,4 @@ function collect(connect, monitor) {
   }
 }
 
-class DropBoxWhiteCard extends Component {
-  render() {
-    const { name, connectDropTarget, canDrop, isOver } = this.props;
-
-    const isActive = canDrop && isOver;
-    return (connectDropTarget(
-          <div className="card-drop-area">
-            {isActive ? "Release to drop" : "Drag a card here"}
-            {name}
-          </div>
-        )
-    );
-}}
-
-export default DropTarget('card', {}, collect)(DropBoxWhiteCard);
+export default DropTarget('card', spec, collect)(DropBoxWhiteCard);

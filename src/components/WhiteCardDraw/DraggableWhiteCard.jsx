@@ -16,16 +16,19 @@ class DraggableWhiteCard extends Component {
 const whiteCardMovement = {
   beginDrag(props) {
     const item = { ...props };
-    let whiteCard = jQuery.parseJSON(JSON.stringify(item.name));
-    console.log(whiteCard);
-    return <div>{whiteCard}</div>;
+    return <div>
+      {item.name}
+    </div>;
   },
   endDrag(props, monitor, component) {
     const item = monitor.getItem()
-    const dropResult = monitor.getDropResult()
-    if (dropResult) {
-      alert(`You dropped ${item.name} into ${dropResult.name}!`)
-    }
+    console.log(item);
+    console.log(...props);
+    
+    // const dropResult = monitor.getDropResult()
+    // if (dropResult) {
+    //   alert(`You dropped ${props.children} into ${dropResult.name}!`)
+    // }
   }
 }
 

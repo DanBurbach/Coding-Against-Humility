@@ -93,7 +93,6 @@ class WhiteCardHand extends Component {
       whiteCard8: whiteCardSlice8.text,
       whiteCard9: whiteCardSlice9.text
     });
-    console.log(this.state);
   };
 
   render() {
