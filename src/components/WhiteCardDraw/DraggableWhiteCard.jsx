@@ -17,16 +17,21 @@ const whiteCardMovement = {
   beginDrag(props) {
     const item = { ...props };
     const name = item.name;
-    return <div>
-      {name}
-    </div>;
+    return (
+        <div>
+          {name}
+        </div>);
   },
   endDrag(props, monitor, component) {
-    const item = { ...props };
+    if (monitor.didDrop()){
+      return
+    }
+    const item = monitor.getItem()
     const name = props.handleDrop(item.name);
-    return <div>
-      {name} 
-    </div>;
+    return (
+        <div>
+          {name} 
+        </div>);
   }
 }
 
@@ -44,8 +49,8 @@ const WhiteCardSource = DragSource('card', whiteCardMovement, collect)(
       const { name, isDragging, connectDragSource } = this.props;
       const opacity = isDragging ? 0.2 : 1;
       const style = {
-        width: "10em",
-        height: "16em",
+        width: "12em",
+        height: "18em",
         marginBottom: "1.5rem"
       };
 

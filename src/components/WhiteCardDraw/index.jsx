@@ -13,9 +13,8 @@ class WhiteCardHand extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      droppedWhiteCard: [],
       randomNumbers: [],
-      mergedWhiteCards: [],
+      usersHand: [],
       isDropDisabled: false
     };
     this.handleShowWhiteCardHand = this.handleShowWhiteCardHand.bind(this);
@@ -76,16 +75,16 @@ class WhiteCardHand extends Component {
       newWhiteCardNumberArray[y].push(randomGeneratedNumber[i]);
     }
 
-    const mergedWhiteCards = [...whiteCardSlice0, ...whiteCardSlice1,...whiteCardSlice2, ...whiteCardSlice3, ...whiteCardSlice4,...whiteCardSlice5, ...whiteCardSlice6, ...whiteCardSlice7,...whiteCardSlice8, ...whiteCardSlice9 ]
+    const usersHand = [...whiteCardSlice0, ...whiteCardSlice1,...whiteCardSlice2, ...whiteCardSlice3, ...whiteCardSlice4,...whiteCardSlice5, ...whiteCardSlice6, ...whiteCardSlice7,...whiteCardSlice8, ...whiteCardSlice9 ]
     
     this.setState({
-      mergedWhiteCards: mergedWhiteCards
+      usersHand: usersHand
     })
   };
 
   render() {
-    const { mergedWhiteCards } = this.state;
-    const whiteHandCards = mergedWhiteCards.map((whitecard, index) => {
+    const { usersHand } = this.state;
+    const whiteHandCards = usersHand.map((whitecard, index) => {
       return (
         <li key={index} className="card">
             <div className="card-face">
