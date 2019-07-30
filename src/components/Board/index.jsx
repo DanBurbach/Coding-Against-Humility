@@ -36,6 +36,13 @@ class Board extends Component {
     );
   }
 
+  handleNewWhiteCard = (id) => {
+    return {
+      items: prevState.items.filter(item => item.id !==id)
+    }
+    
+  }
+
   render() {
     const { whiteCardSelected } = this.state;
     return (
@@ -51,7 +58,7 @@ class Board extends Component {
           <BlackCardDraw />
         </div>
         <div className='Board-Play-Area'>
-          <DropBoxWhiteCard onDrop={this.onDrop} whiteCardSelected={whiteCardSelected} />
+          <DropBoxWhiteCard onDrop={this.onDrop} handleDrop={(id) => this.handleNewWhiteCard(id)} whiteCardSelected={whiteCardSelected} />
         </div>
         <br />
         <div>
