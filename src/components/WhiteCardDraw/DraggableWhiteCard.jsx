@@ -16,19 +16,17 @@ class DraggableWhiteCard extends Component {
 const whiteCardMovement = {
   beginDrag(props) {
     const item = { ...props };
+    const name = item.name;
     return <div>
-      {item.name}
+      {name}
     </div>;
   },
   endDrag(props, monitor, component) {
-    const item = monitor.getItem()
-    console.log(item);
-    console.log(...props);
-    
-    // const dropResult = monitor.getDropResult()
-    // if (dropResult) {
-    //   alert(`You dropped ${props.children} into ${dropResult.name}!`)
-    // }
+    const item = { ...props };
+    const name = props.handleDrop(item.name);
+    return <div>
+      {name} 
+    </div>;
   }
 }
 
@@ -44,7 +42,7 @@ const WhiteCardSource = DragSource('card', whiteCardMovement, collect)(
   class extends Component {
     render() {
       const { name, isDragging, connectDragSource } = this.props;
-      const opacity = isDragging ? 0.4 : 1;
+      const opacity = isDragging ? 0.2 : 1;
       const style = {
         width: "10em",
         height: "16em",
