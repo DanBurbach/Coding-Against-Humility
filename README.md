@@ -1,5 +1,5 @@
 # Coding Against Humility
-![Game LandingPage]('src/assets/images/CAH_MainScreen.png')
+![Game LandingPage]('./src/assets/images/CAH_MainScreen.png')
 
 ### __Created by Dan Burbach__
 ####__March  2019__
@@ -36,7 +36,8 @@ An interactive game based off of Cards Against Humanity. Uses React-Redux-Fireba
   * Open a browser: http://localhost:8080/
 
   * Enjoy!
-![BlackCard Flip]('src/assets/images/CAH_BlackCard_Flip.gif')
+
+![BlackCard Flip]('./src/assets/images/CAH_BlackCard_Flip.gif')
 
 ### __Technologies Used__
 
@@ -64,8 +65,8 @@ An interactive game based off of Cards Against Humanity. Uses React-Redux-Fireba
 
 Alpha v1.1
 
-### License
-#### Working Code is Licensed under the MIT license.
+## License(s)
+### Working Code is Licensed under the MIT license.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"),to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense,
 and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
@@ -76,7 +77,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
 WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#### All JSON code (and materials gathered from Cards Against Humanity) is Licensed under Attribution-NonCommercial-ShareAlike 2.0 Generic (CC BY-NC-SA 2.0)
+### All JSON code (and materials gathered from Cards Against Humanity) is Licensed under Attribution-NonCommercial-ShareAlike 2.0 Generic (CC BY-NC-SA 2.0)
 
 You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
 
@@ -86,4 +87,4 @@ If you remix, transform, or build upon the material, you must distribute your co
 
 You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.
 
-Copyright 2019 Daniel Burbach
+#### Copyright 2019 Daniel Burbach
