@@ -9,19 +9,12 @@ import firebase from '../../Firebase';
 import Counter from './Counter';
 
 import "../../assets/styles/ScoreBoard.css";
-import { isTemplateElement } from '@babel/types';
 
 class ScoreBoard extends Component {
     constructor() {
         super();
         this.state = {
             counters: [],
-            //     { id: 1, value: 0 },
-            //     { id: 2, value: 0 },
-            //     { id: 3, value: 0 },
-            //     { id: 4, value: 0 },
-            //     { id: 5, value: 0 }
-            // ],
             numberOfPlayers: '',
             total: 0,
             gameLength: '',
@@ -42,25 +35,20 @@ class ScoreBoard extends Component {
             });
 
         await firebase.database().ref(`gameInfo/ + ${userId}`).child('gameLength').once('value') 
-        .then(function(snapshot) {
-            that.setState({
-                gameLength: (snapshot.val())
+            .then(function(snapshot) {
+                that.setState({
+                    gameLength: (snapshot.val())
+                });
             });
-        });
 
         const numberOfPlayers = [];
-        for (var i = 1; i<=this.state.gameLength;i++){numberOfPlayers.push(i).apply()}
-
-        const playersInfo = numberOfPlayers.forEach(function(player) {
-            push({value: 0})
-        })
-        console.log(playersInfo);
-        
-        that.setState({
-            counters: playersInfo
-        })        
-
-        console.log('on loading: ' + this.state);
+            for (var i = 1; i <= this.state.numberOfPlayers; i++) {numberOfPlayers.push(i)}
+                        
+        const playersInfo = _.flatMap(numberOfPlayers, (value, index, array) =>
+            array.length -0 !== index ? [{value, value: 0}] : value);        
+                that.setState({
+                    counters: playersInfo
+                })
     }
 
     handleIncrement = (counter, event) => {
@@ -73,8 +61,12 @@ class ScoreBoard extends Component {
             counters: counters,
             total: total
         });
+        console.log(this.state);
+
         if (
-            this.state.counters.value >= this.state.gameLength) 
+            (this.state.counters[0]) ||
+            (this.state.counters[1]) || 
+            (this.state.counters[2]) >= this.state.gameLength)
             {
                 alert('Game Over!')
                 this.props.firebase.logout()
@@ -96,27 +88,28 @@ class ScoreBoard extends Component {
 
 
     render() {
-        // const { counters } = this.state;
-        // const scoreboard = counters.map((counter) => {
-        //   return (
-        //       <li>
-        //           <Counter 
-        //             id = {counter.id}
-        //             key = {counter.id}
-        //             onIncrement = {this.handleIncrement.bind(this)}
-        //             counter = { counter }
-        //           />
-        //       </li>
-        //     )
-        // })
+        const { counters } = this.state;
+        const scoreboard = counters.map((counter, index) => {
+          return (
+              <ol key={index}>
+                  <Counter 
+                    key = {counter.id}
+                    onIncrement = {this.handleIncrement.bind(this)}
+                    counter = { counter }
+                  />
+              </ol>
+            )
+        })
 
         return ( 
             <div >
                 <div className='scoreBoardLayout'>
-                {/* <ul>
+                <ul>
                     {scoreboard}
-                </ul> */}
-                    <div> Total: {this.state.total}             
+                </ul>
+                    <div> 
+                        Total: {this.state.total}
+                        <br/>
                         <button id='scoreBoardButton' onClick = {this.handleReset.bind(this)}> Reset </button> 
                     </div> 
                 </div>

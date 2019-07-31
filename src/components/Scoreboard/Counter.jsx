@@ -3,18 +3,24 @@ import { compose } from "redux";
 import { connect } from "react-redux";
 import { firebaseConnect } from "react-redux-firebase";
 
+import "../../assets/styles/ScoreBoard.css";
+
+
 class Counter extends Component {
   render() {
     const { onIncrement } = this.props;
     return (
       <div>
-        <span> {this.formatCount()} </span>
-        <br />
-        <button
-          id="scoreBoardButtonPoint"
-          onClick={() => onIncrement(this.props.counter)}>
-          Add
-        </button>
+        <div className="scoreboard-styling">
+          <span> {this.formatCount()} </span>
+        </div>
+        <div className="scoreboard-styling">
+          <button
+            id="scoreBoardButtonPoint"
+            onClick={() => onIncrement(this.props.counter)}>
+            Add
+          </button>
+        </div>
       </div>
     );
   }
