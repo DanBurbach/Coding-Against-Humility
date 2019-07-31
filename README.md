@@ -1,5 +1,5 @@
 # Coding Against Humility
-![Game LandingPage]('./src/assets/images/CAH_MainScreen.png')
+![Game LandingPage](https://github.com/DanBurbach/Coding-Against-Humility/blob/master/src/assets/images/CAH_MainScreen.png?raw=true)
 
 ### __Created by Dan Burbach__
 ####__March  2019__
@@ -37,7 +37,7 @@ An interactive game based off of Cards Against Humanity. Uses React-Redux-Fireba
 
   * Enjoy!
 
-![BlackCard Flip]('./src/assets/images/CAH_BlackCard_Flip.gif')
+![BlackCard Flip](https://github.com/DanBurbach/Coding-Against-Humility/blob/master/src/assets/images/CAH_BlackCard_Flip.gif?raw=true)
 
 ### __Technologies Used__
 
