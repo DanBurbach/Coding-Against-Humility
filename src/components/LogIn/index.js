@@ -12,14 +12,15 @@ import * as ROUTES from '../../constants/routes';
 import '../../assets/styles/MainStyles.css';
 import '../../assets/styles/Modal.css';
 import '../../assets/styles/NewGameModal.css';
+import '../../assets/styles/signInButton.css';
 
 
 const SignInPage = () => (
   <div>
     <h1>Sign In</h1>
     <SignInForm />
-    <PasswordForgetLink />
     <SignUpLink />
+    <PasswordForgetLink />
   </div>
 );
 
@@ -59,26 +60,31 @@ class SignInFormBase extends Component {
 
     return (
       <form onSubmit={this.handleSignInFormSubmit}>
-        <input
-          name="email"
-          value={email}
-          onChange = {this.handleSignInUpdate}
-          type="text"
-          placeholder="Email Address"
-        />
-        <br/>
-        <input
-          name="password"
-          value={password}
-          onChange={this.handleSignInUpdate}
-          type="password"
-          placeholder="Password"
-        />
-        <br/>
-        <button disabled={isInvalid} type="submit" id="closeModal">
-          Sign In
-        </button>
-
+        <div className="sign-in-form-master">
+          <div className="sign-in-form-child">
+            <input
+              name="email"
+              value={email}
+              onChange = {this.handleSignInUpdate}
+              type="text"
+              placeholder="Email Address"
+            />
+          </div>
+           <div className = "sign-in-form-child">
+            <input
+              name="password"
+              value={password}
+              onChange={this.handleSignInUpdate}
+              type="password"
+              placeholder="Password"
+            />
+          </div>
+          <div className = "sign-in-form-child">
+            <button className="signIn" disabled={isInvalid} type="submit">
+              Sign In
+            </button>
+          </div>
+        </div>
         {error && <p>{error.message}</p>}
       </form>
     );

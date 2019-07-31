@@ -24,7 +24,6 @@ class Board extends Component {
 
   onDrop(name) {
     const { whiteCardSelected } = this.state;
-    console.log(name);
     const newwhiteCardSelectedList = _.replace([], whiteCardSelected, name);
     this.setState({
       whiteCardSelected: newwhiteCardSelectedList
@@ -39,8 +38,7 @@ class Board extends Component {
   handleNewWhiteCard = (id) => {
     return {
       items: prevState.items.filter(item => item.id !==id)
-    }
-    
+    } 
   }
 
   render() {
@@ -51,18 +49,24 @@ class Board extends Component {
           <Header />
         </div>
         <br />
-        <div className='Board-Play-Area'>
-          <ScoreBoard />
-        </div>
-        <div className='Board-Play-Area'>
-          <BlackCardDraw />
-        </div>
-        <div className='Board-Play-Area'>
-          <DropBoxWhiteCard onDrop={this.onDrop} handleDrop={(id) => this.handleNewWhiteCard(id)} whiteCardSelected={whiteCardSelected} />
+        <div className="board-play-area">
+          <div className="board-play-area">
+            <ScoreBoard />
+          </div>
+          <div className="board-play-area">
+            <BlackCardDraw />
+          </div>
+          <div className="board-play-area">
+            <DropBoxWhiteCard
+              onDrop={this.onDrop}
+              handleDrop={id => this.handleNewWhiteCard(id)}
+              whiteCardSelected={whiteCardSelected}
+            />
+          </div>
         </div>
         <br />
         <div>
-            <MainPlayer />
+          <MainPlayer />
         </div>
       </div>
     );

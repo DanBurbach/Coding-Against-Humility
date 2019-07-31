@@ -16,7 +16,6 @@ class GameInfo extends Component {
       <div>
         <ul>
           <li>Who's turn it is.</li>
-          <li>Your score.</li>
           <li>Number of players.</li>
         </ul>
       </div>

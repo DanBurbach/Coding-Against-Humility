@@ -28,9 +28,10 @@ class NewGameForm extends Component {
     this.props.history.push('/game');
   }
 
-  handleChange(event, target) {
-    this.setState({ [target]: event });
-        console.log(this.state);
+  async handleChange(event, target) {
+    await this.setState({ [target]: event });
+    console.log(this.state);
+
   }
 
   render() {
