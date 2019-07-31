@@ -17,16 +17,14 @@ class WhiteCardHand extends Component {
       usersHand: [],
       isDropDisabled: false
     };
-    this.handleShowWhiteCardHand = this.handleShowWhiteCardHand.bind(this);
     this.handleDealWhiteCards = this.handleDealWhiteCards.bind(this);
   }
 
-  handleShowWhiteCardHand = event => {
-    event.preventDefault();
-    this.handleDealWhiteCards();
-  };
+  componentDidMount() {
+      this.handleDealWhiteCards();
+  }
 
-  handleDealWhiteCards = () => {
+  async handleDealWhiteCards() {
     //there are 0-1913 (1914 total) white cards in the json deck
     const whiteCardData = require(
       "../../../decks/WhiteCards.json"
@@ -64,7 +62,8 @@ class WhiteCardHand extends Component {
     for (var count = 0; count <= 9; count++) {
       randomWhiteCardArray.push(Math.floor(Math.random() * whiteDeckSize));
     }
-    this.setState({
+
+    await this.setState({
       randomNumbers: randomWhiteCardArray
     });
     for (var i = 0; i < randomGeneratedNumber.length; i++) {
@@ -77,7 +76,7 @@ class WhiteCardHand extends Component {
 
     const usersHand = [...whiteCardSlice0, ...whiteCardSlice1,...whiteCardSlice2, ...whiteCardSlice3, ...whiteCardSlice4,...whiteCardSlice5, ...whiteCardSlice6, ...whiteCardSlice7,...whiteCardSlice8, ...whiteCardSlice9 ]
     
-    this.setState({
+    await this.setState({
       usersHand: usersHand
     })
   };
@@ -98,13 +97,11 @@ class WhiteCardHand extends Component {
 
     return (
       <div>
-        <button onClick={this.handleShowWhiteCardHand} id="dealWhiteCard">
-          Deal White Cards
+        <button onClick={this.handleDealWhiteCards} id="dealWhiteCard">
+          Deal New White Cards
         </button>
         <br />
-          <ul className="cards">
-            {whiteHandCards}
-          </ul>
+        <ul className="cards">{whiteHandCards}</ul>
       </div>
     );
   }

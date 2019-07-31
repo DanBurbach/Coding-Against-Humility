@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import { DropTarget } from "react-dnd";
+import React, { Component } from 'react';
+import { DropTarget } from 'react-dnd';
 import '../../assets/styles/DropBoxWhiteCard.css';
-import "../../assets/styles/DraggableWhiteCard.css";
+import '../../assets/styles/DraggableWhiteCard.css';
 
 
 class DropBoxWhiteCard extends Component {
@@ -14,10 +14,11 @@ class DropBoxWhiteCard extends Component {
     const { name, connectDropTarget, canDrop, isOver } = this.props;
 
     const isActive = canDrop && isOver;
+    
     return connectDropTarget(
-      <div className="card-drop-area">
-        {isActive ? "Release to drop" : "Drag a card here"}
-        <div className="white-card-label-source">
+      <div className='card-drop-area'>
+        {isActive ? 'Release to drop' : 'Drag a card here'}
+        <div className='white-card-label-source'>
           <div>{name}</div>
         </div>
       </div>
