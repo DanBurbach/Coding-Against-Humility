@@ -45,8 +45,8 @@ body {
   left: 50%;
   top: 50%;
   -webkit-transform: translate(-50% , -50%);
-      -ms-transform: translate(-50% , -50%);
-          transform: translate(-50% , -50%);
+  -ms-transform: translate(-50% , -50%);
+  transform: translate(-50% , -50%);
   font-size: 224px;
   font-weight: 900;
   margin-top: 0px;
@@ -54,9 +54,63 @@ body {
   margin-left: -12px;
   color: #030005;
   text-transform: uppercase;
-  text-shadow: -1px -1px 0px green, 1px 1px 0px purple;
+  text-shadow: 0 -15px 2px green, 0px 20px -2px purple;
   letter-spacing: -20px;
 }
+
+.main .mainstyles h1 {
+    -webkit-animation: glow 1.5s linear infinite alternate;
+    -moz-animation: glow 1.5s linear infinite alternate;
+    animation: glow 1.5s linear infinite alternate;
+}
+
+/*glow*/
+@keyframes glow {
+  from {
+    text-shadow: 0 0 1px green,
+    0 0 1px green,
+    0 0 1px green,
+    0 0 1px green,
+    0 0 2px purple,
+    0 0 2px purple,
+    0 0 2px purple,
+    0 0 2px purple;
+  }
+
+  to {
+    text-shadow: 0 0 2px green,
+    0 0 2px green,
+    0 0 3px green,
+    0 0 6px green,
+    0 0 7px purple,
+    0 0 8px purple,
+    0 0 12px purple,
+    0 0 14px purple;
+  }
+}
+
+/*webkit glow*/
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px green, 0 0 20px green, 0 0 30px green, 0 0 40px purple, 0 0 70px purple, 0 0 80px purple, 0 0 100px purple, 0 0 150px purple;
+  }
+
+  to {
+    text-shadow: 0 0 5px green, 0 0 10px green, 0 0 15px green, 0 0 20px purple, 0 0 35px purple, 0 0 40px purple, 0 0 50px purple, 0 0 75px purple;
+  }
+}
+
+/*moz glow*/
+@-moz-keyframes glow {
+  from {
+    text-shadow: 0 0 10px green, 0 0 20px green, 0 0 30px green, 0 0 40px purple, 0 0 70px purple, 0 0 80px purple, 0 0 100px purple, 0 0 150px purple;
+  }
+
+  to {
+    text-shadow: 0 0 5px green, 0 0 10px green, 0 0 15px green, 0 0 20px purple, 0 0 35px purple, 0 0 40px purple, 0 0 50px purple, 0 0 75px purple;
+  }
+}
+
 
 
 .main .mainstyles h2 {
@@ -69,7 +123,7 @@ body {
   font-weight: 700;
   color: #fff;
   text-transform: uppercase;
-  text-shadow: 0px 2px 0px purple;
+  text-shadow: 0px 3px 0px purple;
   letter-spacing: 13px;
   margin: 0;
 }

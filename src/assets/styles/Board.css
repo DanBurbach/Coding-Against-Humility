@@ -1,4 +1,11 @@
-.Board-Play-Area {
+.board-play-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1em 2em 0.25em;
+}
+
+.board-play-item {
     display: inline-block;
-    padding: 2em;
+    bottom: 1em;
 }

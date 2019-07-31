@@ -6,12 +6,20 @@ button {
     margin-left: 1em;
 }
 
+.scoreboard-styling {
+    display: inline-block;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: 1em;
+}
+
 #scoreBoardButton {
     outline: 0 none;
     font-family: 'Montserrat', sans-serif;
     display: block;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 1em;
     text-transform: uppercase;
     color: #ff005a;
     text-decoration: none;
