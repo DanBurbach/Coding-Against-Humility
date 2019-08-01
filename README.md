@@ -59,6 +59,7 @@ REACT_APP_SECRET_MESSAGE = "hey there!!!"
 
 ## __Future Development__
 
+  - [ ] Full React-DnD implimintation (both mobile and static devices)
   - [ ] Creation of larger games with more than one screen viewing.
   - [ ] Game number given to allow others to join via online.
   - [ ] Provide a saved database with online user scores. Display high score for all online users.
