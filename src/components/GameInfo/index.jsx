@@ -14,10 +14,7 @@ class GameInfo extends Component {
   render() {
     return (
       <div>
-        <ul>
-          <li>Who's turn it is.</li>
-          <li>Number of players.</li>
-        </ul>
+
       </div>
     );
   }

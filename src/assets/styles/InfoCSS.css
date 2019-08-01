@@ -13,7 +13,6 @@ body {
 #info {
   position: relative;
   height: 100vh;
-  background: #030005;
   background: radial-gradient(#333, #111);
 }
 
@@ -40,7 +39,7 @@ body {
 
 .info .infostyles {
   position: relative;
-  height: 2em;
+  height: 5em;
   margin-top: 1em;
   z-index: -1;
   color: grey;
@@ -51,7 +50,7 @@ body {
   position: relative;
   left: 0;
   right: 0;
-  font-size: 2em;
+  font-size: 1.5em;
   font-weight: 700;
   color: #fff;
   text-transform: uppercase;
