@@ -1,10 +1,10 @@
 .modal-base {
-  top: 25%;
+  top: 15%;
   position: relative;
   font-size: 1.25em;
-  background: radial-gradient(#333, #111);
+  background: radial-gradient(#444, #111);
   margin: auto;
-  padding: 1em;
+  padding: 1.5em;
 	border: 0.125em solid #fff;
 	border-radius: 1em;
 	width: 50%;
@@ -12,6 +12,7 @@
   -webkit-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
   transform: scale(0.8);
+  z-index: -1;
 }
 
 .modal-base_after-open {
@@ -30,7 +31,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.65);
   opacity: 0.5;
 	transition: all 0.3s ease-out;
 }
@@ -71,4 +72,46 @@ button {
   color: #8400ff;
   outline: 0 none;
 }
+.modalstyles {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+}
 
+.modalstyles-child {
+    display: inline-block;
+    bottom: 1em;
+    margin: 0.5em
+}
+
+.modalstyles-header h2 {
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+    text-align: center;
+    left: 50%;
+    top: 0;
+    -webkit-transform: translate(-50%, 0%);
+    -ms-transform: translate(-50%, 0%);
+    transform: translate(-50%, 0%);
+    font-size: 2em;
+    font-weight: 500;
+    margin-top: 0px;
+    margin-bottom: 2px;
+    margin-left: -12px;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    text-shadow: 1px -3em 2em green,
+    1px 3.5em -1em purple;
+    z-index: 2;
+}
+
+.modalstyles-header p {
+  margin: 1em;
+}
+
+.modalSignOutButton {
+  position: relative;
+  left: 50%;
+  text-align: center;
+}

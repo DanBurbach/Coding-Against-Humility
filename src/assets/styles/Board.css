@@ -2,10 +2,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 1em 2em 0.25em;
+    padding: 0em 3em 0em;
 }
 
 .board-play-item {
     display: inline-block;
-    bottom: 1em;
+    top: 1em;
 }
