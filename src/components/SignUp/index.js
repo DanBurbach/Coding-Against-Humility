@@ -7,10 +7,14 @@ import { withFirebase } from '../../Firebase';
 
 import * as ROUTES from '../../constants/routes';
 
+import '../../assets/styles/signInButton.css';
+
 const SignUpPage = () => ( 
-    <div>
-        <h1>SignUp</h1> 
-        <SignUpForm/>
+    <div className = "wrapper fade-in">
+            <div className="mainstyles">
+                <h2>SignUp</h2> 
+                <SignUpForm/>
+        </div>
     </div>
 );
 
@@ -80,30 +84,44 @@ class SignUpFormBase extends Component {
 
         return ( 
             <form onSubmit = {this.handleSignUpFormSubmit}>
-                < input name = "username"
-                    value = {username}
-                    onChange = {this.handleSignUpUpdate} type = "text"
-                    id = "username"
-                    placeholder = "In-Game Name"/>
-                <input name = "email" 
-                    value = {email}
-                    onChange = {this.handleSignUpUpdate} type = "text" 
-                    placeholder = "Email Address"/>
-                <input name = "passwordOne" 
-                    value = {passwordOne}
-                    onChange = {this.handleSignUpUpdate} type = "password" 
-                    placeholder = "Password"/>
-                <input name = "passwordTwo" 
-                    value = {passwordTwo}
-                    onChange = {this.handleSignUpUpdate} type = "password" 
-                    placeholder = "Confirm Password" />
-                <button disabled = {isInvalid} type = "submit" > Sign Up </button>
-
-                {error && <p> {error.message}</p>} 
+                <div className="sign-in-form-master">
+                    <div className="sign-in-form-child">
+                        <input name = "username"
+                            value = {username}
+                            onChange = {this.handleSignUpUpdate} type = "text"
+                            id = "username"
+                            placeholder = "In-Game Name"/>
+                    </div>
+                    <div className = "sign-in-form-child">
+                        <input name = "email" 
+                            value = {email}
+                            onChange = {this.handleSignUpUpdate} type = "text" 
+                            placeholder = "Email Address"/>
+                    </div>
+                    <div className = "sign-in-form-child">
+                        <input name = "passwordOne" 
+                            value = {passwordOne}
+                            onChange = {this.handleSignUpUpdate} type = "password" 
+                            placeholder = "Password"/>
+                    </div>
+                    <div className = "sign-in-form-child" >
+                        <input name = "passwordTwo" 
+                            value = {passwordTwo}
+                            onChange = {this.handleSignUpUpdate} type = "password" 
+                            placeholder = "Confirm Password" />
+                    </div>
+                <div className="sign-in-form-child">
+                    <button className= "signIn" disabled = {isInvalid} type = "submit" > Sign Up </button>
+                </div>
+                <div className = "sign-in-form-child" >
+                    <Link to={ROUTES.HOME}>Cancel</Link>
+                </div>
+                    {error && <p> {error.message}</p>} 
+                </div>
             </form>
-            );
-        }
+        );
     }
+}
 
 const SignUpLink = () => ( 
     <p>

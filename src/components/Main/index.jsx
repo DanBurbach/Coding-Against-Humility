@@ -38,7 +38,6 @@ class Main extends Component {
               <h2>A game that makes you a bad person</h2>
             </div>
             <br />
-
             <button id="newGameButtonModal" onClick={this.handleOpenModal}>
               Play
             </button>

@@ -29,7 +29,7 @@ class DropBoxWhiteCard extends Component {
 const spec = {
   drop(props, monitor, component) {
     const item = monitor.getItem();
-    props.onDrop(item);
+    props.onDrop(item, props.id);
     return item;
   }
 };
