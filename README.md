@@ -2,7 +2,7 @@
 ![Game LandingPage](https://raw.githubusercontent.com/DanBurbach/Coding-Against-Humility/master/src/assets/images/CAH_MainScreen.png)
 
 ### __Created by Dan Burbach__
-####__March  2019__
+#### __March  2019__
 
 Epicodus Final Capstone Project
 
@@ -19,17 +19,19 @@ An interactive game based off of Cards Against Humanity. Uses React-Redux-Fireba
 
   * Run npm install
 
-  * To run this you must first create a Firebase account. Create a firebaseConfig.js file stored in in the root directory, and add your account credentials like this:
+  * To run this you must first create a Firebase account. Create a .env file stored in in the root directory, and add your account credentials like this:
   ```
-  const firebaseConfig = {
-      apiKey: 'xxxxxx',
-      authDomain: 'xxxxxx.firebaseapp.com',
-      databaseURL: 'https://xxxxxx.firebaseio.com',
-      projectId: 'xxxxxx',
-      storageBucket: '',
-      messagingSenderId: 'xxxxxx',
-    };
-  export default firebaseConfig;
+REACT_APP_API_KEY = XXXXxxxx
+REACT_APP_AUTH_DOMAIN = xxxxXXXX.firebaseapp.com
+REACT_APP_DATABASE_URL = https: //xxxXXXX.firebaseio.com
+REACT_APP_PROJECT_ID = xxxxXXXX
+REACT_APP_STORAGE_BUCKET = xxxxXXXX.appspot.com
+REACT_APP_MESSAGING_SENDER_ID = xxxxXXXX
+REACT_APP_APP_ID = xxxxXXXX
+
+REACT_APP_CONFIRMATION_EMAIL_REDIRECT = "http://localhost:8080"
+
+REACT_APP_SECRET_MESSAGE = "hey there!!!"
   ```
   * npm run start
 
