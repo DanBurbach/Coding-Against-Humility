@@ -3,17 +3,22 @@ import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { firebaseConnect } from 'react-redux-firebase';
+import Modal from "react-modal";
 import _ from "lodash";
 
 import firebase from '../../Firebase';
 import Counter from './Counter';
+import WinPopUp from '../WinPopup';
 
 import "../../assets/styles/ScoreBoard.css";
+import "../../assets/styles/Modal.css";
+
 
 class ScoreBoard extends Component {
     constructor() {
         super();
         this.state = {
+            showModal: false,
             counters: [],
             numberOfPlayers: '',
             total: 0,
@@ -21,7 +26,9 @@ class ScoreBoard extends Component {
         };
         this.handleIncrement = this.handleIncrement.bind(this);
         this.handleReset = this.handleReset.bind(this);
-    }
+        this.handleOpenModal = this.handleOpenModal.bind(this);
+        this.handleCloseModal = this.handleCloseModal.bind(this);
+      }
 
     async componentDidMount(){
         let that = this;
@@ -51,26 +58,32 @@ class ScoreBoard extends Component {
                 })
     }
 
+
     handleIncrement = (counter, event) => {
         const total = this.state.total + 1;
         const counters = [...this.state.counters];
         const index = counters.indexOf(counter);
         counters[index] = {...counter};
         counters[index].value++;
+        
         this.setState({
             counters: counters,
             total: total
         });
-        console.log(this.state);
+//just a touch sloppy AND returns many errors on value of NA
 
-        if (
-            (this.state.counters[0]) ||
-            (this.state.counters[1]) || 
-            (this.state.counters[2]) >= this.state.gameLength)
-            {
-                alert('Game Over!')
-                this.props.firebase.logout()
-                this.props.history.push('/');
+//in future will work on working on a conditional if statement to handle 
+//the number of players
+
+        if (((this.state.counters[0].value + 1) >= this.state.gameLength) ||
+            ((this.state.counters[1].value + 1) >= this.state.gameLength) ||
+            ((this.state.counters[2].value + 1) >= this.state.gameLength) ||
+            ((this.state.counters[3].value + 1) >= this.state.gameLength) ||
+            ((this.state.counters[4].value + 1) >= this.state.gameLength) ||
+            ((this.state.counters[5].value + 1) >= this.state.gameLength) ||
+            ((this.state.counters[6].value + 1) >= this.state.gameLength) ||
+            ((this.state.counters[7].value + 1) >= this.state.gameLength)) {
+                this.handleOpenModal();
         }
     }
 
@@ -86,6 +99,17 @@ class ScoreBoard extends Component {
         });
     }
 
+    handleOpenModal = () => {
+        this.setState({
+            showModal: true
+        });
+    }
+
+    handleCloseModal = () => {
+        this.setState({
+            showModal: false
+        });
+    }
 
     render() {
         const { counters } = this.state;
@@ -94,7 +118,7 @@ class ScoreBoard extends Component {
               <ol key={index}>
                   <Counter 
                     key = {counter.id}
-                    onIncrement = {this.handleIncrement.bind(this)}
+                    onIncrement = {this.handleIncrement}
                     counter = { counter }
                   />
               </ol>
@@ -104,13 +128,36 @@ class ScoreBoard extends Component {
         return ( 
             <div >
                 <div className='scoreBoardLayout'>
+                        <Modal
+                            isOpen={this.state.showModal}
+                            onRequestClose={this.handleCloseModal}
+                            ariaHideApp={false}
+                            contentLabel="Modal"
+                            className={{
+                                base: "modal-base",
+                                afterOpen: "modal-base_after-open",
+                                beforeClose: "modal-base_before-close"
+                            }}
+                            overlayClassName={{
+                                base: "overlay-base",
+                                afterOpen: "overlay-base_after-open",
+                                beforeClose: "overlay-base_before-close"
+                            }}
+                            shouldCloseOnOverlayClick={true}
+                            closeTimeoutMS={500}
+                        >
+                            <WinPopUp />
+                            <button onClick={this.handleCloseModal} id="closeModal">
+                                Continue Playing and Close
+                            </button>
+                        </Modal>
                 <ul>
                     {scoreboard}
                 </ul>
                     <div> 
                         Total: {this.state.total}
                         <br/>
-                        <button id='scoreBoardButton' onClick = {this.handleReset.bind(this)}> Reset </button> 
+                        <button id='scoreBoardButton' onClick = {this.handleReset}> Reset </button> 
                     </div> 
                 </div>
             </div>
