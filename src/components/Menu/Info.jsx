@@ -4,6 +4,7 @@ import { firebaseConnect } from "react-redux-firebase";
 
 import { Link } from 'react-router-dom';
 import * as ROUTES from "../../constants/routes";
+
 import '../../assets/styles/InfoCSS.css';
 
 function Info(){

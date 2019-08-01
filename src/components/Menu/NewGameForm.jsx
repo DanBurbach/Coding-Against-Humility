@@ -46,8 +46,9 @@ class NewGameForm extends Component {
                   <h2>
                     <label htmlFor='nameValue'>Your Name:</label>
                   </h2>
-                  <div>
-                    <p>Your displayName: {displayName}</p>
+                    <h3>{displayName}</h3>
+    {/* greyed out for future use as nickname setting instead of display user profile name */}
+                  {/* <div>
                     <p>
                       <input
                         type='text'
@@ -61,7 +62,7 @@ class NewGameForm extends Component {
                         }}
                       />
                     </p>
-                  </div>
+                  </div> */}
                   <br />
 
                   <h2>
@@ -106,7 +107,7 @@ class NewGameForm extends Component {
                     <button type='submit' id='newgamebutton'>
                       Submit
                     </button>
-                    |
+                    {/* |
                     <button
                       type='reset'
                       id='newgamebutton'
@@ -114,7 +115,7 @@ class NewGameForm extends Component {
                     >
                       Reset
                     </button>
-                    |
+                    | */}
                     <button>
                       <Link to={ROUTES.HOME} id='newgamebutton'>
                         Back

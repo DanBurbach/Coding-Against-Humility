@@ -8,9 +8,34 @@ button {
     align-items: left;
 }
 
+.sign-in-form-master a {
+    outline: 0 none;
+    font-family: 'Montserrat',
+    sans-serif;
+    display: block;
+    margin-left: 0;
+    margin-bottom: 2em;
+    text-transform: uppercase;
+    color: #ff005a;
+    text-decoration: none;
+    border: 2px solid;
+    padding: 7px 40px;
+    font-size: 14px;
+    font-weight: 700;
+    -webkit-transition: 0.2s all;
+    transition: 0.2s all;
+}
+
+.sign-in-form-master a:hover {
+        background-color: transparent;
+        color: #8400ff;
+        outline: 0 none;
+}
+
 .sign-in-form-child {
     display: inline-block;
-    padding-right: 1em;
+    padding-right: 0.25em;
+    padding-left: 0.5em;
 }
 
 .signIn {
@@ -28,11 +53,22 @@ button {
     font-weight: 700;
     -webkit-transition: 0.2s all;
     transition: 0.2s all;
-    text-decoration: none;
 }
 
 .signIn:hover {
     background-color: transparent;
     color: #8400ff;
     outline: 0 none;
+}
+
+.mainstyles h2 {
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+    margin: 0.125em;
+    font-size: 3em;
+    font-weight: 500;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    text-shadow: 1px -3em 2em green,
+    1px 3.5em -1em purple;
 }
